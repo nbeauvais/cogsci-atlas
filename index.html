@@ -36,11 +36,77 @@ a{color:var(--accent)}
 button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
-header.top{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px 32px;margin-bottom:20px}
-.brand h1{font-family:var(--display);font-weight:700;font-size:clamp(26px,4vw,38px);letter-spacing:-.02em;line-height:1.05;margin:0;text-wrap:balance}
-.brand p{margin:6px 0 0;color:var(--ink-2);max-width:62ch}
-.stats{display:flex;flex-wrap:wrap;gap:12px 24px;font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+header.nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--line)}
+.brandmark{display:inline-flex;align-items:center;gap:10px;background:none;border:0;padding:0;cursor:pointer;color:var(--ink);font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.015em}
+.brandmark svg{width:30px;height:30px;flex:none}
+.brandmark svg line{stroke:var(--ink-3);stroke-width:1.6}
+.stats{display:flex;flex-wrap:wrap;gap:12px 28px;font-family:var(--mono);font-size:12px;color:var(--ink-3)}
 .stats b{display:block;font-family:var(--display);font-size:24px;color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+/* home */
+.home{padding-top:clamp(12px,3vw,32px)}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(20px,4vw,56px);align-items:center}
+@media (max-width:900px){.hero{grid-template-columns:minmax(0,1fr)}}
+.hero-text{min-width:0;display:flex;flex-direction:column;gap:18px}
+.eyebrow{margin:0;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.display{font-family:var(--display);font-weight:700;font-size:clamp(40px,6.4vw,76px);line-height:.98;letter-spacing:-.035em;margin:0;text-wrap:balance}
+.lede{margin:0;font-size:clamp(16px,1.6vw,18px);color:var(--ink-2);max-width:46ch;line-height:1.55}
+.hsearch{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 6px 6px 14px;max-width:560px;box-shadow:0 1px 0 var(--line)}
+.hsearch:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.hsearch svg{width:17px;height:17px;stroke:var(--ink-3);flex:none}
+.hsearch input{flex:1;min-width:0;border:0;background:transparent;font-size:16px;padding:8px 2px;outline:none;color:var(--ink)}
+.hsearch button{border:0;background:var(--ink);color:var(--bg);border-radius:7px;padding:9px 16px;font-weight:600;cursor:pointer}
+.hsw{position:relative;max-width:560px}
+.hresults{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:15;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.hresults button{display:flex;justify-content:space-between;gap:12px;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:9px 14px;cursor:pointer;color:var(--ink)}
+.hresults button:last-child{border-bottom:0}
+.hresults button:hover,.hresults button:focus-visible{background:var(--sunk)}
+.hresults small{color:var(--ink-3);font-size:12px;text-align:right;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hresults .all{color:var(--accent);font-weight:500}
+.try{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--ink-3)}
+.try > span{margin-right:4px}
+.hero-graph{margin:0;min-width:0;display:flex;flex-direction:column;gap:8px}
+.hg-open{display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:14px;background:var(--surface);cursor:pointer;overflow:hidden}
+.hg-open:hover{border-color:var(--ink-3)}
+#heroGraph{display:block;width:100%;height:auto;aspect-ratio:1.18/1}
+.hero-graph figcaption{font-size:12.5px;color:var(--ink-3)}
+.hsec{margin-top:clamp(36px,5vw,64px)}
+.hsec-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px}
+.hsec-head h2{font-family:var(--display);font-size:clamp(22px,2.6vw,28px);letter-spacing:-.02em;margin:0;font-weight:700}
+.fields{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.field{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.field-h{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.field-h button{display:inline-flex;align-items:center;gap:9px;background:none;border:0;padding:0;cursor:pointer;font-family:var(--display);font-weight:700;font-size:17px;color:var(--ink);text-align:left;letter-spacing:-.01em}
+.field-h button:hover{color:var(--accent)}
+.field-h .dot{width:12px;height:12px;border-radius:50%;flex:none}
+.field-n{font-family:var(--mono);font-size:12px;color:var(--ink-3);white-space:nowrap}
+.field .tags .tag span{font-family:var(--mono);font-size:11px;color:var(--ink-3)}
+.explore{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:860px){.explore{grid-template-columns:minmax(0,1fr)}}
+.ex{display:flex;flex-direction:column;gap:4px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;cursor:pointer;color:var(--ink);min-width:0}
+.ex:hover{border-color:var(--ink-3)}
+.ex-k{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.ex-t{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.01em}
+.ex-viz{display:block;margin-top:10px;min-height:150px}
+.ex-viz svg{display:block;width:100%;height:auto}
+.ex-foot{font-size:12px;color:var(--ink-3);margin-top:4px}
+.bars{display:flex;flex-direction:column;gap:7px}
+.bars div{display:grid;grid-template-columns:minmax(0,1fr) 2.2fr auto;gap:8px;align-items:center;font-size:12.5px;color:var(--ink-2)}
+.bars div span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bars i{display:block;height:8px;border-radius:0 4px 4px 0}
+.bars b{font-family:var(--mono);font-weight:400;font-size:11.5px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.toplist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.toplist li{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid var(--line);font-size:13px}
+.toplist li:last-child{border-bottom:0}
+.toplist small{color:var(--ink-3);font-family:var(--mono);font-size:11.5px}
+.wland{fill:var(--sunk);stroke:var(--surface);stroke-width:.5}
+.spot{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:860px){.spot{grid-template-columns:minmax(0,1fr)}}
+.sp{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.sp .name{font-size:18px}
+.sp .aff{margin:0}
+.sp .links{justify-content:flex-start;margin-top:auto;padding-top:4px}
+.banner{margin-top:clamp(32px,4vw,48px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px 24px;padding:18px 20px;border-radius:12px;background:var(--accent-soft);color:var(--ink)}
+.banner div{max-width:70ch}
 
 .toolbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);padding-block:10px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .search{flex:1 1 260px;min-width:0;position:relative}
@@ -181,24 +247,72 @@ footer button{border:1px solid var(--line);background:var(--surface);border-radi
 
 
 <div class="wrap">
-  <header class="top">
-    <div class="brand">
-      <h1>CogSci Researcher Atlas</h1>
-      <p>Who works on what across cognitive science. Search a name, pick a topic, or explore the map of researchers and research areas.</p>
-    </div>
-    <div class="stats" id="stats"></div>
+  <header class="nav">
+    <button class="brandmark" data-gohome aria-label="CogSci Researcher Atlas, home">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><line x1="8" y1="22" x2="16" y2="9" /><line x1="16" y1="9" x2="25" y2="19" /><line x1="8" y1="22" x2="25" y2="19" /><circle cx="8" cy="22" r="4" style="fill:var(--f1)"/><circle cx="16" cy="9" r="4" style="fill:var(--f3)"/><circle cx="25" cy="19" r="4" style="fill:var(--f2)"/></svg>
+      <span>CogSci Researcher Atlas</span>
+    </button>
+    <nav class="tabs" role="tablist" id="tabs" aria-label="Views">
+      <button role="tab" data-view="people" aria-selected="false">Researchers</button>
+      <button role="tab" data-view="topics" aria-selected="false">Topics</button>
+      <button role="tab" data-view="map" aria-selected="false">Network</button>
+      <button role="tab" data-view="world" aria-selected="false">World</button>
+    </nav>
   </header>
 
+  <section id="view-home" class="home" hidden>
+    <div class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">An open directory of cognitive science</p>
+        <h1 class="display">Who studies the mind, and&nbsp;where</h1>
+        <p class="lede">Find researchers by name, topic, institute or country. See who works with whom, and where the field lives on the map.</p>
+        <div class="hsw">
+        <form class="hsearch" id="hform" role="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input id="hq" type="search" placeholder="A name, a topic, an institute…" aria-label="Search the atlas" autocomplete="off">
+          <button type="submit">Search</button>
+        </form>
+        <div class="hresults" id="hresults" hidden></div>
+        </div>
+        <div class="try" id="try"></div>
+        <div class="stats" id="stats"></div>
+      </div>
+      <figure class="hero-graph">
+        <button class="hg-open" data-gonet aria-label="Open the co-authorship network"><svg id="heroGraph" role="img" aria-label="Co-authorship network of the researchers in the atlas"></svg></button>
+        <figcaption>Co-authorship links in the atlas, coloured by field. <button class="inl" data-gonet>Open the network</button></figcaption>
+      </figure>
+    </div>
+
+    <section class="hsec" aria-labelledby="h-fields">
+      <div class="hsec-head"><h2 id="h-fields">Browse by field</h2><button class="inl" data-view-go="topics">All topics</button></div>
+      <div class="fields" id="fields"></div>
+    </section>
+
+    <section class="hsec" aria-labelledby="h-explore">
+      <div class="hsec-head"><h2 id="h-explore">Three ways in</h2></div>
+      <div class="explore">
+        <button class="ex" data-view-go="topics"><span class="ex-k">Topics</span><span class="ex-t">Who works on each question</span><span class="ex-viz" id="exTopics"></span></button>
+        <button class="ex" data-gonet><span class="ex-k">Network</span><span class="ex-t">Who writes with whom</span><span class="ex-viz" id="exNet"></span></button>
+        <button class="ex" data-view-go="world"><span class="ex-k">World</span><span class="ex-t">Where the field is based</span><span class="ex-viz"><svg id="exWorld" viewBox="0 0 320 168" role="img" aria-label="Small world map of researchers by country"></svg></span><span class="ex-foot" id="exWorldFoot"></span></button>
+      </div>
+    </section>
+
+    <section class="hsec" aria-labelledby="h-spot">
+      <div class="hsec-head"><h2 id="h-spot">Researchers to discover</h2><button class="inl" id="shuffle">Show others</button></div>
+      <div class="spot" id="spot"></div>
+    </section>
+
+    <aside class="banner">
+      <div><b>New: neuroscience in Paris.</b> Over forty labs from ENS, the Paris Brain Institute, NeuroSpin, Institut Pasteur and others, drawn from the ParisNeuro directory.</div>
+      <button class="ghost" data-goparis>Browse Paris researchers</button>
+    </aside>
+  </section>
+
+  <div id="app">
   <div class="toolbar">
     <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <input id="q" type="search" placeholder="Search name, institution, topic or keyword" aria-label="Search researchers"></label>
     <select id="country" aria-label="Filter by country"></select>
-    <div class="tabs" role="tablist" id="tabs">
-      <button role="tab" data-view="people" aria-selected="true">Researchers</button>
-      <button role="tab" data-view="topics" aria-selected="false">Topics</button>
-      <button role="tab" data-view="map" aria-selected="false">Network</button>
-      <button role="tab" data-view="world" aria-selected="false">World</button>
-    </div>
   </div>
   <div class="active-filters" id="active"></div>
 
@@ -231,6 +345,8 @@ footer button{border:1px solid var(--line);background:var(--surface);border-radi
         <div class="ctable" id="ctable"></div>
       </section>
     </main>
+  </div>
+
   </div>
 
   <footer>
@@ -269,7 +385,7 @@ DATA.forEach((r,i)=>{ r.id=i; r.topics=r.topics.filter(t=>famOf[t]); });
 const topicCount = {}; DATA.forEach(r=>r.topics.forEach(t=>topicCount[t]=(topicCount[t]||0)+1));
 
 const MAPNAME = {'United States':'United States of America'};
-const REPO = "nbeauvais/cogsci-atlas"; // to enable "Open as GitHub issue"
+const REPO = "nbeauvais/cogsci-atlas"; // GitHub repository that receives suggestions
 const state = { q:'', topics:new Set(), country:'', source:'', institute:'', instAll:false, view:'people', open:null, netmode:'topics' };
 const $ = s => document.querySelector(s);
 const esc = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -339,7 +455,7 @@ function renderStats(){
   const countries = new Set(DATA.map(r=>r.country));
   const sch = DATA.filter(r=>r.scholar).length;
   const links = DATA.reduce((s,r)=>s+r.coauthors.length,0)/2;
-  $('#stats').innerHTML = `<div><b>${DATA.length}</b>researchers</div><div><b>${Object.keys(topicCount).length}</b>topics</div><div><b>${countries.size}</b>countries</div><div><b>${links}</b>co-author links</div><div><b>${sch}</b>Scholar profiles</div>`;
+  $('#stats').innerHTML = `<div><b>${DATA.length}</b>researchers</div><div><b>${Object.keys(topicCount).length}</b>topics</div><div><b>${new Set(DATA.map(r=>r.institute).filter(Boolean)).size}</b>institutes</div><div><b>${countries.size}</b>countries</div><div><b>${links}</b>co-author links</div>`;
   $('#foot').innerHTML = `Links checked ${UPDATED}. Paris neuroscience entries partly drawn from <a href="https://parisneuro.fr/" target="_blank" rel="noopener">ParisNeuro</a>. Affiliations change; open a profile to see where each link points.`;
 }
 
@@ -367,7 +483,7 @@ function renderTopics(){
       return `<div class="tcard"><header><button data-topic="${esc(t)}">${esc(t)}</button><span class="n">${ppl.length}</span></header>
         <div class="bar"><span style="width:${ppl.length/max*100}%;background:var(--${f.key})"></span></div>
         <ul>${ppl.map(r=>`<li><button data-open="${r.id}">${esc(r.name)}</button></li>`).join('')}</ul></div>`}).join('');
-    return cards ? `<div class="fam"><h2><span class="swatch" style="background:var(--${f.key});width:12px;height:12px"></span>${f.name}</h2><div class="tgrid">${cards}</div></div>` : '';
+    return cards ? `<div class="fam" id="fam-${f.key}"><h2><span class="swatch" style="background:var(--${f.key});width:12px;height:12px"></span>${f.name}</h2><div class="tgrid">${cards}</div></div>` : '';
   }).join('') || `<div class="empty">No topics match these filters.</div>`;
 }
 
@@ -550,6 +666,87 @@ function openProfile(id){
 }
 function closeProfile(){ $('#sheet').hidden=true; $('#scrim').hidden=true; state.open=null; styleMap(); }
 
+/* ---------- home ---------- */
+let homeBuilt=false;
+function renderHome(){
+  // try chips
+  $('#try').innerHTML = `<span>Try</span>` + ['metacognition','dual-process','consciousness','reinforcement learning','AI & LLMs'].map(tagHtml).join('')
+    + `<button class="tag" data-inst="Paris Brain Institute (ICM)">Paris Brain Institute</button>`;
+  // fields
+  $('#fields').innerHTML = FAMILIES.map(f=>{
+    const n = DATA.filter(r=>r.topics.some(t=>f.topics.includes(t))).length;
+    const tops = f.topics.filter(t=>topicCount[t]).sort((a,b)=>topicCount[b]-topicCount[a]);
+    return `<div class="field"><div class="field-h"><button data-fam="${f.key}"><span class="dot" style="background:var(--${f.key})"></span>${f.name}</button><span class="field-n">${n} researchers</span></div>
+      <div class="tags">${tops.map(t=>`<button class="tag" data-topic="${esc(t)}">${esc(t)} <span>${topicCount[t]}</span></button>`).join('')}</div></div>`;
+  }).join('');
+  // explore: topics bars
+  const top = Object.entries(topicCount).sort((a,b)=>b[1]-a[1]).slice(0,6), mx = top[0][1];
+  $('#exTopics').innerHTML = `<span class="bars">${top.map(([t,n])=>`<div><span>${esc(t)}</span><i style="width:${(n/mx*100).toFixed(1)}%;background:${col(t)}"></i><b>${n}</b></div>`).join('')}</span>`;
+  // explore: network top connected
+  const hubs = DATA.slice().sort((a,b)=>b.coauthors.length-a.coauthors.length).slice(0,5);
+  $('#exNet').innerHTML = `<ul class="toplist">${hubs.map(r=>`<li><span>${esc(r.name)}</span><small>${r.coauthors.length} co-authors</small></li>`).join('')}</ul>`;
+  // explore: world
+  if(!homeBuilt){
+    const feats = topojson.feature(GEO, GEO.objects.countries).features.filter(f=>f.properties.name!=='Antarctica');
+    const proj = d3.geoNaturalEarth1().fitExtent([[2,2],[318,166]],{type:'FeatureCollection',features:feats});
+    const path = d3.geoPath(proj);
+    const cc = {}; DATA.forEach(r=>cc[r.country]=(cc[r.country]||0)+1);
+    const mxc = Math.max(...Object.values(cc));
+    const svg = d3.select('#exWorld');
+    svg.append('g').selectAll('path').data(feats).join('path').attr('class','wland').attr('d',path)
+      .attr('style',f=>{ const c=dataCountry(f.properties.name); const n=c?cc[c]:0; return n?`fill:var(--accent);fill-opacity:${(0.25+0.75*Math.sqrt(n/mxc)).toFixed(2)}`:''; });
+    const topC = Object.entries(cc).sort((a,b)=>b[1]-a[1]).slice(0,3);
+    $('#exWorldFoot').textContent = topC.map(([c,n])=>`${c} ${n}`).join(' · ') + ` · ${Object.keys(cc).length} countries`;
+    buildHeroGraph();
+    homeBuilt=true;
+  }
+  renderSpot();
+}
+function renderSpot(){
+  const pool = DATA.filter(r=>r.source==='verified' && r.website && !r.deceased);
+  const pick = []; const used = new Set();
+  while(pick.length<3 && used.size<pool.length){ const i=Math.floor(Math.random()*pool.length); if(!used.has(i)){ used.add(i); pick.push(pool[i]); } }
+  $('#spot').innerHTML = pick.map(r=>`<div class="sp"><button class="name" data-open="${r.id}">${esc(r.name)}</button>
+    <p class="aff">${esc(r.institute||r.affiliation)} · ${esc(r.city)}</p>
+    <div class="tags">${r.topics.slice(0,3).map(tagHtml).join('')}</div>
+    <div class="links">${linkBtns(r)}</div></div>`).join('');
+}
+function buildHeroGraph(){
+  const W=560, H=475;
+  const svg = d3.select('#heroGraph').attr('viewBox',[0,0,W,H]);
+  const people = DATA.filter(r=>r.coauthors.length);
+  const nodes = people.map(r=>({id:r.id, r}));
+  const links = []; people.forEach(r=>r.coauthors.forEach(j=>{ if(r.id<j) links.push({source:r.id,target:j}); }));
+  const rad = d => 2.6+Math.sqrt(d.r.coauthors.length)*1.5;
+  const s = d3.forceSimulation(nodes).force('link',d3.forceLink(links).id(d=>d.id).distance(16).strength(.7))
+    .force('charge',d3.forceManyBody().strength(-26)).force('collide',d3.forceCollide().radius(d=>rad(d)+1.5))
+    .force('x',d3.forceX(W/2).strength(.06)).force('y',d3.forceY(H/2).strength(.08)).stop();
+  for(let i=0;i<320;i++) s.tick();
+  const xs=nodes.map(n=>n.x), ys=nodes.map(n=>n.y);
+  const x0=Math.min(...xs)-12, x1=Math.max(...xs)+12, y0=Math.min(...ys)-12, y1=Math.max(...ys)+12;
+  const k=Math.min(W/(x1-x0), H/(y1-y0)), ox=(W-(x1-x0)*k)/2-x0*k, oy=(H-(y1-y0)*k)/2-y0*k;
+  const X=d=>d.x*k+ox, Y=d=>d.y*k+oy;
+  svg.append('g').selectAll('line').data(links).join('line').attr('x1',d=>X(d.source)).attr('y1',d=>Y(d.source)).attr('x2',d=>X(d.target)).attr('y2',d=>Y(d.target))
+    .attr('stroke','var(--ink-3)').attr('stroke-opacity',.35).attr('stroke-width',1);
+  svg.append('g').selectAll('circle').data(nodes).join('circle').attr('cx',X).attr('cy',Y).attr('r',d=>rad(d)*Math.min(1.25,k))
+    .attr('fill',d=>col(d.r.topics[0])).attr('stroke','var(--surface)').attr('stroke-width',1.2)
+    .append('title').text(d=>d.r.name);
+  const hubs = nodes.slice().sort((a,b)=>b.r.coauthors.length-a.r.coauthors.length).slice(0,6);
+  svg.append('g').selectAll('text').data(hubs).join('text').attr('class','node-label').attr('text-anchor','middle').attr('font-size',11.5).attr('font-weight',600)
+    .attr('x',X).attr('y',d=>Y(d)-rad(d)*Math.min(1.25,k)-5).text(d=>surname(d.r.name));
+}
+function homeSearch(){
+  const v = $('#hq').value.trim(); const box = $('#hresults');
+  if(!v){ box.hidden=true; return; }
+  const w = norm(v).split(/\s+/).filter(Boolean);
+  const hits = DATA.filter(r=>{ const hay=norm([r.name,r.affiliation,r.institute,r.country,r.city,r.topics.join(' '),r.keywords.join(' ')].join(' ')); return w.every(x=>hay.includes(x)); });
+  hits.sort((a,b)=>(norm(b.name).includes(w[0])?1:0)-(norm(a.name).includes(w[0])?1:0));
+  box.innerHTML = hits.slice(0,5).map(r=>`<button data-open="${r.id}"><span>${esc(r.name)}</span><small>${esc(r.institute||r.city)}</small></button>`).join('')
+    + `<button class="all" data-homeall>${hits.length?`See all ${hits.length} results`:'No match. Search the full list'}</button>`;
+  box.hidden=false;
+}
+function goPeopleWithQuery(v){ state.q=v; $('#q').value=v; $('#hresults').hidden=true; setView('people'); render(); window.scrollTo({top:0}); }
+
 /* ---------- suggest an entry ---------- */
 const ALLTOPICS = FAMILIES.flatMap(f=>f.topics);
 function openSuggest(idStr){
@@ -606,15 +803,16 @@ async function copySuggest(){
 function closeSuggest(){ $('#suggest').hidden=true; $('#sgScrim').hidden=true; }
 
 /* ---------- wiring ---------- */
-const VIEWS=['people','topics','map','world'];
-function toggleTopic(t){ state.topics.has(t)?state.topics.delete(t):state.topics.add(t); render(); }
+const VIEWS=['home','people','topics','map','world'];
+function toggleTopic(t){ state.topics.has(t)?state.topics.delete(t):state.topics.add(t); if(state.view==='home'){ state.topics.clear(); state.topics.add(t); setView('people'); window.scrollTo({top:0}); } render(); }
 function setView(v){
   state.view=v;
   document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.view===v));
   VIEWS.forEach(k=>$('#view-'+k).hidden = k!==v);
+  $('#app').hidden = v==='home';
   if(v==='map' && !built) requestAnimationFrame(buildMap);
   if(v==='world' && !wBuilt) requestAnimationFrame(buildWorld);
-  try{ history.replaceState(null,'','#'+v); }catch(e){}
+  try{ history.replaceState(null,'', v==='home' ? location.pathname + location.search : '#'+v); }catch(e){}
 }
 function render(){
   renderFacets(); renderActive(); renderPeople(); renderTopics(); styleMap(); styleWorld();
@@ -626,7 +824,14 @@ document.addEventListener('click',e=>{
   const t=e.target.closest('[data-topic]'); if(t){ toggleTopic(t.dataset.topic); return; }
   const o=e.target.closest('[data-open]'); if(o){ openProfile(+o.dataset.open); return; }
   const c=e.target.closest('[data-cty]'); if(c){ state.country = state.country===c.dataset.cty?'':c.dataset.cty; $('#country').value=state.country; render(); return; }
-  const ins=e.target.closest('[data-inst]'); if(ins){ state.institute = state.institute===ins.dataset.inst?'':ins.dataset.inst; render(); return; }
+  const ins=e.target.closest('[data-inst]'); if(ins){ state.institute = state.institute===ins.dataset.inst?'':ins.dataset.inst; if(state.view==='home'){ state.institute=ins.dataset.inst; setView('people'); window.scrollTo({top:0}); } render(); return; }
+  if(e.target.closest('[data-gohome]')){ closeProfile(); setView('home'); window.scrollTo({top:0}); return; }
+  if(e.target.closest('[data-gonet]')){ state.netmode='coauthors'; document.querySelectorAll('#netmode button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.mode==='coauthors')); built=false; setView('map'); window.scrollTo({top:0}); return; }
+  const vg=e.target.closest('[data-view-go]'); if(vg){ setView(vg.dataset.viewGo); window.scrollTo({top:0}); return; }
+  const fam=e.target.closest('[data-fam]'); if(fam){ setView('topics'); requestAnimationFrame(()=>document.getElementById('fam-'+fam.dataset.fam)?.scrollIntoView({block:'start'})); return; }
+  if(e.target.closest('[data-goparis]')){ goPeopleWithQuery('Paris'); return; }
+  if(e.target.closest('[data-homeall]')){ goPeopleWithQuery($('#hq').value.trim()); return; }
+  if(e.target.id==='shuffle'){ renderSpot(); return; }
   if(e.target.id==='instMore'){ state.instAll=!state.instAll; renderFacets(); return; }
   const kw=e.target.closest('[data-kw]'); if(kw){ closeProfile(); state.q=kw.dataset.kw; $('#q').value=state.q; setView('people'); render(); return; }
   if(e.target.closest('[data-suggest]')){ openSuggest(e.target.closest('[data-suggest]').dataset.suggest); return; }
@@ -641,6 +846,7 @@ document.addEventListener('click',e=>{
   if(e.target.closest('#closeSheet')) closeProfile();
 });
 document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeProfile(); closeSuggest(); } });
+document.addEventListener('pointerdown',e=>{ if(!e.target.closest('.hsw')) $('#hresults').hidden=true; });
 document.querySelectorAll('#tabs button').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
 let qt; $('#q').addEventListener('input',e=>{ clearTimeout(qt); qt=setTimeout(()=>{ state.q=e.target.value.trim(); render(); },120); });
 const countries=[...new Set(DATA.map(r=>r.country))].sort();
@@ -654,8 +860,11 @@ $('#copy').addEventListener('click',async e=>{
 });
 let rz; window.addEventListener('resize',()=>{ if(state.view==='map'){ clearTimeout(rz); rz=setTimeout(buildMap,250); } else built=false; });
 
-renderStats(); render();
-const h = (location.hash||'').slice(1); setView(VIEWS.includes(h)?h:'people');
+renderStats(); render(); renderHome();
+$('#hform').addEventListener('submit',e=>{ e.preventDefault(); goPeopleWithQuery($('#hq').value.trim()); });
+$('#hq').addEventListener('input', homeSearch);
+$('#hq').addEventListener('keydown', e=>{ if(e.key==='Escape') $('#hresults').hidden=true; });
+const h = (location.hash||'').slice(1); setView(VIEWS.includes(h)&&h!=='home'?h:'home');
 }
 Promise.all([
   fetch('data/researchers.json').then(r => { if(!r.ok) throw new Error('data/researchers.json: ' + r.status); return r.json(); }),
