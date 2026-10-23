@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Searchable directory, co-authorship network and world map of cognitive science researchers by topic, institute and country.">
+<title>CogSci Researcher Atlas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<style>
+/* Layout: sticky toolbar over a three-view workspace (Researchers / Topics / Map); a slide-in profile sheet on the right. */
+:root{
+  --bg:#f3f5f2; --surface:#ffffff; --sunk:#e9ece7; --ink:#18211e; --ink-2:#4b5752; --ink-3:#77827d;
+  --line:#d7ddd8; --accent:#0e6b61; --accent-ink:#ffffff; --accent-soft:#dcefeb; --warn:#9a5b00;
+  --f1:#2a78d6; --f2:#eb6834; --f3:#1baf7a; --f4:#4a3aa7; --f5:#e87ba4; --f6:#008300; --f7:#b07800;
+  --display:'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --body:'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+  --mono:'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  --r:6px;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#101513; --surface:#171d1b; --sunk:#1f2724; --ink:#e5ebe8; --ink-2:#b2bdb8; --ink-3:#86918c;
+  --line:#2c3632; --accent:#4cc0ae; --accent-ink:#0b1513; --accent-soft:#16332e; --warn:#e6a94a;
+  --f1:#3987e5; --f2:#d95926; --f3:#199e70; --f4:#9085e9; --f5:#d55181; --f6:#2f9e2f; --f7:#d9a21b; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#101513; --surface:#171d1b; --sunk:#1f2724; --ink:#e5ebe8; --ink-2:#b2bdb8; --ink-3:#86918c;
+  --line:#2c3632; --accent:#4cc0ae; --accent-ink:#0b1513; --accent-soft:#16332e; --warn:#e6a94a;
+  --f1:#3987e5; --f2:#d95926; --f3:#199e70; --f4:#9085e9; --f5:#d55181; --f6:#2f9e2f; --f7:#d9a21b; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.5;margin:0}
+.wrap{max-width:1280px;margin:0 auto;padding-inline:20px;padding-block:28px 48px}
+a{color:var(--accent)}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+header.top{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px 32px;margin-bottom:20px}
+.brand h1{font-family:var(--display);font-weight:700;font-size:clamp(26px,4vw,38px);letter-spacing:-.02em;line-height:1.05;margin:0;text-wrap:balance}
+.brand p{margin:6px 0 0;color:var(--ink-2);max-width:62ch}
+.stats{display:flex;flex-wrap:wrap;gap:12px 24px;font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.stats b{display:block;font-family:var(--display);font-size:24px;color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
+
+.toolbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);padding-block:10px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.search{flex:1 1 260px;min-width:0;position:relative}
+.search input{width:100%;padding:9px 12px 9px 34px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.search svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:14px;height:14px;stroke:var(--ink-3)}
+select{padding:8px 10px;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.tabs{display:flex;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface)}
+.tabs button{border:0;background:transparent;padding:8px 14px;cursor:pointer;color:var(--ink-2);font-weight:500}
+.tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
+
+.active-filters{display:flex;flex-wrap:wrap;gap:6px;align-items:center;min-height:0;padding-top:10px}
+.active-filters:empty{display:none}
+.af{display:inline-flex;align-items:center;gap:6px;background:var(--accent-soft);color:var(--ink);border:1px solid transparent;border-radius:99px;padding:3px 6px 3px 10px;font-size:12.5px;cursor:pointer}
+.af span{font-family:var(--mono);opacity:.7}
+.clear{background:none;border:0;color:var(--ink-3);text-decoration:underline;cursor:pointer;font-size:12.5px}
+
+.layout{display:grid;grid-template-columns:240px minmax(0,1fr);gap:28px;margin-top:20px}
+@media (max-width:860px){.layout{grid-template-columns:minmax(0,1fr)}}
+aside.facets{display:flex;flex-direction:column;gap:18px}
+@media (max-width:860px){aside.facets{order:2}}
+.facet h3{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0 0 6px;display:flex;align-items:center;gap:8px;font-weight:600}
+.swatch{width:9px;height:9px;border-radius:2px;flex:none}
+.facet ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.facet li button{width:100%;display:flex;justify-content:space-between;gap:8px;background:none;border:0;padding:4px 6px;border-radius:4px;cursor:pointer;text-align:left;color:var(--ink-2)}
+.facet li button:hover{background:var(--sunk);color:var(--ink)}
+.facet li button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.facet li button .n{font-family:var(--mono);font-size:12px;font-variant-numeric:tabular-nums;opacity:.75}
+
+.resultbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;color:var(--ink-3);font-size:13px}
+.list{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.3fr) auto;gap:6px 20px;padding:14px 4px;border-bottom:1px solid var(--line);align-items:start}
+@media (max-width:640px){.row{grid-template-columns:minmax(0,1fr)}}
+.row .who{min-width:0}
+.name{font-family:var(--display);font-weight:500;font-size:17px;background:none;border:0;padding:0;cursor:pointer;text-align:left;color:var(--ink);letter-spacing:-.01em}
+.name:hover{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.aff{color:var(--ink-2);font-size:13px;margin-top:2px}
+.tags{display:flex;flex-wrap:wrap;gap:5px;min-width:0}
+.tag{display:inline-flex;align-items:center;gap:5px;font-size:12px;padding:2px 8px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink-2);cursor:pointer}
+.tag:hover{border-color:var(--ink-3);color:var(--ink)}
+.tag.on{border-color:var(--ink);color:var(--ink);font-weight:600}
+.tag i{width:7px;height:7px;border-radius:50%;display:inline-block}
+.links{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+@media (max-width:640px){.links{justify-content:flex-start}}
+.lk{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:500;padding:4px 9px;border-radius:var(--r);border:1px solid var(--line);text-decoration:none;color:var(--ink);background:var(--surface);white-space:nowrap}
+.lk:hover{border-color:var(--accent);color:var(--accent)}
+.lk.none{color:var(--ink-3);border-style:dashed;cursor:default}
+.lk svg{width:12px;height:12px}
+.flag{font-size:11px;color:var(--warn);font-family:var(--mono)}
+.empty{padding:40px 8px;color:var(--ink-2)}
+
+/* Topics view */
+.fam{margin-bottom:28px}
+.fam h2{font-family:var(--display);font-size:20px;font-weight:700;margin:0 0 10px;display:flex;align-items:center;gap:10px}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.tcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;min-width:0}
+.tcard header{display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:8px}
+.tcard header button{font-weight:600;background:none;border:0;padding:0;cursor:pointer;color:var(--ink);text-align:left}
+.tcard header button:hover{color:var(--accent)}
+.tcard .n{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.tcard ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:2px 10px}
+.tcard li button{background:none;border:0;padding:0;cursor:pointer;color:var(--ink-2);font-size:13px}
+.tcard li button:hover{color:var(--accent);text-decoration:underline}
+.bar{height:3px;background:var(--sunk);border-radius:2px;margin-bottom:10px;overflow:hidden}
+.bar span{display:block;height:100%}
+
+/* Map */
+.mapbox{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);position:relative;overflow:hidden}
+.mapbox svg{display:block;width:100%;height:clamp(460px,70vh,760px);cursor:grab}
+.maphint{position:absolute;left:12px;bottom:10px;font-size:12px;color:var(--ink-3);pointer-events:none;max-width:calc(100% - 24px)}
+.mapctl{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;padding:10px 12px;border-bottom:1px solid var(--line)}
+.seg{display:flex;border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.seg button{border:0;background:var(--surface);padding:5px 10px;font-size:12.5px;cursor:pointer;color:var(--ink-2)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--ink-2);align-items:center}
+.ramp{display:inline-flex;height:10px;border-radius:2px;overflow:hidden;border:1px solid var(--line)}
+.ramp i{width:22px;height:10px;display:block;flex:none}
+#world{display:block;width:100%;height:auto;aspect-ratio:1.9/1;max-height:640px;cursor:grab}
+.country{stroke:var(--surface);stroke-width:.6;cursor:pointer}
+.country:hover{stroke:var(--ink);stroke-width:1.2}
+.ctable{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:4px 24px;margin-top:16px}
+.ctable button{display:flex;justify-content:space-between;gap:8px;width:100%;background:none;border:0;border-bottom:1px solid var(--line);padding:6px 2px;cursor:pointer;color:var(--ink);text-align:left}
+.ctable button:hover{color:var(--accent)}
+.ctable button[aria-pressed="true"]{font-weight:600;color:var(--accent)}
+.ctable .n{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.lk.pending{color:var(--ink-3);border-style:dotted;cursor:default}
+.src{font-size:11.5px;color:var(--ink-3);margin-top:3px}
+.more{background:none;border:0;color:var(--accent);cursor:pointer;font-size:12.5px;padding:4px 6px;text-align:left}
+.inl{background:none;border:0;padding:0;color:var(--accent);cursor:pointer;font:inherit;text-decoration:underline;text-underline-offset:2px}
+.tag.kw{border-style:dashed}
+.ghost{border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:7px 12px;cursor:pointer;color:var(--ink)}
+.ghost:hover{border-color:var(--accent);color:var(--accent)}
+.fbtns{display:flex;gap:8px;flex-wrap:wrap}
+.sg{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.sg label{display:flex;flex-direction:column;gap:4px;font-size:12.5px;color:var(--ink-2);font-weight:500}
+.sg label small{font-weight:400;color:var(--ink-3)}
+.sg input,.sg textarea{padding:7px 9px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg);color:var(--ink);font:inherit;font-size:13.5px;min-width:0}
+.sg2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.sg fieldset{border:1px solid var(--line);border-radius:var(--r);padding:8px 10px;margin:0}
+.sg legend{font-size:12.5px;color:var(--ink-2);font-weight:500;padding:0 4px}
+.sgt{display:flex;flex-wrap:wrap;gap:4px}
+.sg .chk{flex-direction:row;align-items:center;gap:0;font-weight:400}
+.chk input{position:absolute;opacity:0;width:1px;height:1px}
+.chk span{font-size:12px;padding:2px 8px;border-radius:99px;border:1px solid var(--line);cursor:pointer;color:var(--ink-2)}
+.chk input:checked+span{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chk input:focus-visible+span{outline:2px solid var(--accent);outline-offset:1px}
+.sgh{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:18px 0 6px;font-weight:600}
+#sgOut{background:var(--sunk);border-radius:var(--r);padding:10px;font-family:var(--mono);font-size:11.5px;white-space:pre-wrap;word-break:break-word;max-height:220px;overflow:auto;margin:0 0 10px}
+button.lk{cursor:pointer;font:inherit;font-size:13px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);padding:6px 9px;border-radius:5px;font-size:12px;max-width:240px;opacity:0;transition:opacity .1s}
+.node-label{font-family:var(--body);fill:var(--ink);paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round;pointer-events:none}
+
+/* Profile sheet */
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.25);z-index:40}
+.sheet{position:fixed;top:0;right:0;bottom:0;width:min(440px,100%);background:var(--surface);border-left:1px solid var(--line);z-index:50;overflow-y:auto;padding:calc(env(safe-area-inset-top,0px) + 22px) 24px calc(env(safe-area-inset-bottom,0px) + 28px);box-shadow:-12px 0 30px rgba(0,0,0,.12)}
+.sheet .close{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);right:14px;border:1px solid var(--line);background:var(--surface);border-radius:var(--r);width:32px;height:32px;cursor:pointer;font-size:18px;line-height:1}
+.sheet h2{font-family:var(--display);font-size:26px;letter-spacing:-.02em;margin:0 40px 4px 0;line-height:1.1}
+.sheet .meta{color:var(--ink-2);margin-bottom:16px}
+.sec{margin-top:18px}
+.sec h4{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0 0 6px;font-weight:600}
+.sec p{margin:0;max-width:60ch}
+.sheet .links{justify-content:flex-start}
+.sheet .lk{font-size:13px;padding:7px 12px}
+.url{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);word-break:break-all;margin-top:6px}
+.near{list-style:none;margin:0;padding:0}
+.near li{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}
+.near button{background:none;border:0;padding:0;cursor:pointer;color:var(--ink);text-align:left}
+.near button:hover{color:var(--accent)}
+.near small{color:var(--ink-3);font-size:12px;text-align:right}
+.note{font-size:12px;color:var(--warn);margin-top:8px}
+
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--ink-3);font-size:12.5px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+footer button{border:1px solid var(--line);background:var(--surface);border-radius:var(--r);padding:6px 12px;cursor:pointer}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <h1>CogSci Researcher Atlas</h1>
+      <p>Who works on what across cognitive science. Search a name, pick a topic, or explore the map of researchers and research areas.</p>
+    </div>
+    <div class="stats" id="stats"></div>
+  </header>
+
+  <div class="toolbar">
+    <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Search name, institution, topic or keyword" aria-label="Search researchers"></label>
+    <select id="country" aria-label="Filter by country"></select>
+    <div class="tabs" role="tablist" id="tabs">
+      <button role="tab" data-view="people" aria-selected="true">Researchers</button>
+      <button role="tab" data-view="topics" aria-selected="false">Topics</button>
+      <button role="tab" data-view="map" aria-selected="false">Network</button>
+      <button role="tab" data-view="world" aria-selected="false">World</button>
+    </div>
+  </div>
+  <div class="active-filters" id="active"></div>
+
+  <div class="layout">
+    <aside class="facets" id="facets" aria-label="Topics"></aside>
+    <main id="main">
+      <section id="view-people"></section>
+      <section id="view-topics" hidden></section>
+      <section id="view-map" hidden>
+        <div class="mapbox">
+          <div class="mapctl">
+            <div class="seg" id="netmode" role="radiogroup" aria-label="What the network links">
+              <button data-mode="topics" aria-pressed="true">Researchers ↔ topics</button>
+              <button data-mode="coauthors" aria-pressed="false">Co-authorship</button>
+            </div>
+            <div class="legend" id="legend"></div>
+          </div>
+          <svg id="graph" role="img" aria-label="Network of researchers"></svg>
+          <div class="tip" id="tip"></div>
+          <div class="maphint" id="maphint"></div>
+        </div>
+      </section>
+      <section id="view-world" hidden>
+        <div class="mapbox">
+          <div class="mapctl"><div class="legend" id="wlegend"></div></div>
+          <svg id="world" role="img" aria-label="World map of researchers by country and city"></svg>
+          <div class="tip" id="wtip"></div>
+          <div class="maphint">Click a country to filter the atlas. Circles are cities, sized by number of researchers.</div>
+        </div>
+        <div class="ctable" id="ctable"></div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <span id="foot"></span>
+    <span class="fbtns"><button data-suggest="">Suggest a researcher</button><button id="copy">Copy data as JSON</button></span>
+  </footer>
+</div>
+
+<div class="scrim" id="scrim" hidden></div>
+<aside class="sheet" id="sheet" hidden aria-modal="true" role="dialog" aria-labelledby="pname"></aside>
+<div class="scrim" id="sgScrim" hidden></div>
+<aside class="sheet" id="suggest" hidden aria-modal="true" role="dialog" aria-labelledby="sgTitle"></aside>
+
+<script>
+function start(DATA, GEO){
+{ const byName = {}; DATA.forEach((r,i)=>byName[r.name]=i);
+  const sets = DATA.map(()=>new Set());
+  DATA.forEach((r,i)=>(r.coauthors||[]).forEach(n=>{ const j = typeof n==='number' ? n : byName[n]; if(j!==undefined && j!==i){ sets[i].add(j); sets[j].add(i); } }));
+  DATA.forEach((r,i)=>{ r.coauthors=[...sets[i]]; r.source=r.source||'verified'; r.city=r.city||''; r.institute=r.institute||''; r.keywords=r.keywords||[]; }); }
+const UPDATED = "October 2026";
+
+const FAMILIES = [
+  {key:'f1', name:'Reasoning & inference', topics:['reasoning','dual-process','argumentation','causal reasoning','bayesian cognition']},
+  {key:'f2', name:'Decision & control', topics:['decision-making','judgment & heuristics','risk','reinforcement learning','cognitive control']},
+  {key:'f3', name:'Mind & awareness', topics:['consciousness','metacognition','perception','attention','philosophy of mind']},
+  {key:'f4', name:'Social & moral', topics:['social cognition','moral cognition','evolution & culture','emotion','misinformation']},
+  {key:'f5', name:'Learning & language', topics:['learning','memory','language','cognitive development']},
+  {key:'f6', name:'Methods & AI', topics:['computational modeling','AI & LLMs','cognitive neuroscience','neuroimaging methods']},
+  {key:'f7', name:'Brain & circuits', topics:['neural coding & dynamics','sleep','motor control']},
+];
+const surname = n => { const t=n.split(' ').filter(x=>!/^(III|Jr\.?)$/.test(x)); let k=t.length-1; while(k>1 && /^(de|De|van|von|Van|Von|la|Le|le)$/.test(t[k-1])) k--; return t.slice(k).join(' '); };
+const famOf = {}; FAMILIES.forEach(f=>f.topics.forEach(t=>famOf[t]=f));
+const col = t => `var(--${(famOf[t]||FAMILIES[0]).key})`;
+
+DATA.forEach((r,i)=>{ r.id=i; r.topics=r.topics.filter(t=>famOf[t]); });
+const topicCount = {}; DATA.forEach(r=>r.topics.forEach(t=>topicCount[t]=(topicCount[t]||0)+1));
+
+const MAPNAME = {'United States':'United States of America'};
+const REPO = ""; // set to "your-username/your-repo" to enable "Open as GitHub issue"
+const state = { q:'', topics:new Set(), country:'', source:'', institute:'', instAll:false, view:'people', open:null, netmode:'topics' };
+const $ = s => document.querySelector(s);
+const esc = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const norm = s => String(s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+
+function matches(r){
+  if(state.country && r.country!==state.country) return false;
+  if(state.source && r.source!==state.source) return false;
+  if(state.institute && r.institute!==state.institute) return false;
+  for(const t of state.topics) if(!r.topics.includes(t)) return false;
+  if(state.q){
+    const hay = norm([r.name,r.affiliation,r.institute,r.country,r.city,r.topics.join(' '),r.keywords.join(' '),r.bio,r.known_for].join(' '));
+    if(!norm(state.q).split(/\s+/).filter(Boolean).every(w=>hay.includes(w))) return false;
+  }
+  return true;
+}
+const filtered = () => DATA.filter(matches);
+
+const ICON_WEB = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.7 3.8 5.7 3.8 9s-1.3 6.3-3.8 9c-2.5-2.7-3.8-5.7-3.8-9S9.5 5.7 12 3z"/></svg>';
+const ICON_GS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9l10-6 10 6-10 6z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/></svg>';
+function linkBtns(r){
+  const pend = r.source==='coauthor';
+  const miss = (icon,label,what) => pend
+    ? `<span class="lk pending" title="${what} not checked yet">${icon}${label} pending</span>`
+    : `<span class="lk none" title="No ${what} found">${icon}No ${label.toLowerCase()}</span>`;
+  const w = r.website ? `<a class="lk" href="${esc(r.website)}" target="_blank" rel="noopener">${ICON_WEB}Website</a>` : miss(ICON_WEB,'Website','personal or lab page');
+  const g = r.scholar ? `<a class="lk" href="${esc(r.scholar)}" target="_blank" rel="noopener">${ICON_GS}Scholar profile</a>` : miss(ICON_GS,'Scholar','Google Scholar profile');
+  return w+g;
+}
+const tagHtml = t => `<button class="tag${state.topics.has(t)?' on':''}" data-topic="${esc(t)}"><i style="background:${col(t)}"></i>${esc(t)}</button>`;
+
+/* ---------- facets & toolbar ---------- */
+function renderFacets(){
+  const base = DATA.filter(r=>(!state.country||r.country===state.country)&&(!state.source||r.source===state.source)&&(!state.institute||r.institute===state.institute));
+  const byTopicOnly = DATA.filter(r=>[...state.topics].every(t=>r.topics.includes(t))&&(!state.source||r.source===state.source)&&(!state.institute||r.institute===state.institute));
+  const forInst = DATA.filter(r=>[...state.topics].every(t=>r.topics.includes(t))&&(!state.source||r.source===state.source)&&(!state.country||r.country===state.country));
+  const ic = {}; forInst.forEach(r=>{ if(r.institute) ic[r.institute]=(ic[r.institute]||0)+1; });
+  const insts = Object.keys(ic).sort((a,b)=>ic[b]-ic[a]||a.localeCompare(b));
+  const shown = state.instAll ? insts : insts.slice(0,12);
+  if(state.institute && !shown.includes(state.institute)) shown.push(state.institute);
+  const instFacet = `<div class="facet"><h3>Institute</h3><ul>${shown.map(c=>
+    `<li><button data-inst="${esc(c)}" aria-pressed="${state.institute===c}"><span>${esc(c)}</span><span class="n">${ic[c]||0}</span></button></li>`).join('')}</ul>
+    ${insts.length>12?`<button class="more" id="instMore">${state.instAll?'Show fewer':`Show all ${insts.length} institutes`}</button>`:''}</div>`;
+  const cc = {}; byTopicOnly.forEach(r=>cc[r.country]=(cc[r.country]||0)+1);
+  const countryFacet = `<div class="facet"><h3>Country</h3><ul>${Object.keys(cc).sort((a,b)=>cc[b]-cc[a]||a.localeCompare(b)).map(c=>
+    `<li><button data-cty="${esc(c)}" aria-pressed="${state.country===c}"><span>${esc(c)}</span><span class="n">${cc[c]}</span></button></li>`).join('')}</ul></div>`;
+  const nV = DATA.filter(r=>r.source==='verified').length, nC = DATA.length-nV;
+  const srcFacet = `<div class="facet"><h3>Entry</h3><ul>
+    <li><button data-src="verified" aria-pressed="${state.source==='verified'}"><span>Links verified</span><span class="n">${nV}</span></button></li>
+    <li><button data-src="coauthor" aria-pressed="${state.source==='coauthor'}"><span>Added via co-authors</span><span class="n">${nC}</span></button></li></ul></div>`;
+  $('#facets').innerHTML = FAMILIES.map(f=>`
+    <div class="facet"><h3><span class="swatch" style="background:var(--${f.key})"></span>${f.name}</h3><ul>
+    ${f.topics.slice().sort((a,b)=>(topicCount[b]||0)-(topicCount[a]||0)).map(t=>{
+      const n = base.filter(r=>r.topics.includes(t)).length;
+      return `<li><button data-topic="${esc(t)}" aria-pressed="${state.topics.has(t)}"><span>${esc(t)}</span><span class="n">${n}</span></button></li>`}).join('')}
+    </ul></div>`).join('') + countryFacet + instFacet + srcFacet;
+}
+function renderActive(){
+  const chips = [...state.topics].map(t=>`<button class="af" data-topic="${esc(t)}">${esc(t)} <span>×</span></button>`);
+  if(state.country) chips.push(`<button class="af" data-country="1">${esc(state.country)} <span>×</span></button>`);
+  if(state.institute) chips.push(`<button class="af" data-inst="${esc(state.institute)}">${esc(state.institute)} <span>×</span></button>`);
+  if(state.source) chips.push(`<button class="af" data-src="${state.source}">${state.source==='verified'?'Links verified':'Added via co-authors'} <span>×</span></button>`);
+  if(state.q) chips.push(`<button class="af" data-q="1">“${esc(state.q)}” <span>×</span></button>`);
+  $('#active').innerHTML = chips.length ? chips.join('') + `<button class="clear" id="clearall">Clear all</button>` : '';
+}
+function renderStats(){
+  const countries = new Set(DATA.map(r=>r.country));
+  const sch = DATA.filter(r=>r.scholar).length;
+  const links = DATA.reduce((s,r)=>s+r.coauthors.length,0)/2;
+  $('#stats').innerHTML = `<div><b>${DATA.length}</b>researchers</div><div><b>${Object.keys(topicCount).length}</b>topics</div><div><b>${countries.size}</b>countries</div><div><b>${links}</b>co-author links</div><div><b>${sch}</b>Scholar profiles</div>`;
+  $('#foot').innerHTML = `Links checked ${UPDATED}. Paris neuroscience entries partly drawn from <a href="https://parisneuro.fr/" target="_blank" rel="noopener">ParisNeuro</a>. Affiliations change; open a profile to see where each link points.`;
+}
+
+/* ---------- people view ---------- */
+function renderPeople(){
+  const rows = filtered().sort((a,b)=>norm(surname(a.name)).replace(/^(de|van|von) /,'').localeCompare(norm(surname(b.name)).replace(/^(de|van|von) /,'')));
+  const head = `<div class="resultbar"><span>${rows.length} of ${DATA.length} researchers</span><span>Sorted by surname</span></div>`;
+  if(!rows.length){ $('#view-people').innerHTML = head + `<div class="empty">No one matches these filters. Remove a topic or clear the search.</div>`; return; }
+  $('#view-people').innerHTML = head + `<div class="list">${rows.map(r=>`
+    <div class="row">
+      <div class="who"><button class="name" data-open="${r.id}">${esc(r.name)}${r.deceased?' <span class="flag">†</span>':''}</button><div class="aff">${esc(r.affiliation)}</div></div>
+      <div class="tags">${r.topics.map(tagHtml).join('')}</div>
+      <div class="links">${linkBtns(r)}</div>
+    </div>`).join('')}</div>`;
+}
+
+/* ---------- topics view ---------- */
+function renderTopics(){
+  const rows = filtered();
+  const max = Math.max(...Object.values(topicCount));
+  $('#view-topics').innerHTML = FAMILIES.map(f=>{
+    const cards = f.topics.map(t=>{
+      const ppl = rows.filter(r=>r.topics.includes(t)).sort((a,b)=>a.name.localeCompare(b.name));
+      if(!ppl.length) return '';
+      return `<div class="tcard"><header><button data-topic="${esc(t)}">${esc(t)}</button><span class="n">${ppl.length}</span></header>
+        <div class="bar"><span style="width:${ppl.length/max*100}%;background:var(--${f.key})"></span></div>
+        <ul>${ppl.map(r=>`<li><button data-open="${r.id}">${esc(r.name)}</button></li>`).join('')}</ul></div>`}).join('');
+    return cards ? `<div class="fam"><h2><span class="swatch" style="background:var(--${f.key});width:12px;height:12px"></span>${f.name}</h2><div class="tgrid">${cards}</div></div>` : '';
+  }).join('') || `<div class="empty">No topics match these filters.</div>`;
+}
+
+/* ---------- network view ---------- */
+let sim, gNodes, gLinks, gLabels, built=false;
+const primaryTopic = r => r.topics[0];
+function buildMap(){
+  const svg = d3.select('#graph'); svg.selectAll('*').remove();
+  if(sim) sim.stop();
+  const box = document.getElementById('graph').getBoundingClientRect();
+  const W = box.width||900, H = box.height||600;
+  svg.attr('viewBox',[0,0,W,H]);
+  const co = state.netmode==='coauthors';
+  const topics = Object.keys(topicCount);
+  const people = co ? DATA.filter(r=>r.coauthors.length) : DATA;
+  const nodes = [
+    ...(co ? [] : topics.map(t=>({id:'t:'+t, kind:'topic', t, n:topicCount[t]}))),
+    ...people.map(r=>({id:'r:'+r.id, kind:'person', r}))
+  ];
+  const links = [];
+  if(co){ DATA.forEach(r=>r.coauthors.forEach(j=>{ if(r.id<j) links.push({source:'r:'+r.id,target:'r:'+j,kind:'co',a:r.id,b:j}); })); }
+  else { DATA.forEach(r=>r.topics.forEach(t=>links.push({source:'r:'+r.id,target:'t:'+t,t,a:r.id}))); }
+  const root = svg.append('g');
+  const zoom = d3.zoom().scaleExtent([0.3,5]).on('zoom',e=>root.attr('transform',e.transform));
+  svg.call(zoom);
+  const fit = () => { const xs=nodes.map(n=>n.x), ys=nodes.map(n=>n.y); const x0=Math.min(...xs)-40, x1=Math.max(...xs)+40, y0=Math.min(...ys)-30, y1=Math.max(...ys)+30;
+    const k=Math.min(1.6, W/(x1-x0), H/(y1-y0)); svg.transition().duration(400).call(zoom.transform, d3.zoomIdentity.translate(W/2,H/2).scale(k).translate(-(x0+x1)/2,-(y0+y1)/2)); };
+  gLinks = root.append('g').selectAll('line').data(links).join('line').attr('stroke','var(--line)').attr('stroke-width',co?1.4:1);
+  const rad = d => d.kind==='topic' ? 7+Math.sqrt(d.n)*3.2 : (co ? 4+Math.sqrt(d.r.coauthors.length)*1.6 : 4.5);
+  const fill = d => d.kind==='topic' ? col(d.t) : (co ? col(primaryTopic(d.r)) : 'var(--ink-2)');
+  gNodes = root.append('g').selectAll('circle').data(nodes).join('circle')
+    .attr('r',rad).attr('fill',fill)
+    .attr('stroke','var(--surface)').attr('stroke-width',2)
+    .style('cursor','pointer')
+    .on('click',(e,d)=>{ if(d.kind==='topic') toggleTopic(d.t); else openProfile(d.r.id); })
+    .on('mousemove',(e,d)=>{
+      const tip=$('#tip'), mb=document.querySelector('#view-map .mapbox').getBoundingClientRect();
+      tip.innerHTML = d.kind==='topic' ? `<b>${esc(d.t)}</b><br>${d.n} researchers`
+        : `<b>${esc(d.r.name)}</b><br>${esc(d.r.affiliation.split(/[,;(]/)[0])}${co?`<br>${d.r.coauthors.length} co-author${d.r.coauthors.length>1?'s':''} in the atlas`:''}`;
+      tip.style.left=Math.max(4,Math.min(e.clientX-mb.left+12, mb.width-250))+'px'; tip.style.top=(e.clientY-mb.top+12)+'px'; tip.style.opacity=1;
+    })
+    .on('mouseleave',()=>$('#tip').style.opacity=0)
+    .call(d3.drag()
+      .on('start',(e,d)=>{ if(!e.active) sim.alphaTarget(.2).restart(); d.fx=d.x; d.fy=d.y; })
+      .on('drag',(e,d)=>{ d.fx=e.x; d.fy=e.y; })
+      .on('end',(e,d)=>{ if(!e.active) sim.alphaTarget(0); d.fx=null; d.fy=null; }));
+  gLabels = root.append('g').selectAll('text').data(nodes).join('text').attr('class','node-label')
+    .attr('text-anchor','middle')
+    .attr('font-size',d=>d.kind==='topic'?12:10.5).attr('font-weight',d=>d.kind==='topic'?600:400)
+    .text(d=>d.kind==='topic'?d.t:surname(d.r.name));
+  sim = d3.forceSimulation(nodes)
+    .force('link',d3.forceLink(links).id(d=>d.id).distance(co?38:70).strength(co?.6:.25))
+    .force('charge',d3.forceManyBody().strength(d=>d.kind==='topic'?-420:(co?-90:-60)))
+    .force('collide',d3.forceCollide().radius(d=>rad(d)+(d.kind==='topic'?14:(co?6:4))))
+    .force('x',d3.forceX(W/2).strength(co?.035:.05)).force('y',d3.forceY(H/2).strength(co?.05:.07))
+    .on('tick',()=>{
+      gLinks.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
+      gNodes.attr('cx',d=>d.x).attr('cy',d=>d.y);
+      gLabels.attr('x',d=>d.x).attr('y',d=>d.kind==='topic'? d.y-rad(d)-5 : d.y+rad(d)+11);
+    });
+  sim.on('end', fit);
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){ sim.stop(); for(let i=0;i<300;i++) sim.tick(); sim.on('tick')(); fit(); }
+  const famLegend = FAMILIES.map(f=>`<span><span class="swatch" style="background:var(--${f.key});border-radius:50%"></span>${f.name}</span>`).join('');
+  $('#legend').innerHTML = co ? famLegend + `<span>Colour: first-listed topic · size: number of co-authors</span>`
+                              : famLegend + `<span><span class="swatch" style="background:var(--ink-2);border-radius:50%"></span>Researcher</span>`;
+  $('#maphint').textContent = co ? `${links.length} co-authorship links between ${people.length} researchers. Click anyone to open their profile.`
+                                 : 'Drag to pan, scroll to zoom. Click a topic to filter, a researcher to open their profile.';
+  built=true; styleMap();
+}
+function styleMap(){
+  if(!built) return;
+  const co = state.netmode==='coauthors';
+  const ids = new Set(filtered().map(r=>r.id));
+  const anyFilter = state.q||state.topics.size||state.country||state.source;
+  const showP = d => d.kind==='person' && ids.has(d.r.id);
+  const showT = d => d.kind==='topic' && (!anyFilter || [...ids].some(i=>DATA[i].topics.includes(d.t)));
+  const sel = state.open;
+  gNodes.attr('opacity',d=> (d.kind==='topic'?showT(d):showP(d)) ? 1 : .12)
+        .attr('stroke',d=> (d.kind==='topic'&&state.topics.has(d.t)) || (d.kind==='person'&&d.r.id===sel) ? 'var(--ink)' : 'var(--surface)')
+        .attr('stroke-width',d=> (d.kind==='topic'&&state.topics.has(d.t)) || (d.kind==='person'&&d.r.id===sel) ? 3 : 2);
+  if(co){
+    gLinks.attr('stroke',l=> sel!==null && (l.a===sel||l.b===sel) ? 'var(--accent)' : 'var(--ink-3)')
+          .attr('stroke-opacity',l=> (ids.has(l.a)&&ids.has(l.b)) ? (sel!==null && (l.a===sel||l.b===sel) ? 1 : .45) : .08)
+          .attr('stroke-width',l=> sel!==null && (l.a===sel||l.b===sel) ? 2.5 : 1.4);
+    gLabels.attr('opacity',d=> showP(d) && (!anyFilter ? d.r.coauthors.length>=4 : ids.size<=60) || (d.kind==='person'&&d.r.id===sel) ? 1 : 0);
+  } else {
+    gLinks.attr('stroke',l=> anyFilter && ids.has(l.a) ? col(l.t) : 'var(--line)')
+          .attr('stroke-opacity',l=> !anyFilter ? .9 : ids.has(l.a) ? .7 : .15);
+    gLabels.attr('opacity',d=> d.kind==='topic' ? (showT(d)?1:.15) : (anyFilter && showP(d) && ids.size<=40 ? 1 : 0));
+  }
+}
+
+/* ---------- world view ---------- */
+let wBuilt=false, wCountries, wDots, wScale;
+const cssVar = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function buildWorld(){
+  const svg = d3.select('#world'); svg.selectAll('*').remove();
+  const W = 960, H = 505;
+  svg.attr('viewBox',[0,0,W,H]);
+  const feats = topojson.feature(GEO, GEO.objects.countries).features.filter(f=>f.properties.name!=='Antarctica');
+  const proj = d3.geoNaturalEarth1().fitExtent([[8,8],[W-8,H-8]],{type:'FeatureCollection',features:feats});
+  const path = d3.geoPath(proj);
+  const root = svg.append('g');
+  svg.call(d3.zoom().scaleExtent([1,8]).translateExtent([[0,0],[W,H]]).on('zoom',e=>{ root.attr('transform',e.transform); wDots.attr('r',d=>wScale(d.n)/Math.sqrt(e.transform.k)).attr('stroke-width',1.2/e.transform.k); }));
+  const tip=$('#wtip');
+  const showTip=(e,html)=>{ const mb=document.querySelector('#view-world .mapbox').getBoundingClientRect(); tip.innerHTML=html; tip.style.left=Math.max(4,Math.min(e.clientX-mb.left+12, mb.width-250))+'px'; tip.style.top=(e.clientY-mb.top+12)+'px'; tip.style.opacity=1; };
+  wCountries = root.append('g').selectAll('path').data(feats).join('path').attr('class','country').attr('d',path)
+    .on('click',(e,f)=>{ const c=dataCountry(f.properties.name); if(c){ state.country = state.country===c?'':c; $('#country').value=state.country; render(); } })
+    .on('mousemove',(e,f)=>{ const c=dataCountry(f.properties.name); const n=c?filtered().filter(r=>r.country===c).length:0; showTip(e,`<b>${esc(f.properties.name)}</b><br>${n} researcher${n===1?'':'s'}${c?'':' in the atlas'}`); })
+    .on('mouseleave',()=>tip.style.opacity=0);
+  const cities = d3.rollups(DATA, v=>({n:v.length, lat:v[0].lat, lng:v[0].lng, country:v[0].country}), r=>r.city).map(([city,o])=>({city,...o}));
+  wScale = d3.scaleSqrt().domain([1, d3.max(cities,c=>c.n)]).range([2.5,13]);
+  wDots = root.append('g').selectAll('circle').data(cities).join('circle')
+    .attr('cx',d=>proj([d.lng,d.lat])[0]).attr('cy',d=>proj([d.lng,d.lat])[1])
+    .attr('r',d=>wScale(d.n)).attr('fill','var(--ink)').attr('fill-opacity',.85).attr('stroke','var(--surface)').attr('stroke-width',1.2)
+    .style('cursor','pointer')
+    .on('mousemove',(e,d)=>{ const ppl=filtered().filter(r=>r.city===d.city); showTip(e,`<b>${esc(d.city)}</b><br>${ppl.length?ppl.slice(0,12).map(r=>esc(r.name)).join('<br>')+(ppl.length>12?`<br>+${ppl.length-12} more`:''):'No one matches the current filters'}`); })
+    .on('mouseleave',()=>tip.style.opacity=0)
+    .on('click',(e,d)=>{ state.q=d.city; $('#q').value=d.city; setView('people'); render(); });
+  wBuilt=true; styleWorld();
+}
+const dataCountry = mapName => { const all=[...new Set(DATA.map(r=>r.country))]; return all.find(c=>(MAPNAME[c]||c)===mapName) || null; };
+function styleWorld(){
+  const rows = filtered();
+  const cc = {}; rows.forEach(r=>cc[r.country]=(cc[r.country]||0)+1);
+  const mx = Math.max(1,...Object.values(cc));
+  const bins = [1,2,5,10,25,50].filter(b=>b<=mx || b===1);
+  const lo = cssVar('--accent-soft'), hi = cssVar('--accent');
+  const step = i => d3.interpolateRgb(lo,hi)(bins.length>1 ? i/(bins.length-1) : 1);
+  const binOf = n => { let k=0; bins.forEach((b,i)=>{ if(n>=b) k=i; }); return k; };
+  if(wBuilt){
+    wCountries.attr('fill',f=>{ const c=dataCountry(f.properties.name); const n=c?cc[c]||0:0; return n? step(binOf(n)) : 'var(--sunk)'; })
+      .attr('stroke',f=> state.country && dataCountry(f.properties.name)===state.country ? 'var(--ink)' : 'var(--surface)')
+      .attr('stroke-width',f=> state.country && dataCountry(f.properties.name)===state.country ? 1.6 : .6);
+    const cityN = {}; rows.forEach(r=>cityN[r.city]=(cityN[r.city]||0)+1);
+    wDots.attr('display',d=>cityN[d.city]?null:'none');
+    $('#wlegend').innerHTML = `<span>Researchers per country</span><span class="ramp">${bins.map((b,i)=>`<i style="background:${step(i)}"></i>`).join('')}</span>
+      <span style="font-family:var(--mono)">${bins.map((b,i)=>i===bins.length-1?b+'+':b+(bins[i+1]-1>b?'–'+(bins[i+1]-1):'')).join(' · ')}</span>
+      <span><span class="swatch" style="background:var(--ink);border-radius:50%"></span>City</span>`;
+  }
+  const all = {}; DATA.filter(r=>[...state.topics].every(t=>r.topics.includes(t))&&(!state.source||r.source===state.source)).forEach(r=>all[r.country]=(all[r.country]||0)+1);
+  $('#ctable').innerHTML = Object.keys(all).sort((a,b)=>all[b]-all[a]||a.localeCompare(b)).map(c=>
+    `<button data-cty="${esc(c)}" aria-pressed="${state.country===c}"><span>${esc(c)}</span><span class="n">${all[c]}</span></button>`).join('');
+}
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>styleWorld());
+new MutationObserver(()=>styleWorld()).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+
+
+/* ---------- profile ---------- */
+function similar(r){
+  return DATA.filter(o=>o.id!==r.id && !r.coauthors.includes(o.id)).map(o=>{
+    const shared = o.topics.filter(t=>r.topics.includes(t));
+    const j = shared.length / new Set([...o.topics,...r.topics]).size;
+    return {o,shared,j};
+  }).filter(x=>x.shared.length).sort((a,b)=>b.j-a.j||b.shared.length-a.shared.length).slice(0,5);
+}
+function openProfile(id){
+  const r = DATA[id]; state.open=id;
+  const near = similar(r);
+  const cos = r.coauthors.map(i=>DATA[i]).sort((a,b)=>a.name.localeCompare(b.name));
+  $('#sheet').innerHTML = `
+    <button class="close" id="closeSheet" aria-label="Close profile">×</button>
+    <h2 id="pname">${esc(r.name)}</h2>
+    <div class="meta">${esc(r.affiliation)} · ${esc(r.city)}, ${esc(r.country)}${r.deceased?' · <span class="flag">deceased</span>':''}</div>
+    ${r.institute?`<div class="src">Institute: <button class="inl" data-inst="${esc(r.institute)}">${esc(r.institute)}</button></div>`:''}
+    <div class="links">${linkBtns(r)}</div>
+    ${r.website?`<div class="url">${esc(r.website)}</div>`:''}
+    ${r.scholar?`<div class="url">${esc(r.scholar)}</div>`:''}
+    ${r.check?`<div class="note">${esc(r.check)}</div>`:''}
+    <div class="sec"><h4>Topics</h4><div class="tags">${r.topics.map(tagHtml).join('')}</div></div>
+    ${r.bio?`<div class="sec"><h4>About</h4><p>${esc(r.bio)}</p></div>`:''}
+    ${r.keywords.length?`<div class="sec"><h4>Keywords</h4><div class="tags">${r.keywords.map(k=>`<button class="tag kw" data-kw="${esc(k)}">${esc(k)}</button>`).join('')}</div></div>`:''}
+    ${r.known_for?`<div class="sec"><h4>Known for</h4><p>${esc(r.known_for)}</p></div>`:''}
+    ${cos.length?`<div class="sec"><h4>Co-authors in the atlas</h4><ul class="near">${cos.map(o=>`<li><button data-open="${o.id}">${esc(o.name)}</button><small>${esc(o.city)}</small></li>`).join('')}</ul></div>`:''}
+    ${near.length?`<div class="sec"><h4>Closest by shared topics</h4><ul class="near">${near.map(x=>`<li><button data-open="${x.o.id}">${esc(x.o.name)}</button><small>${x.shared.map(esc).join(', ')}</small></li>`).join('')}</ul></div>`:''}`;
+  $('#sheet').insertAdjacentHTML('beforeend', `<div class="sec">${r.via?`<p class="src">Listed in the <a href="https://parisneuro.fr/" target="_blank" rel="noopener">ParisNeuro</a> directory; keywords and lab link from there.</p>`:''}<button class="ghost" data-suggest="${r.id}">Suggest a correction</button></div>`);
+  $('#sheet').hidden=false; $('#scrim').hidden=false; $('#sheet').scrollTop=0;
+  $('#closeSheet').focus({preventScroll:true});
+  styleMap();
+}
+function closeProfile(){ $('#sheet').hidden=true; $('#scrim').hidden=true; state.open=null; styleMap(); }
+
+/* ---------- suggest an entry ---------- */
+const ALLTOPICS = FAMILIES.flatMap(f=>f.topics);
+function openSuggest(idStr){
+  const r = idStr==='' || idStr==null ? null : DATA[+idStr];
+  const v = k => r ? esc(Array.isArray(r[k]) ? r[k].join('; ') : (r[k]??'')) : '';
+  $('#suggest').innerHTML = `
+    <button class="close" id="closeSuggest" aria-label="Close">×</button>
+    <h2 id="sgTitle">${r?'Suggest a correction':'Suggest a researcher'}</h2>
+    <p class="meta">${r?`Edit what is wrong for ${esc(r.name)}. Only changed fields need to be right.`:'Fill in what you know; links are checked before the entry is added.'}</p>
+    <form id="sgForm" class="sg">
+      <label>Name<input id="sg-name" value="${v('name')}" required></label>
+      <label>Affiliation<input id="sg-affiliation" value="${v('affiliation')}"></label>
+      <div class="sg2"><label>City<input id="sg-city" value="${v('city')}"></label><label>Country<input id="sg-country" value="${v('country')}"></label></div>
+      <fieldset><legend>Topics</legend><div class="sgt">${ALLTOPICS.map((tp,i)=>`<label class="chk"><input type="checkbox" id="sg-t${i}" value="${esc(tp)}" ${r&&r.topics.includes(tp)?'checked':''}><span>${esc(tp)}</span></label>`).join('')}</div></fieldset>
+      <label>Keywords <small>separated by semicolons</small><input id="sg-keywords" value="${v('keywords')}"></label>
+      <label>Website<input id="sg-website" type="url" value="${v('website')}" placeholder="https://"></label>
+      <label>Google Scholar profile<input id="sg-scholar" type="url" value="${v('scholar')}" placeholder="https://scholar.google.com/citations?user=…"></label>
+      <label>Note for the maintainer<textarea id="sg-note" rows="3"></textarea></label>
+    </form>
+    <h4 class="sgh">Your suggestion</h4>
+    <pre id="sgOut"></pre>
+    <div class="links">${REPO?`<a class="lk" id="sgIssue" target="_blank" rel="noopener">Open as GitHub issue</a>`:''}<button class="lk" id="sgCopy" type="button">Copy suggestion</button></div>
+    <p class="src" id="sgHint">${REPO?'The GitHub issue opens pre-filled; you need a GitHub account to submit it.':'Copy the suggestion and send it to whoever maintains this atlas.'}</p>`;
+  $('#suggest').dataset.of = r ? r.name : '';
+  $('#sgForm').addEventListener('input', updateSuggest);
+  $('#sgForm').addEventListener('submit', e=>e.preventDefault());
+  updateSuggest();
+  $('#sheet').hidden=true; $('#scrim').hidden=true;
+  $('#suggest').hidden=false; $('#sgScrim').hidden=false; $('#suggest').scrollTop=0; $('#sg-name').focus({preventScroll:true});
+}
+function suggestion(){
+  const g = id => ($('#sg-'+id)?.value||'').trim();
+  const o = { name:g('name'), affiliation:g('affiliation'), city:g('city'), country:g('country'),
+    topics:[...document.querySelectorAll('#sgForm .sgt input:checked')].map(i=>i.value),
+    keywords:g('keywords').split(';').map(s=>s.trim()).filter(Boolean), website:g('website')||null, scholar:g('scholar')||null };
+  const of = $('#suggest').dataset.of; if(of) o.correction_of = of;
+  const note = g('note'); if(note) o.note = note;
+  return o;
+}
+function updateSuggest(){
+  const o = suggestion(); const json = JSON.stringify(o,null,2);
+  $('#sgOut').textContent = json;
+  const a = $('#sgIssue');
+  if(a){ const title = (o.correction_of?'Correction: ':'New researcher: ') + (o.name||'(name)');
+    const body = (o.correction_of?`Correction for **${o.correction_of}**.`:'Suggested new entry.') + '\n\n```json\n' + json + '\n```\n';
+    a.href = `https://github.com/${REPO}/issues/new?title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}&labels=suggestion`; }
+}
+async function copySuggest(){
+  const b=$('#sgCopy'); const txt=$('#sgOut').textContent;
+  try{ await navigator.clipboard.writeText(txt); b.textContent='Copied'; }
+  catch(err){ const rg=document.createRange(); rg.selectNodeContents($('#sgOut')); const s=getSelection(); s.removeAllRanges(); s.addRange(rg); b.textContent='Selected, press Ctrl/Cmd+C'; }
+  setTimeout(()=>b.textContent='Copy suggestion',2200);
+}
+function closeSuggest(){ $('#suggest').hidden=true; $('#sgScrim').hidden=true; }
+
+/* ---------- wiring ---------- */
+const VIEWS=['people','topics','map','world'];
+function toggleTopic(t){ state.topics.has(t)?state.topics.delete(t):state.topics.add(t); render(); }
+function setView(v){
+  state.view=v;
+  document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.view===v));
+  VIEWS.forEach(k=>$('#view-'+k).hidden = k!==v);
+  if(v==='map' && !built) requestAnimationFrame(buildMap);
+  if(v==='world' && !wBuilt) requestAnimationFrame(buildWorld);
+  try{ history.replaceState(null,'','#'+v); }catch(e){}
+}
+function render(){
+  renderFacets(); renderActive(); renderPeople(); renderTopics(); styleMap(); styleWorld();
+  if(state.open!==null && !$('#sheet').hidden) openProfile(state.open);
+}
+function clearAll(){ state.q=''; state.country=''; state.source=''; state.institute=''; state.topics.clear(); $('#q').value=''; $('#country').value=''; render(); }
+
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-topic]'); if(t){ toggleTopic(t.dataset.topic); return; }
+  const o=e.target.closest('[data-open]'); if(o){ openProfile(+o.dataset.open); return; }
+  const c=e.target.closest('[data-cty]'); if(c){ state.country = state.country===c.dataset.cty?'':c.dataset.cty; $('#country').value=state.country; render(); return; }
+  const ins=e.target.closest('[data-inst]'); if(ins){ state.institute = state.institute===ins.dataset.inst?'':ins.dataset.inst; render(); return; }
+  if(e.target.id==='instMore'){ state.instAll=!state.instAll; renderFacets(); return; }
+  const kw=e.target.closest('[data-kw]'); if(kw){ closeProfile(); state.q=kw.dataset.kw; $('#q').value=state.q; setView('people'); render(); return; }
+  if(e.target.closest('[data-suggest]')){ openSuggest(e.target.closest('[data-suggest]').dataset.suggest); return; }
+  if(e.target.closest('#closeSuggest') || e.target.id==='sgScrim'){ closeSuggest(); return; }
+  if(e.target.id==='sgCopy'){ copySuggest(); return; }
+  const s=e.target.closest('[data-src]'); if(s){ state.source = state.source===s.dataset.src?'':s.dataset.src; render(); return; }
+  const m=e.target.closest('[data-mode]'); if(m){ state.netmode=m.dataset.mode; document.querySelectorAll('#netmode button').forEach(b=>b.setAttribute('aria-pressed',b===m)); buildMap(); return; }
+  if(e.target.closest('[data-country]')){ state.country=''; $('#country').value=''; render(); return; }
+  if(e.target.closest('[data-q]')){ state.q=''; $('#q').value=''; render(); return; }
+  if(e.target.id==='clearall'){ clearAll(); return; }
+  if(e.target.id==='scrim') closeProfile();
+  if(e.target.closest('#closeSheet')) closeProfile();
+});
+document.addEventListener('keydown',e=>{ if(e.key==='Escape'){ closeProfile(); closeSuggest(); } });
+document.querySelectorAll('#tabs button').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
+let qt; $('#q').addEventListener('input',e=>{ clearTimeout(qt); qt=setTimeout(()=>{ state.q=e.target.value.trim(); render(); },120); });
+const countries=[...new Set(DATA.map(r=>r.country))].sort();
+$('#country').innerHTML = `<option value="">All countries</option>`+countries.map(c=>`<option>${esc(c)}</option>`).join('');
+$('#country').addEventListener('change',e=>{ state.country=e.target.value; render(); });
+$('#copy').addEventListener('click',async e=>{
+  const out = JSON.stringify(DATA.map(({id,lat,lng,coauthors,...r})=>({...r, coauthors:coauthors.map(i=>DATA[i].name)})),null,2);
+  try{ await navigator.clipboard.writeText(out); e.target.textContent='Copied'; }
+  catch(err){ e.target.textContent='Copy blocked by browser'; }
+  setTimeout(()=>e.target.textContent='Copy data as JSON',1800);
+});
+let rz; window.addEventListener('resize',()=>{ if(state.view==='map'){ clearTimeout(rz); rz=setTimeout(buildMap,250); } else built=false; });
+
+renderStats(); render();
+const h = (location.hash||'').slice(1); setView(VIEWS.includes(h)?h:'people');
+}
+Promise.all([
+  fetch('data/researchers.json').then(r => { if(!r.ok) throw new Error('data/researchers.json: ' + r.status); return r.json(); }),
+  fetch('data/countries-110m.json').then(r => { if(!r.ok) throw new Error('data/countries-110m.json: ' + r.status); return r.json(); })
+]).then(([d, g]) => start(d, g)).catch(err => {
+  document.querySelector('main').innerHTML = '<div class="empty">The data files could not be loaded (' + String(err.message||err) + '). If you opened index.html directly from your disk, serve the folder instead, for example with: python3 -m http.server</div>';
+});
+</script>
+
+</body>
+</html>
