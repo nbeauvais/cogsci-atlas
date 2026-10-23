@@ -269,7 +269,7 @@ DATA.forEach((r,i)=>{ r.id=i; r.topics=r.topics.filter(t=>famOf[t]); });
 const topicCount = {}; DATA.forEach(r=>r.topics.forEach(t=>topicCount[t]=(topicCount[t]||0)+1));
 
 const MAPNAME = {'United States':'United States of America'};
-const REPO = ""; // set to "your-username/your-repo" to enable "Open as GitHub issue"
+const REPO = "nbeauvais/cogsci-atlas"; // to enable "Open as GitHub issue"
 const state = { q:'', topics:new Set(), country:'', source:'', institute:'', instAll:false, view:'people', open:null, netmode:'topics' };
 const $ = s => document.querySelector(s);
 const esc = s => String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
