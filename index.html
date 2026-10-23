@@ -185,6 +185,8 @@ aside.facets{display:flex;flex-direction:column;gap:18px}
 .ramp i{width:22px;height:10px;display:block;flex:none}
 #world{display:block;width:100%;height:auto;aspect-ratio:1.9/1;max-height:640px;cursor:grab}
 .country{stroke:var(--surface);stroke-width:.6;cursor:pointer}
+.sphere{fill:var(--bg);stroke:var(--line);stroke-width:1}
+.graticule{fill:none;stroke:var(--line);stroke-width:.5;stroke-opacity:.7}
 .country:hover{stroke:var(--ink);stroke-width:1.2}
 .ctable{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:4px 24px;margin-top:16px}
 .ctable button{display:flex;justify-content:space-between;gap:8px;width:100%;background:none;border:0;border-bottom:1px solid var(--line);padding:6px 2px;cursor:pointer;color:var(--ink);text-align:left}
@@ -337,10 +339,18 @@ footer button{border:1px solid var(--line);background:var(--surface);border-radi
       </section>
       <section id="view-world" hidden>
         <div class="mapbox">
-          <div class="mapctl"><div class="legend" id="wlegend"></div></div>
+          <div class="mapctl">
+            <div class="seg" id="projmode" role="group" aria-label="Map projection">
+              <button data-proj="natural" aria-pressed="true">Natural Earth</button>
+              <button data-proj="equal" aria-pressed="false">Equal Earth</button>
+              <button data-proj="mercator" aria-pressed="false">Mercator</button>
+              <button data-proj="globe" aria-pressed="false">Globe</button>
+            </div>
+            <div class="legend" id="wlegend"></div>
+          </div>
           <svg id="world" role="img" aria-label="World map of researchers by country and city"></svg>
           <div class="tip" id="wtip"></div>
-          <div class="maphint">Click a country to filter the atlas. Circles are cities, sized by number of researchers.</div>
+          <div class="maphint"><span id="projnote"></span> Click a country to filter the atlas; circles are cities, sized by number of researchers.</div>
         </div>
         <div class="ctable" id="ctable"></div>
       </section>
@@ -579,30 +589,59 @@ function styleMap(){
 /* ---------- world view ---------- */
 let wBuilt=false, wCountries, wDots, wScale;
 const cssVar = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const PROJ = {
+  natural: {label:'Natural Earth', make:()=>d3.geoNaturalEarth1(), note:'A compromise projection: shapes and sizes are both only slightly distorted.'},
+  equal:   {label:'Equal Earth', make:()=>d3.geoEqualEarth(), note:'Equal-area: every country keeps its true relative size.'},
+  mercator:{label:'Mercator', make:()=>d3.geoMercator(), note:'Mercator keeps local shapes but inflates areas far from the equator.'},
+  globe:   {label:'Globe', make:()=>d3.geoOrthographic().rotate([-2.35,-30]), note:'Drag to turn the globe.'}
+};
+try{ const sp=localStorage.getItem('atlas.proj'); if(sp && PROJ[sp]) state.proj=sp; }catch(e){}
+if(!state.proj) state.proj='natural';
 function buildWorld(){
-  const svg = d3.select('#world'); svg.selectAll('*').remove();
-  const W = 960, H = 505;
-  svg.attr('viewBox',[0,0,W,H]);
+  const svg = d3.select('#world'); svg.selectAll('*').remove(); svg.on('.zoom',null).on('.drag',null);
+  const W = 960, H = 505, mode = state.proj, globe = mode==='globe';
+  svg.attr('viewBox',[0,0,W,H]).style('cursor', globe ? 'grab' : 'grab');
   const feats = topojson.feature(GEO, GEO.objects.countries).features.filter(f=>f.properties.name!=='Antarctica');
-  const proj = d3.geoNaturalEarth1().fitExtent([[8,8],[W-8,H-8]],{type:'FeatureCollection',features:feats});
+  const proj = PROJ[mode].make();
+  if(mode==='mercator') proj.fitExtent([[8,8],[W-8,H-8]],{type:'FeatureCollection',features:feats});
+  else proj.fitExtent([[8,8],[W-8,H-8]],{type:'Sphere'});
   const path = d3.geoPath(proj);
   const root = svg.append('g');
-  svg.call(d3.zoom().scaleExtent([1,8]).translateExtent([[0,0],[W,H]]).on('zoom',e=>{ root.attr('transform',e.transform); wDots.attr('r',d=>wScale(d.n)/Math.sqrt(e.transform.k)).attr('stroke-width',1.2/e.transform.k); }));
+  const sphere = root.append('path').datum({type:'Sphere'}).attr('class','sphere').attr('d',path);
+  const grat = root.append('path').datum(d3.geoGraticule10()).attr('class','graticule').attr('d',path);
+  if(mode==='mercator'){ sphere.attr('display','none'); }
   const tip=$('#wtip');
   const showTip=(e,html)=>{ const mb=document.querySelector('#view-world .mapbox').getBoundingClientRect(); tip.innerHTML=html; tip.style.left=Math.max(4,Math.min(e.clientX-mb.left+12, mb.width-250))+'px'; tip.style.top=(e.clientY-mb.top+12)+'px'; tip.style.opacity=1; };
   wCountries = root.append('g').selectAll('path').data(feats).join('path').attr('class','country').attr('d',path)
-    .on('click',(e,f)=>{ const c=dataCountry(f.properties.name); if(c){ state.country = state.country===c?'':c; $('#country').value=state.country; render(); } })
+    .on('click',(e,f)=>{ if(e.defaultPrevented) return; const c=dataCountry(f.properties.name); if(c){ state.country = state.country===c?'':c; $('#country').value=state.country; render(); } })
     .on('mousemove',(e,f)=>{ const c=dataCountry(f.properties.name); const n=c?filtered().filter(r=>r.country===c).length:0; showTip(e,`<b>${esc(f.properties.name)}</b><br>${n} researcher${n===1?'':'s'}${c?'':' in the atlas'}`); })
     .on('mouseleave',()=>tip.style.opacity=0);
   const cities = d3.rollups(DATA, v=>({n:v.length, lat:v[0].lat, lng:v[0].lng, country:v[0].country}), r=>r.city).map(([city,o])=>({city,...o}));
   wScale = d3.scaleSqrt().domain([1, d3.max(cities,c=>c.n)]).range([2.5,13]);
   wDots = root.append('g').selectAll('circle').data(cities).join('circle')
-    .attr('cx',d=>proj([d.lng,d.lat])[0]).attr('cy',d=>proj([d.lng,d.lat])[1])
     .attr('r',d=>wScale(d.n)).attr('fill','var(--ink)').attr('fill-opacity',.85).attr('stroke','var(--surface)').attr('stroke-width',1.2)
     .style('cursor','pointer')
     .on('mousemove',(e,d)=>{ const ppl=filtered().filter(r=>r.city===d.city); showTip(e,`<b>${esc(d.city)}</b><br>${ppl.length?ppl.slice(0,12).map(r=>esc(r.name)).join('<br>')+(ppl.length>12?`<br>+${ppl.length-12} more`:''):'No one matches the current filters'}`); })
     .on('mouseleave',()=>tip.style.opacity=0)
     .on('click',(e,d)=>{ state.q=d.city; $('#q').value=d.city; setView('people'); render(); });
+  const place = () => {
+    const r = proj.rotate(), centre = [-r[0], -r[1]];
+    wDots.each(d=>{ d.vis = !globe || d3.geoDistance([d.lng,d.lat], centre) < Math.PI/2 - 0.02; })
+      .attr('cx',d=>proj([d.lng,d.lat])[0]).attr('cy',d=>proj([d.lng,d.lat])[1]);
+  };
+  place();
+  if(globe){
+    let r0, p0;
+    svg.call(d3.drag()
+      .on('start',e=>{ r0=proj.rotate(); p0=[e.x,e.y]; svg.style('cursor','grabbing'); })
+      .on('drag',e=>{ const k=0.25; proj.rotate([r0[0]+(e.x-p0[0])*k, Math.max(-85,Math.min(85, r0[1]-(e.y-p0[1])*k)), r0[2]]);
+        sphere.attr('d',path); grat.attr('d',path); wCountries.attr('d',path); place(); styleWorld(); })
+      .on('end',()=>svg.style('cursor','grab')));
+  } else {
+    svg.call(d3.zoom().scaleExtent([1,8]).translateExtent([[0,0],[W,H]]).on('zoom',e=>{ root.attr('transform',e.transform); wDots.attr('r',d=>wScale(d.n)/Math.sqrt(e.transform.k)).attr('stroke-width',1.2/e.transform.k); }));
+  }
+  $('#projnote').textContent = PROJ[mode].note + (globe ? '' : ' Scroll or pinch to zoom.');
+  document.querySelectorAll('#projmode button').forEach(b=>b.setAttribute('aria-pressed', b.dataset.proj===mode));
   wBuilt=true; styleWorld();
 }
 const dataCountry = mapName => { const all=[...new Set(DATA.map(r=>r.country))]; return all.find(c=>(MAPNAME[c]||c)===mapName) || null; };
@@ -619,7 +658,7 @@ function styleWorld(){
       .attr('stroke',f=> state.country && dataCountry(f.properties.name)===state.country ? 'var(--ink)' : 'var(--surface)')
       .attr('stroke-width',f=> state.country && dataCountry(f.properties.name)===state.country ? 1.6 : .6);
     const cityN = {}; rows.forEach(r=>cityN[r.city]=(cityN[r.city]||0)+1);
-    wDots.attr('display',d=>cityN[d.city]?null:'none');
+    wDots.attr('display',d=>cityN[d.city] && d.vis!==false ? null : 'none');
     $('#wlegend').innerHTML = `<span>Researchers per country</span><span class="ramp">${bins.map((b,i)=>`<i style="background:${step(i)}"></i>`).join('')}</span>
       <span style="font-family:var(--mono)">${bins.map((b,i)=>i===bins.length-1?b+'+':b+(bins[i+1]-1>b?'–'+(bins[i+1]-1):'')).join(' · ')}</span>
       <span><span class="swatch" style="background:var(--ink);border-radius:50%"></span>City</span>`;
@@ -838,6 +877,7 @@ document.addEventListener('click',e=>{
   if(e.target.closest('#closeSuggest') || e.target.id==='sgScrim'){ closeSuggest(); return; }
   if(e.target.id==='sgCopy'){ copySuggest(); return; }
   const s=e.target.closest('[data-src]'); if(s){ state.source = state.source===s.dataset.src?'':s.dataset.src; render(); return; }
+  const pj=e.target.closest('[data-proj]'); if(pj){ state.proj=pj.dataset.proj; try{ localStorage.setItem('atlas.proj',state.proj); }catch(err){} buildWorld(); return; }
   const m=e.target.closest('[data-mode]'); if(m){ state.netmode=m.dataset.mode; document.querySelectorAll('#netmode button').forEach(b=>b.setAttribute('aria-pressed',b===m)); buildMap(); return; }
   if(e.target.closest('[data-country]')){ state.country=''; $('#country').value=''; render(); return; }
   if(e.target.closest('[data-q]')){ state.q=''; $('#q').value=''; render(); return; }
