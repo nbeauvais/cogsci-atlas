@@ -36,10 +36,20 @@ a{color:var(--accent)}
 button,input,select{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 
-header.nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 24px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--line)}
+header.nav{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding-bottom:14px;margin-bottom:14px;border-bottom:1px solid var(--line)}
 .brandmark{display:inline-flex;align-items:center;gap:10px;background:none;border:0;padding:0;cursor:pointer;color:var(--ink);font-family:var(--display);font-weight:700;font-size:19px;letter-spacing:-.015em}
 .brandmark svg{width:30px;height:30px;flex:none}
 .brandmark svg line{stroke:var(--ink-3);stroke-width:1.6}
+.brandmark svg{transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
+.brandmark:hover svg{transform:rotate(-24deg) scale(1.08)}
+header.nav .tabs{margin-left:auto}
+.themebtn{width:38px;height:38px;flex:none;display:inline-grid;place-items:center;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);cursor:pointer;color:var(--ink)}
+.themebtn:hover{border-color:var(--ink-3)}
+.themebtn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;grid-area:1/1;transition:transform .35s,opacity .25s}
+.themebtn .i-moon{fill:currentColor;stroke:none}
+.themebtn .i-sun{opacity:0;transform:rotate(-60deg) scale(.6)}
+.themebtn.is-dark .i-moon{opacity:0;transform:rotate(60deg) scale(.6)}
+.themebtn.is-dark .i-sun{opacity:1;transform:none}
 .stats{display:flex;flex-wrap:wrap;gap:12px 28px;font-family:var(--mono);font-size:12px;color:var(--ink-3)}
 .stats b{display:block;font-family:var(--display);font-size:24px;color:var(--ink);font-weight:700;font-variant-numeric:tabular-nums;line-height:1.1}
 /* home */
@@ -65,8 +75,16 @@ header.nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-
 .try{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12.5px;color:var(--ink-3)}
 .try > span{margin-right:4px}
 .hero-graph{margin:0;min-width:0;display:flex;flex-direction:column;gap:8px}
-.hg-open{display:block;width:100%;padding:0;border:1px solid var(--line);border-radius:14px;background:var(--surface);cursor:pointer;overflow:hidden}
-.hg-open:hover{border-color:var(--ink-3)}
+.hg-open{display:block;width:100%;border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden}
+.hl-link{stroke:var(--ink-3);stroke-opacity:.18;transition:stroke-opacity .2s}
+.hn-person{transition:opacity .2s}
+.hn-topic{cursor:pointer;transition:opacity .2s}
+.hn-person{cursor:pointer}
+.hn-label{transition:opacity .2s;pointer-events:none}
+#heroGraph.focused .hl-link{stroke-opacity:.05}
+#heroGraph.focused .hl-link.on{stroke:var(--ink-2);stroke-opacity:.55}
+#heroGraph.focused circle{opacity:.2}
+#heroGraph.focused circle.on{opacity:1}
 #heroGraph{display:block;width:100%;height:auto;aspect-ratio:1.18/1}
 .hero-graph figcaption{font-size:12.5px;color:var(--ink-3)}
 .hsec{margin-top:clamp(36px,5vw,64px)}
@@ -107,6 +125,48 @@ header.nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-
 .sp .links{justify-content:flex-start;margin-top:auto;padding-top:4px}
 .banner{margin-top:clamp(32px,4vw,48px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px 24px;padding:18px 20px;border-radius:12px;background:var(--accent-soft);color:var(--ink)}
 .banner div{max-width:70ch}
+:root{--lift:0 10px 28px rgba(20,40,35,.09)}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){--lift:0 10px 28px rgba(0,0,0,.45)} }
+:root[data-theme="dark"]{--lift:0 10px 28px rgba(0,0,0,.45)}
+.hlw{-webkit-box-decoration-break:clone;box-decoration-break:clone;background-image:linear-gradient(var(--accent-soft),var(--accent-soft));background-repeat:no-repeat;background-size:100% .32em;background-position:0 88%;padding:0 .04em;transition:background-size .35s ease}
+.hlw2{background-image:linear-gradient(color-mix(in srgb, var(--f2) 28%, transparent),color-mix(in srgb, var(--f2) 28%, transparent))}
+.hlw3{background-image:linear-gradient(color-mix(in srgb, var(--f1) 24%, transparent),color-mix(in srgb, var(--f1) 24%, transparent))}
+.display:hover .hlw{background-size:100% .9em}
+.marquee{position:relative;overflow:hidden;max-width:560px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.mq-track{display:flex;width:max-content;animation:mq 110s linear infinite}
+.marquee.rev .mq-track{animation-direction:reverse;animation-duration:130s}
+.marquee:hover .mq-track,.marquee:focus-within .mq-track{animation-play-state:paused}
+.mq-set{display:flex;gap:6px;padding-right:6px}
+.marquee .tag{white-space:nowrap;transition:background .15s,border-color .15s,transform .15s}
+.marquee .tag:hover{transform:translateY(-1px);background:var(--sunk);border-color:var(--ink-3)}
+.marquee .tag.inst{color:var(--ink-3)}
+@keyframes mq{to{transform:translateX(-50%)}}
+.field,.ex,.sp{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.field:hover,.ex:hover,.sp:hover{transform:translateY(-3px);box-shadow:var(--lift);border-color:var(--ink-3)}
+.field-h .dot{transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.field:hover .field-h .dot{transform:scale(1.45)}
+.field .tag{transition:background .15s,border-color .15s}
+.field .tag:hover{background:var(--sunk);border-color:var(--ink-3)}
+.arr{display:inline-block;transition:transform .2s ease;opacity:.6}
+.ex:hover .arr{transform:translateX(5px);opacity:1}
+.bars i{transform-origin:left center;transition:transform .35s ease}
+.ex:hover .bars i{transform:scaleX(1.04)}
+.toplist li{transition:padding .2s}
+.ex:hover .toplist li:hover{padding-left:4px}
+.sp{animation:spin .35s ease both;animation-delay:calc(var(--i,0)*60ms)}
+@keyframes spin{from{opacity:.2;transform:translateY(6px)}to{opacity:1;transform:none}}
+.stats > div{transition:transform .2s}
+.stats > div:hover{transform:translateY(-2px)}
+.stats > div:hover b{color:var(--accent)}
+.hsearch button{transition:transform .15s,background .15s}
+.hsearch button:hover{transform:translateY(-1px)}
+@media (prefers-reduced-motion: reduce){
+  .mq-track{animation:none;flex-wrap:wrap;width:auto}
+  .mq-set[aria-hidden]{display:none}
+  .mq-set{flex-wrap:wrap}
+  .marquee{-webkit-mask-image:none;mask-image:none}
+  .sp{animation:none}
+}
 
 .toolbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);padding-block:10px;border-bottom:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px;align-items:center}
 .search{flex:1 1 260px;min-width:0;position:relative}
@@ -185,8 +245,9 @@ aside.facets{display:flex;flex-direction:column;gap:18px}
 .ramp i{width:22px;height:10px;display:block;flex:none}
 #world{display:block;width:100%;height:auto;aspect-ratio:1.9/1;max-height:640px;cursor:grab}
 .country{stroke:var(--surface);stroke-width:.6;cursor:pointer}
-.sphere{fill:var(--bg);stroke:var(--line);stroke-width:1}
-.graticule{fill:none;stroke:var(--line);stroke-width:.5;stroke-opacity:.7}
+.sphere{fill:none;stroke:var(--line);stroke-width:1}
+.sphere.ocean{fill:var(--accent-soft);fill-opacity:.45;stroke:var(--ink-3);stroke-opacity:.35}
+.graticule{fill:none;stroke:var(--accent);stroke-width:.5;stroke-opacity:.12}
 .country:hover{stroke:var(--ink);stroke-width:1.2}
 .ctable{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:4px 24px;margin-top:16px}
 .ctable button{display:flex;justify-content:space-between;gap:8px;width:100%;background:none;border:0;border-bottom:1px solid var(--line);padding:6px 2px;cursor:pointer;color:var(--ink);text-align:left}
@@ -260,13 +321,17 @@ footer button{border:1px solid var(--line);background:var(--surface);border-radi
       <button role="tab" data-view="map" aria-selected="false">Network</button>
       <button role="tab" data-view="world" aria-selected="false">World</button>
     </nav>
+    <button class="themebtn" id="themeBtn" type="button" aria-label="Switch to dark mode" title="Switch theme">
+      <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+    </button>
   </header>
 
   <section id="view-home" class="home" hidden>
     <div class="hero">
       <div class="hero-text">
         <p class="eyebrow">An open directory of cognitive science</p>
-        <h1 class="display">Who studies the mind, and&nbsp;where</h1>
+        <h1 class="display"><span class="hlw">Who</span> studies the <span class="hlw hlw3">mind</span>, and&nbsp;<span class="hlw hlw2">where</span></h1>
         <p class="lede">Find researchers by name, topic, institute or country. See who works with whom, and where the field lives on the map.</p>
         <div class="hsw">
         <form class="hsearch" id="hform" role="search">
@@ -276,12 +341,13 @@ footer button{border:1px solid var(--line);background:var(--surface);border-radi
         </form>
         <div class="hresults" id="hresults" hidden></div>
         </div>
-        <div class="try" id="try"></div>
+        <div class="marquee" id="mq1" aria-label="Topics to explore"></div>
+        <div class="marquee rev" id="mq2" aria-label="Institutes to explore"></div>
         <div class="stats" id="stats"></div>
       </div>
       <figure class="hero-graph">
-        <button class="hg-open" data-gonet aria-label="Open the co-authorship network"><svg id="heroGraph" role="img" aria-label="Co-authorship network of the researchers in the atlas"></svg></button>
-        <figcaption>Co-authorship links in the atlas, coloured by field. <button class="inl" data-gonet>Open the network</button></figcaption>
+        <div class="hg-open"><svg id="heroGraph" role="img" aria-label="Researchers linked to the topics they work on"></svg></div>
+        <figcaption>Every researcher in the atlas, linked to the topics they work on. Hover a topic to light up who works on it. <button class="inl" data-gonet="topics">Open the network</button></figcaption>
       </figure>
     </div>
 
@@ -293,9 +359,9 @@ footer button{border:1px solid var(--line);background:var(--surface);border-radi
     <section class="hsec" aria-labelledby="h-explore">
       <div class="hsec-head"><h2 id="h-explore">Three ways in</h2></div>
       <div class="explore">
-        <button class="ex" data-view-go="topics"><span class="ex-k">Topics</span><span class="ex-t">Who works on each question</span><span class="ex-viz" id="exTopics"></span></button>
-        <button class="ex" data-gonet><span class="ex-k">Network</span><span class="ex-t">Who writes with whom</span><span class="ex-viz" id="exNet"></span></button>
-        <button class="ex" data-view-go="world"><span class="ex-k">World</span><span class="ex-t">Where the field is based</span><span class="ex-viz"><svg id="exWorld" viewBox="0 0 320 168" role="img" aria-label="Small world map of researchers by country"></svg></span><span class="ex-foot" id="exWorldFoot"></span></button>
+        <button class="ex" data-view-go="topics"><span class="ex-k">Topics <span class="arr" aria-hidden="true">→</span></span><span class="ex-t">Who works on each question</span><span class="ex-viz" id="exTopics"></span></button>
+        <button class="ex" data-gonet="coauthors"><span class="ex-k">Network <span class="arr" aria-hidden="true">→</span></span><span class="ex-t">Who writes with whom</span><span class="ex-viz" id="exNet"></span></button>
+        <button class="ex" data-view-go="world"><span class="ex-k">World <span class="arr" aria-hidden="true">→</span></span><span class="ex-t">Where the field is based</span><span class="ex-viz"><svg id="exWorld" viewBox="0 0 320 168" role="img" aria-label="Small world map of researchers by country"></svg></span><span class="ex-foot" id="exWorldFoot"></span></button>
       </div>
     </section>
 
@@ -609,7 +675,8 @@ function buildWorld(){
   const root = svg.append('g');
   const sphere = root.append('path').datum({type:'Sphere'}).attr('class','sphere').attr('d',path);
   const grat = root.append('path').datum(d3.geoGraticule10()).attr('class','graticule').attr('d',path);
-  if(mode==='mercator'){ sphere.attr('display','none'); }
+  if(mode==='mercator') sphere.attr('display','none');
+  if(globe) sphere.classed('ocean',true); else grat.attr('display','none');
   const tip=$('#wtip');
   const showTip=(e,html)=>{ const mb=document.querySelector('#view-world .mapbox').getBoundingClientRect(); tip.innerHTML=html; tip.style.left=Math.max(4,Math.min(e.clientX-mb.left+12, mb.width-250))+'px'; tip.style.top=(e.clientY-mb.top+12)+'px'; tip.style.opacity=1; };
   wCountries = root.append('g').selectAll('path').data(feats).join('path').attr('class','country').attr('d',path)
@@ -709,8 +776,14 @@ function closeProfile(){ $('#sheet').hidden=true; $('#scrim').hidden=true; state
 let homeBuilt=false;
 function renderHome(){
   // try chips
-  $('#try').innerHTML = `<span>Try</span>` + ['metacognition','dual-process','consciousness','reinforcement learning','AI & LLMs'].map(tagHtml).join('')
-    + `<button class="tag" data-inst="Paris Brain Institute (ICM)">Paris Brain Institute</button>`;
+  const tps = Object.keys(topicCount).sort((a,b)=>topicCount[b]-topicCount[a]);
+  const ic = {}; DATA.forEach(r=>{ if(r.institute) ic[r.institute]=(ic[r.institute]||0)+1; });
+  const ins = Object.keys(ic).sort((a,b)=>ic[b]-ic[a]).slice(0,22);
+  const row1 = tps.map(tp=>`<button class="tag" data-topic="${esc(tp)}"><i style="background:${col(tp)}"></i>${esc(tp)}</button>`).join('');
+  const row2 = ins.map(n=>`<button class="tag inst" data-inst="${esc(n)}">${esc(n)}</button>`).join('');
+  const dup = h => h.replace(/<button /g,'<button tabindex="-1" ');
+  $('#mq1').innerHTML = `<div class="mq-track"><div class="mq-set">${row1}</div><div class="mq-set" aria-hidden="true">${dup(row1)}</div></div>`;
+  $('#mq2').innerHTML = `<div class="mq-track"><div class="mq-set">${row2}</div><div class="mq-set" aria-hidden="true">${dup(row2)}</div></div>`;
   // fields
   $('#fields').innerHTML = FAMILIES.map(f=>{
     const n = DATA.filter(r=>r.topics.some(t=>f.topics.includes(t))).length;
@@ -745,34 +818,66 @@ function renderSpot(){
   const pool = DATA.filter(r=>r.source==='verified' && r.website && !r.deceased);
   const pick = []; const used = new Set();
   while(pick.length<3 && used.size<pool.length){ const i=Math.floor(Math.random()*pool.length); if(!used.has(i)){ used.add(i); pick.push(pool[i]); } }
-  $('#spot').innerHTML = pick.map(r=>`<div class="sp"><button class="name" data-open="${r.id}">${esc(r.name)}</button>
+  $('#spot').innerHTML = pick.map((r,i)=>`<div class="sp" style="--i:${i}"><button class="name" data-open="${r.id}">${esc(r.name)}</button>
     <p class="aff">${esc(r.institute||r.affiliation)} · ${esc(r.city)}</p>
     <div class="tags">${r.topics.slice(0,3).map(tagHtml).join('')}</div>
     <div class="links">${linkBtns(r)}</div></div>`).join('');
 }
+let heroSim=null;
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
 function buildHeroGraph(){
   const W=560, H=475;
   const svg = d3.select('#heroGraph').attr('viewBox',[0,0,W,H]);
-  const people = DATA.filter(r=>r.coauthors.length);
-  const nodes = people.map(r=>({id:r.id, r}));
-  const links = []; people.forEach(r=>r.coauthors.forEach(j=>{ if(r.id<j) links.push({source:r.id,target:j}); }));
-  const rad = d => 2.6+Math.sqrt(d.r.coauthors.length)*1.5;
-  const s = d3.forceSimulation(nodes).force('link',d3.forceLink(links).id(d=>d.id).distance(16).strength(.7))
-    .force('charge',d3.forceManyBody().strength(-26)).force('collide',d3.forceCollide().radius(d=>rad(d)+1.5))
-    .force('x',d3.forceX(W/2).strength(.06)).force('y',d3.forceY(H/2).strength(.08)).stop();
-  for(let i=0;i<320;i++) s.tick();
+  const topics = Object.keys(topicCount);
+  const tn = topics.map(tp=>({id:'t:'+tp, kind:'topic', t:tp, n:topicCount[tp]}));
+  const pn = DATA.map(r=>({id:'r:'+r.id, kind:'person', r}));
+  const nodes = [...tn, ...pn];
+  const links = []; DATA.forEach(r=>r.topics.forEach(tp=>links.push({source:'r:'+r.id, target:'t:'+tp, t:tp, rid:r.id})));
+  const rad = d => d.kind==='topic' ? 4+Math.sqrt(d.n)*1.7 : 2.2;
+  const sim = d3.forceSimulation(nodes)
+    .force('link',d3.forceLink(links).id(d=>d.id).distance(26).strength(.32))
+    .force('charge',d3.forceManyBody().strength(d=>d.kind==='topic'?-130:-9))
+    .force('collide',d3.forceCollide().radius(d=>rad(d)+(d.kind==='topic'?6:1)))
+    .force('x',d3.forceX(W/2).strength(.05)).force('y',d3.forceY(H/2).strength(.07)).stop();
+  for(let i=0;i<360;i++) sim.tick();
+  // fit the settled layout into the frame once; later motion happens inside that frame
   const xs=nodes.map(n=>n.x), ys=nodes.map(n=>n.y);
-  const x0=Math.min(...xs)-12, x1=Math.max(...xs)+12, y0=Math.min(...ys)-12, y1=Math.max(...ys)+12;
-  const k=Math.min(W/(x1-x0), H/(y1-y0)), ox=(W-(x1-x0)*k)/2-x0*k, oy=(H-(y1-y0)*k)/2-y0*k;
-  const X=d=>d.x*k+ox, Y=d=>d.y*k+oy;
-  svg.append('g').selectAll('line').data(links).join('line').attr('x1',d=>X(d.source)).attr('y1',d=>Y(d.source)).attr('x2',d=>X(d.target)).attr('y2',d=>Y(d.target))
-    .attr('stroke','var(--ink-3)').attr('stroke-opacity',.35).attr('stroke-width',1);
-  svg.append('g').selectAll('circle').data(nodes).join('circle').attr('cx',X).attr('cy',Y).attr('r',d=>rad(d)*Math.min(1.25,k))
-    .attr('fill',d=>col(d.r.topics[0])).attr('stroke','var(--surface)').attr('stroke-width',1.2)
-    .append('title').text(d=>d.r.name);
-  const hubs = nodes.slice().sort((a,b)=>b.r.coauthors.length-a.r.coauthors.length).slice(0,6);
-  svg.append('g').selectAll('text').data(hubs).join('text').attr('class','node-label').attr('text-anchor','middle').attr('font-size',11.5).attr('font-weight',600)
-    .attr('x',X).attr('y',d=>Y(d)-rad(d)*Math.min(1.25,k)-5).text(d=>surname(d.r.name));
+  const x0=Math.min(...xs)-26, x1=Math.max(...xs)+26, y0=Math.min(...ys)-22, y1=Math.max(...ys)+22;
+  const k=Math.min(W/(x1-x0), H/(y1-y0));
+  const g = svg.append('g').attr('transform',`translate(${(W-(x1-x0)*k)/2-x0*k},${(H-(y1-y0)*k)/2-y0*k}) scale(${k})`);
+  const L = g.append('g').selectAll('line').data(links).join('line').attr('class','hl-link').attr('stroke-width',.7/k);
+  const N = g.append('g').selectAll('circle').data(nodes).join('circle')
+    .attr('class',d=>d.kind==='topic'?'hn-topic':'hn-person')
+    .attr('r',rad).attr('fill',d=>d.kind==='topic'?col(d.t):'var(--ink-3)')
+    .attr('stroke','var(--surface)').attr('stroke-width',d=>(d.kind==='topic'?1.6:.8)/k);
+  N.append('title').text(d=>d.kind==='topic'?`${d.t} · ${d.n} researchers`:`${d.r.name} · ${d.r.topics.join(', ')}`);
+  const T = g.append('g').selectAll('text').data(tn).join('text').attr('class','node-label hn-label')
+    .attr('text-anchor','middle').attr('font-size',11/k).attr('font-weight',600).style('stroke-width',3/k).text(d=>d.t)
+    .attr('opacity',d=>d.n>=24?1:0);
+  const draw = () => {
+    L.attr('x1',d=>d.source.x).attr('y1',d=>d.source.y).attr('x2',d=>d.target.x).attr('y2',d=>d.target.y);
+    N.attr('cx',d=>d.x).attr('cy',d=>d.y);
+    T.attr('x',d=>d.x).attr('y',d=>d.y-rad(d)-4/k);
+  };
+  draw();
+  // hover: light up one topic (or one researcher) and its links
+  const focus = d => {
+    if(!d){ svg.classed('focused',false); L.classed('on',false); N.classed('on',false); T.attr('opacity',x=>x.n>=24?1:0); return; }
+    svg.classed('focused',true);
+    const tset = d.kind==='topic' ? new Set([d.t]) : new Set(d.r.topics);
+    const rset = d.kind==='topic' ? new Set(DATA.filter(r=>r.topics.includes(d.t)).map(r=>r.id)) : new Set([d.r.id]);
+    L.classed('on',l=> d.kind==='topic' ? l.t===d.t : l.rid===d.r.id);
+    N.classed('on',x=> x.kind==='topic' ? tset.has(x.t) : rset.has(x.r.id));
+    T.attr('opacity',x=> tset.has(x.t) ? 1 : 0);
+  };
+  N.on('mouseenter',(e,d)=>focus(d)).on('mouseleave',()=>focus(null))
+   .on('click',(e,d)=>{ e.stopPropagation(); if(d.kind==='topic') toggleTopic(d.t); else openProfile(d.r.id); });
+  // ambient motion: a slow, low-energy drift so the picture breathes
+  if(!REDUCED){
+    const drift = () => { for(const n of nodes){ n.vx += (Math.random()-.5)*(n.kind==='topic'?.06:.12); n.vy += (Math.random()-.5)*(n.kind==='topic'?.06:.12); } };
+    sim.force('drift', drift).velocityDecay(.55).alpha(.02).alphaTarget(.02).alphaMin(0).on('tick', draw);
+    heroSim = sim; sim.restart();
+  }
 }
 function homeSearch(){
   const v = $('#hq').value.trim(); const box = $('#hresults');
@@ -849,6 +954,7 @@ function setView(v){
   document.querySelectorAll('#tabs button').forEach(b=>b.setAttribute('aria-selected',b.dataset.view===v));
   VIEWS.forEach(k=>$('#view-'+k).hidden = k!==v);
   $('#app').hidden = v==='home';
+  if(heroSim){ v==='home' ? heroSim.restart() : heroSim.stop(); }
   if(v==='map' && !built) requestAnimationFrame(buildMap);
   if(v==='world' && !wBuilt) requestAnimationFrame(buildWorld);
   try{ history.replaceState(null,'', v==='home' ? location.pathname + location.search : '#'+v); }catch(e){}
@@ -865,7 +971,7 @@ document.addEventListener('click',e=>{
   const c=e.target.closest('[data-cty]'); if(c){ state.country = state.country===c.dataset.cty?'':c.dataset.cty; $('#country').value=state.country; render(); return; }
   const ins=e.target.closest('[data-inst]'); if(ins){ state.institute = state.institute===ins.dataset.inst?'':ins.dataset.inst; if(state.view==='home'){ state.institute=ins.dataset.inst; setView('people'); window.scrollTo({top:0}); } render(); return; }
   if(e.target.closest('[data-gohome]')){ closeProfile(); setView('home'); window.scrollTo({top:0}); return; }
-  if(e.target.closest('[data-gonet]')){ state.netmode='coauthors'; document.querySelectorAll('#netmode button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.mode==='coauthors')); built=false; setView('map'); window.scrollTo({top:0}); return; }
+  if(e.target.closest('[data-gonet]')){ state.netmode=e.target.closest('[data-gonet]').dataset.gonet||'topics'; document.querySelectorAll('#netmode button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.mode===state.netmode)); built=false; setView('map'); window.scrollTo({top:0}); return; }
   const vg=e.target.closest('[data-view-go]'); if(vg){ setView(vg.dataset.viewGo); window.scrollTo({top:0}); return; }
   const fam=e.target.closest('[data-fam]'); if(fam){ setView('topics'); requestAnimationFrame(()=>document.getElementById('fam-'+fam.dataset.fam)?.scrollIntoView({block:'start'})); return; }
   if(e.target.closest('[data-goparis]')){ goPeopleWithQuery('Paris'); return; }
@@ -900,9 +1006,28 @@ $('#copy').addEventListener('click',async e=>{
 });
 let rz; window.addEventListener('resize',()=>{ if(state.view==='map'){ clearTimeout(rz); rz=setTimeout(buildMap,250); } else built=false; });
 
+const themeNow = () => document.documentElement.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+const syncThemeBtn = () => { const d = themeNow()==='dark'; $('#themeBtn').classList.toggle('is-dark', d); $('#themeBtn').setAttribute('aria-label', d ? 'Switch to light mode' : 'Switch to dark mode'); };
+try{ const st=localStorage.getItem('atlas.theme'); if(st==='dark'||st==='light') document.documentElement.dataset.theme=st; }catch(e){}
+syncThemeBtn();
+$('#themeBtn').addEventListener('click',()=>{ const next = themeNow()==='dark' ? 'light' : 'dark'; document.documentElement.dataset.theme = next; try{ localStorage.setItem('atlas.theme',next); }catch(e){} syncThemeBtn(); });
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', syncThemeBtn);
+new MutationObserver(syncThemeBtn).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
 renderStats(); render(); renderHome();
 $('#hform').addEventListener('submit',e=>{ e.preventDefault(); goPeopleWithQuery($('#hq').value.trim()); });
 $('#hq').addEventListener('input', homeSearch);
+if(!REDUCED){
+  const ex = ['metacognition','Stanislas Dehaene','Paris Brain Institute','moral cognition','reinforcement learning','Princeton','dual-process','language models'];
+  let wi=0, ci=0, back=false;
+  const base = 'Try: ';
+  setInterval(()=>{
+    const inp=$('#hq'); if(state.view!=='home' || document.activeElement===inp || inp.value){ return; }
+    const w=ex[wi];
+    if(!back){ ci++; if(ci>w.length+12){ back=true; } }
+    else { ci-=2; if(ci<=0){ ci=0; back=false; wi=(wi+1)%ex.length; } }
+    inp.placeholder = base + w.slice(0,Math.min(ci,w.length)) + (ci<=w.length?'|':'');
+  }, 70);
+}
 $('#hq').addEventListener('keydown', e=>{ if(e.key==='Escape') $('#hresults').hidden=true; });
 const h = (location.hash||'').slice(1); setView(VIEWS.includes(h)&&h!=='home'?h:'home');
 }
