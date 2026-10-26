@@ -29,7 +29,11 @@
    "Tomer D. Ullman",
    "Noah D. Goodman",
    "Steven T. Piantadosi",
-   "Michael C. Frank"
+   "Michael C. Frank",
+   "Rebecca Saxe",
+   "Nick Chater",
+   "Mike Oaksford",
+   "Molly J. Crockett"
   ],
   "institute": "MIT",
   "keywords": []
@@ -83,7 +87,8 @@
   "lat": 40.349,
   "lng": -74.659,
   "coauthors": [
-   "Joshua B. Tenenbaum"
+   "Joshua B. Tenenbaum",
+   "Tomer D. Ullman"
   ],
   "institute": "Princeton University",
   "keywords": []
@@ -108,7 +113,9 @@
   "city": "Santa Fe",
   "lat": 35.687,
   "lng": -105.938,
-  "coauthors": [],
+  "coauthors": [
+   "Mirta Galesic"
+  ],
   "institute": "Santa Fe Institute",
   "keywords": []
  },
@@ -186,7 +193,8 @@
   "coauthors": [
    "Edward Gibson",
    "Nancy Kanwisher",
-   "Kyle Mahowald"
+   "Kyle Mahowald",
+   "Rebecca Saxe"
   ],
   "institute": "MIT",
   "keywords": []
@@ -213,7 +221,8 @@
    "Steven T. Piantadosi",
    "Evelina Fedorenko",
    "Roger P. Levy",
-   "Kyle Mahowald"
+   "Kyle Mahowald",
+   "Julian Jara-Ettinger"
   ],
   "institute": "MIT",
   "keywords": []
@@ -236,7 +245,9 @@
   "lat": 42.373,
   "lng": -71.11,
   "coauthors": [
-   "Donna Rose Addis"
+   "Donna Rose Addis",
+   "Henry L. Roediger III",
+   "Joshua D. Greene"
   ],
   "institute": "Harvard University",
   "keywords": []
@@ -305,7 +316,12 @@
   "lat": 48.857,
   "lng": 2.352,
   "coauthors": [
-   "Emmanuel Dupoux"
+   "Emmanuel Dupoux",
+   "Ghislaine Dehaene-Lambertz",
+   "Kyle Mahowald",
+   "Edward Gibson",
+   "Steven T. Piantadosi",
+   "Elizabeth Spelke"
   ],
   "institute": "LSCP (ENS-PSL)",
   "keywords": []
@@ -332,7 +348,8 @@
   "coauthors": [
    "Anne Christophe",
    "Alejandrina Cristia",
-   "Sharon Peperkamp"
+   "Sharon Peperkamp",
+   "Jérôme Sackur"
   ],
   "institute": "LSCP (ENS-PSL)",
   "keywords": [
@@ -364,7 +381,9 @@
   "lat": 48.137,
   "lng": 11.575,
   "coauthors": [
-   "Eric Schulz"
+   "Eric Schulz",
+   "Thorsten Pachur",
+   "Stefano Palminteri"
   ],
   "institute": "Helmholtz Munich",
   "keywords": []
@@ -391,7 +410,11 @@
   "lng": 11.575,
   "coauthors": [
    "Marcel Binz",
-   "Samuel J. Gershman"
+   "Samuel J. Gershman",
+   "Thorsten Pachur",
+   "Mirta Galesic",
+   "Stefano Palminteri",
+   "Peter Dayan"
   ],
   "institute": "Helmholtz Munich",
   "keywords": []
@@ -416,7 +439,12 @@
   "city": "New York",
   "lat": 40.713,
   "lng": -74.006,
-  "coauthors": [],
+  "coauthors": [
+   "Nathaniel Daw",
+   "Samuel J. Gershman",
+   "Pierre-Yves Oudeyer",
+   "Jonathan D. Cohen"
+  ],
   "institute": "Microsoft Research",
   "keywords": []
  },
@@ -445,7 +473,8 @@
    "Joshua B. Tenenbaum",
    "Eric Schulz",
    "Yael Niv",
-   "Nathaniel Daw"
+   "Nathaniel Daw",
+   "Tomer D. Ullman"
   ],
   "institute": "Harvard University",
   "keywords": []
@@ -493,7 +522,9 @@
   "city": "Bordeaux",
   "lat": 44.838,
   "lng": -0.579,
-  "coauthors": [],
+  "coauthors": [
+   "Stefano Palminteri"
+  ],
   "institute": "Inria Bordeaux",
   "keywords": []
  },
@@ -584,7 +615,11 @@
   "lng": -0.087,
   "coauthors": [
    "Karl Friston",
-   "Jakob Hohwy"
+   "Jakob Hohwy",
+   "Thomas Andrillon",
+   "Liad Mudrik",
+   "Axel Cleeremans",
+   "Marcello Massimini"
   ],
   "institute": "University of Sussex",
   "keywords": []
@@ -610,7 +645,10 @@
   "lng": -89.401,
   "coauthors": [
    "Christof Koch",
-   "Marcello Massimini"
+   "Marcello Massimini",
+   "Jakob Hohwy",
+   "Lucia Melloni",
+   "Thomas Andrillon"
   ],
   "institute": "University of Wisconsin–Madison",
   "keywords": []
@@ -637,7 +675,10 @@
   "lng": 127.029,
   "coauthors": [
    "Stephen M. Fleming",
-   "Megan A. K. Peters"
+   "Megan A. K. Peters",
+   "Stanislas Dehaene",
+   "Sid Kouider",
+   "Ned Block"
   ],
   "institute": "Institute for Basic Science",
   "keywords": []
@@ -664,7 +705,8 @@
   "lng": -0.128,
   "coauthors": [
    "Hakwan Lau",
-   "Chris D. Frith"
+   "Chris D. Frith",
+   "Tali Sharot"
   ],
   "institute": "University College London",
   "keywords": []
@@ -690,7 +732,9 @@
   "lat": 33.684,
   "lng": -117.826,
   "coauthors": [
-   "Hakwan Lau"
+   "Hakwan Lau",
+   "Stephen M. Fleming",
+   "Ned Block"
   ],
   "institute": "UC Irvine",
   "keywords": []
@@ -716,7 +760,11 @@
   "lng": 34.782,
   "coauthors": [
    "Lucia Melloni",
-   "Christof Koch"
+   "Christof Koch",
+   "Nathan Faivre",
+   "Marcello Massimini",
+   "Stephen M. Fleming",
+   "Stanislas Dehaene"
   ],
   "institute": "Tel Aviv University",
   "keywords": []
@@ -766,7 +814,13 @@
   "city": "Brussels",
   "lat": 50.85,
   "lng": 4.352,
-  "coauthors": [],
+  "coauthors": [
+   "Liad Mudrik",
+   "Jérôme Sackur",
+   "Megan A. K. Peters",
+   "Marcello Massimini",
+   "Catherine Tallon-Baudry"
+  ],
   "institute": "Université libre de Bruxelles",
   "keywords": []
  },
@@ -790,7 +844,11 @@
   "lat": 48.857,
   "lng": 2.352,
   "coauthors": [
-   "Stanislas Dehaene"
+   "Stanislas Dehaene",
+   "Vincent de Gardelle",
+   "Sid Kouider",
+   "Nathan Faivre",
+   "Lionel Naccache"
   ],
   "institute": "LSCP (ENS-PSL)",
   "keywords": []
@@ -815,7 +873,9 @@
   "lat": 45.188,
   "lng": 5.724,
   "coauthors": [
-   "Christof Koch"
+   "Christof Koch",
+   "Vincent de Gardelle",
+   "Pascal Mamassian"
   ],
   "institute": "LPNC (Université Grenoble Alpes)",
   "keywords": []
@@ -838,7 +898,9 @@
   "city": "New York",
   "lat": 40.713,
   "lng": -74.006,
-  "coauthors": [],
+  "coauthors": [
+   "Stephen M. Fleming"
+  ],
   "institute": "New York University",
   "keywords": []
  },
@@ -861,7 +923,11 @@
   "city": "Paris",
   "lat": 48.857,
   "lng": 2.352,
-  "coauthors": [],
+  "coauthors": [
+   "Claire Sergent",
+   "Julie Grèzes",
+   "Valentin Wyart"
+  ],
   "institute": "LNC2 (ENS-PSL)",
   "keywords": [
    "consciousness",
@@ -941,7 +1007,15 @@
   "lng": 2.352,
   "coauthors": [
    "Stanislas Dehaene",
-   "Lionel Naccache"
+   "Lionel Naccache",
+   "Jean-Pierre Changeux",
+   "Valentin Wyart",
+   "Hakwan Lau",
+   "Jérôme Sackur",
+   "Ned Block",
+   "Daniel Pressnitzer",
+   "Jacobo Sitt",
+   "Stephen M. Fleming"
   ],
   "institute": "INCC (Université Paris Cité)",
   "keywords": [
@@ -974,7 +1048,9 @@
   "lat": 48.857,
   "lng": 2.352,
   "coauthors": [
-   "Stanislas Dehaene"
+   "Stanislas Dehaene",
+   "Valentin Wyart",
+   "Lionel Naccache"
   ],
   "institute": "ENS-PSL / Meta AI",
   "keywords": [
@@ -1008,7 +1084,10 @@
   "lng": -1.258,
   "coauthors": [
    "Vincent de Gardelle",
-   "Konstantinos Tsetsos"
+   "Konstantinos Tsetsos",
+   "Rani Moran",
+   "Etienne Koechlin",
+   "Nathaniel Daw"
   ],
   "institute": "University of Oxford",
   "keywords": []
@@ -1085,7 +1164,8 @@
   "coauthors": [
    "Ralph Hertwig",
    "Peter M. Todd",
-   "Daniel G. Goldstein"
+   "Daniel G. Goldstein",
+   "Mirta Galesic"
   ],
   "institute": "Max Planck Institute for Human Development",
   "keywords": []
@@ -1111,7 +1191,8 @@
   "lng": 13.405,
   "coauthors": [
    "Gerd Gigerenzer",
-   "Thorsten Pachur"
+   "Thorsten Pachur",
+   "Ulrike Hahn"
   ],
   "institute": "Max Planck Institute for Human Development",
   "keywords": []
@@ -1136,7 +1217,8 @@
   "lat": 40.349,
   "lng": -74.659,
   "coauthors": [
-   "Eric J. Johnson"
+   "Eric J. Johnson",
+   "Mirta Galesic"
   ],
   "institute": "Princeton University",
   "keywords": []
@@ -1238,7 +1320,8 @@
   "lat": 40.441,
   "lng": -79.996,
   "coauthors": [
-   "Paul Slovic"
+   "Paul Slovic",
+   "Daniel Kahneman"
   ],
   "institute": "Carnegie Mellon University",
   "keywords": []
@@ -1341,7 +1424,8 @@
   "coauthors": [
    "Maël Lebreton",
    "Mathias Pessiglione",
-   "Mehdi Khamassi"
+   "Mehdi Khamassi",
+   "Valentin Wyart"
   ],
   "institute": "LNC2 (ENS-PSL)",
   "keywords": [
@@ -1374,7 +1458,8 @@
   "lng": 2.352,
   "coauthors": [
    "Stefano Palminteri",
-   "Mathias Pessiglione"
+   "Mathias Pessiglione",
+   "Valentin Wyart"
   ],
   "institute": "Paris School of Economics",
   "keywords": []
@@ -1425,7 +1510,13 @@
   "lat": 37.872,
   "lng": -122.273,
   "coauthors": [
-   "Jonathan D. Cohen"
+   "Jonathan D. Cohen",
+   "Thomas L. Griffiths",
+   "Wouter Kool",
+   "Nathaniel Daw",
+   "David G. Rand",
+   "Joshua D. Greene",
+   "Etienne Koechlin"
   ],
   "institute": "UC Berkeley",
   "keywords": []
@@ -1452,7 +1543,9 @@
   "lng": -74.659,
   "coauthors": [
    "Amos Tversky",
-   "Shane Frederick"
+   "Shane Frederick",
+   "Paul Slovic",
+   "Eric J. Johnson"
   ],
   "institute": "Princeton University",
   "keywords": []
@@ -1510,7 +1603,8 @@
    "Peter Dayan",
    "Yael Niv",
    "Raymond J. Dolan",
-   "Samuel J. Gershman"
+   "Samuel J. Gershman",
+   "Rani Moran"
   ],
   "institute": "Princeton University",
   "keywords": []
@@ -1603,7 +1697,8 @@
   "lng": -0.128,
   "coauthors": [
    "Raymond J. Dolan",
-   "Peter Dayan"
+   "Peter Dayan",
+   "Stephen M. Fleming"
   ],
   "institute": "Queen Mary University of London",
   "keywords": []
@@ -1660,7 +1755,10 @@
   "lng": 2.352,
   "coauthors": [
    "Dan Sperber",
-   "Sacha Altay"
+   "Sacha Altay",
+   "Pascal Boyer",
+   "Nicolas Baumard",
+   "Nicolas Claidière"
   ],
   "institute": "Institut Jean Nicod (ENS-PSL)",
   "keywords": []
@@ -1689,7 +1787,9 @@
    "Valerie Thompson",
    "Shira Elqayam",
    "Simon Handley",
-   "Linden J. Ball"
+   "Linden J. Ball",
+   "Ruth M. J. Byrne",
+   "Mike Oaksford"
   ],
   "institute": "University of Plymouth",
   "keywords": []
@@ -1716,7 +1816,11 @@
   "coauthors": [
    "Jonathan St B T Evans",
    "Richard F. West",
-   "Maggie E. Toplak"
+   "Maggie E. Toplak",
+   "Nick Chater",
+   "Wim De Neys",
+   "Valerie Thompson",
+   "Peter M. Todd"
   ],
   "institute": "University of Toronto",
   "keywords": []
@@ -1748,7 +1852,10 @@
    "Esther Boissin",
    "Jonathan Fugelsang",
    "Derek J. Koehler",
-   "Antonio A. Arechar"
+   "Antonio A. Arechar",
+   "Keith Stanovich",
+   "Rakefet Ackerman",
+   "Linden J. Ball"
   ],
   "institute": "Cornell University",
   "keywords": []
@@ -1803,7 +1910,8 @@
   "coauthors": [
    "Gordon Pennycook",
    "Jonathan St B T Evans",
-   "Rakefet Ackerman"
+   "Rakefet Ackerman",
+   "Wim De Neys"
   ],
   "institute": "University of Saskatchewan",
   "keywords": []
@@ -1827,7 +1935,8 @@
   "lat": 41.308,
   "lng": -72.928,
   "coauthors": [
-   "Daniel Kahneman"
+   "Daniel Kahneman",
+   "Valerie Thompson"
   ],
   "institute": "Yale University",
   "keywords": []
@@ -1854,7 +1963,11 @@
   "coauthors": [
    "Wim De Neys",
    "David G. Rand",
-   "Gordon Pennycook"
+   "Gordon Pennycook",
+   "Jean-François Bonnefon",
+   "Matthieu Raoelison",
+   "Esther Boissin",
+   "Grégoire Borst"
   ],
   "institute": "Tilburg University",
   "keywords": []
@@ -1880,7 +1993,12 @@
   "lng": -0.128,
   "coauthors": [
    "Nick Chater",
-   "Ulrike Hahn"
+   "Ulrike Hahn",
+   "Morten H. Christiansen",
+   "Noah D. Goodman",
+   "Peter M. Todd",
+   "Shira Elqayam",
+   "Thomas L. Griffiths"
   ],
   "institute": "Birkbeck",
   "keywords": []
@@ -1933,7 +2051,9 @@
   "lng": -1.561,
   "coauthors": [
    "Mike Oaksford",
-   "Morten H. Christiansen"
+   "Morten H. Christiansen",
+   "Ulrike Hahn",
+   "Thomas L. Griffiths"
   ],
   "institute": "University of Warwick",
   "keywords": []
@@ -1961,7 +2081,8 @@
   "coauthors": [
    "Hugo Mercier",
    "Nicolas Claidière",
-   "Nicolas Baumard"
+   "Nicolas Baumard",
+   "Pascal Boyer"
   ],
   "institute": "Institut Jean Nicod (ENS-PSL)",
   "keywords": []
@@ -2037,7 +2158,8 @@
   "lat": 48.857,
   "lng": 2.352,
   "coauthors": [
-   "Wim De Neys"
+   "Wim De Neys",
+   "Valerie Thompson"
   ],
   "institute": "LaPsyDÉ (Université Paris Cité)",
   "keywords": []
@@ -2087,7 +2209,11 @@
   "lng": -76.502,
   "coauthors": [
    "Wim De Neys",
-   "Gordon Pennycook"
+   "Gordon Pennycook",
+   "Matthieu Raoelison",
+   "Grégoire Borst",
+   "Stanislas Dehaene",
+   "Nicolas Beauvais"
   ],
   "institute": "Cornell University",
   "keywords": []
@@ -2110,7 +2236,11 @@
   "city": "Paris",
   "lat": 48.857,
   "lng": 2.352,
-  "coauthors": [],
+  "coauthors": [
+   "Mike Oaksford",
+   "Valerie Thompson",
+   "Shira Elqayam"
+  ],
   "institute": "Université Paris 8",
   "keywords": []
  },
@@ -2133,7 +2263,13 @@
   "city": "Paris",
   "lat": 48.857,
   "lng": 2.352,
-  "coauthors": [],
+  "coauthors": [
+   "Shira Elqayam",
+   "Mike Oaksford",
+   "Rakefet Ackerman",
+   "Jean Baratgin",
+   "Jonathan St B T Evans"
+  ],
   "institute": "IHPST (Paris 1 Panthéon-Sorbonne)",
   "keywords": []
  },
@@ -2160,7 +2296,10 @@
    "Wouter Kool",
    "Joshua D. Greene",
    "Liane Young",
-   "Joshua Knobe"
+   "Joshua Knobe",
+   "Nick Chater",
+   "Susan Carey",
+   "Tobias Gerstenberg"
   ],
   "institute": "Harvard University",
   "keywords": []
@@ -2185,7 +2324,8 @@
   "lat": 42.373,
   "lng": -71.11,
   "coauthors": [
-   "Fiery Cushman"
+   "Fiery Cushman",
+   "Paul Slovic"
   ],
   "institute": "Harvard University",
   "keywords": []
@@ -2262,7 +2402,9 @@
   "lng": 1.444,
   "coauthors": [
    "Iyad Rahwan",
-   "Azim Shariff"
+   "Azim Shariff",
+   "Wim De Neys",
+   "Shira Elqayam"
   ],
   "institute": "Toulouse School of Economics",
   "keywords": []
@@ -2286,7 +2428,10 @@
   "city": "Toronto",
   "lat": 43.653,
   "lng": -79.383,
-  "coauthors": [],
+  "coauthors": [
+   "Steven Pinker",
+   "Tomer D. Ullman"
+  ],
   "institute": "Yale University",
   "keywords": []
  },
@@ -2312,7 +2457,11 @@
   "lng": -122.273,
   "coauthors": [
    "Laura Schulz",
-   "Henry M. Wellman"
+   "Henry M. Wellman",
+   "Tomer D. Ullman",
+   "Thorsten Pachur",
+   "Eric Schulz",
+   "Rebecca Saxe"
   ],
   "institute": "UC Berkeley",
   "keywords": []
@@ -2338,7 +2487,13 @@
   "lng": -71.11,
   "coauthors": [
    "Susan Carey",
-   "Katherine D. Kinzler"
+   "Katherine D. Kinzler",
+   "Rebecca Saxe",
+   "Tomer D. Ullman",
+   "Stanislas Dehaene",
+   "Joshua B. Tenenbaum",
+   "Liane Young",
+   "Laura Schulz"
   ],
   "institute": "Harvard University",
   "keywords": []
@@ -2414,7 +2569,11 @@
   "lat": 48.857,
   "lng": 2.352,
   "coauthors": [
-   "Nicolas Baumard"
+   "Nicolas Baumard",
+   "Hugo Mercier",
+   "Valentin Wyart",
+   "Jean-Baptiste André",
+   "Julie Grèzes"
   ],
   "institute": "LNC2 (ENS-PSL)",
   "keywords": [
@@ -2448,7 +2607,8 @@
    "Dan Sperber",
    "Coralie Chevallier",
    "Jean-Baptiste André",
-   "Pascal Boyer"
+   "Pascal Boyer",
+   "Valentin Wyart"
   ],
   "institute": "Institut Jean Nicod (ENS-PSL)",
   "keywords": []
@@ -2473,7 +2633,8 @@
   "lat": 37.427,
   "lng": -122.17,
   "coauthors": [
-   "Joshua B. Tenenbaum"
+   "Joshua B. Tenenbaum",
+   "Tomer D. Ullman"
   ],
   "institute": "Stanford University",
   "keywords": []
@@ -2525,7 +2686,9 @@
   "lng": -71.11,
   "coauthors": [
    "Liane Young",
-   "Nancy Kanwisher"
+   "Nancy Kanwisher",
+   "Susan Carey",
+   "Uta Frith"
   ],
   "institute": "MIT",
   "keywords": []
@@ -2578,7 +2741,9 @@
   "lng": 2.352,
   "coauthors": [
    "Olivier Houdé",
-   "Mathieu Cassotti"
+   "Mathieu Cassotti",
+   "Wim De Neys",
+   "Matthieu Raoelison"
   ],
   "institute": "LaPsyDÉ (Université Paris Cité)",
   "keywords": []
@@ -2605,7 +2770,8 @@
   "lng": 2.352,
   "coauthors": [
    "Grégoire Borst",
-   "Olivier Houdé"
+   "Olivier Houdé",
+   "Wim De Neys"
   ],
   "institute": "LaPsyDÉ (Université Paris Cité)",
   "keywords": []
@@ -2631,7 +2797,8 @@
   "lat": 51.752,
   "lng": -1.258,
   "coauthors": [
-   "Chris D. Frith"
+   "Chris D. Frith",
+   "Daniel L. Schacter"
   ],
   "institute": "University of Oxford",
   "keywords": []
@@ -2731,7 +2898,8 @@
   "lng": -80.52,
   "coauthors": [
    "Gordon Pennycook",
-   "Derek J. Koehler"
+   "Derek J. Koehler",
+   "Valerie Thompson"
   ],
   "institute": "University of Waterloo",
   "keywords": []
@@ -2757,7 +2925,8 @@
   "lng": -80.52,
   "coauthors": [
    "Gordon Pennycook",
-   "Jonathan Fugelsang"
+   "Jonathan Fugelsang",
+   "Valerie Thompson"
   ],
   "institute": "University of Waterloo",
   "keywords": []
@@ -2781,7 +2950,8 @@
   "lat": -33.774,
   "lng": 151.113,
   "coauthors": [
-   "Jonathan St B T Evans"
+   "Jonathan St B T Evans",
+   "Valerie Thompson"
   ],
   "institute": "Macquarie University",
   "keywords": []
@@ -2807,7 +2977,8 @@
   "lng": 34.99,
   "coauthors": [
    "Valerie Thompson",
-   "Asher Koriat"
+   "Asher Koriat",
+   "Shira Elqayam"
   ],
   "institute": "Technion – Israel Institute of Technology",
   "keywords": []
@@ -2832,7 +3003,9 @@
   "lat": 52.938,
   "lng": -1.496,
   "coauthors": [
-   "Linden J. Ball"
+   "Linden J. Ball",
+   "Valerie Thompson",
+   "Jonathan St B T Evans"
   ],
   "institute": "University of Derby",
   "keywords": []
@@ -2858,7 +3031,12 @@
   "lng": -2.703,
   "coauthors": [
    "Jonathan St B T Evans",
-   "Edward J. N. Stupple"
+   "Edward J. N. Stupple",
+   "Valerie Thompson",
+   "Mike Oaksford",
+   "Rakefet Ackerman",
+   "Shane Frederick",
+   "Shira Elqayam"
   ],
   "institute": "University of Central Lancashire",
   "keywords": []
@@ -2884,7 +3062,14 @@
   "lng": -1.575,
   "coauthors": [
    "Jonathan St B T Evans",
-   "Shira Elqayam"
+   "Shira Elqayam",
+   "Jean Baratgin",
+   "Mike Oaksford",
+   "Valerie Thompson",
+   "Igor Douven",
+   "Simon Handley",
+   "Jean-François Bonnefon",
+   "Linden J. Ball"
   ],
   "institute": "Durham University",
   "keywords": []
@@ -2910,7 +3095,9 @@
   "lng": -1.139,
   "coauthors": [
    "Jonathan St B T Evans",
-   "David E. Over"
+   "David E. Over",
+   "Valerie Thompson",
+   "Simon Handley"
   ],
   "institute": "De Montfort University",
   "keywords": []
@@ -2962,7 +3149,8 @@
   "lng": -79.383,
   "coauthors": [
    "Keith Stanovich",
-   "Richard F. West"
+   "Richard F. West",
+   "Rakefet Ackerman"
   ],
   "institute": "York University",
   "keywords": []
@@ -2987,7 +3175,8 @@
   "lat": 53.344,
   "lng": -6.254,
   "coauthors": [
-   "Philip Johnson-Laird"
+   "Philip Johnson-Laird",
+   "Sangeet Khemlani"
   ],
   "institute": "Trinity College Dublin",
   "keywords": []
@@ -3012,7 +3201,8 @@
   "lat": 51.507,
   "lng": -0.128,
   "coauthors": [
-   "Ulrike Hahn"
+   "Ulrike Hahn",
+   "Mike Oaksford"
   ],
   "institute": "University College London",
   "keywords": []
@@ -3037,7 +3227,8 @@
   "lat": 43.296,
   "lng": 5.37,
   "coauthors": [
-   "Dan Sperber"
+   "Dan Sperber",
+   "Pascal Boyer"
   ],
   "institute": "Aix-Marseille Université",
   "keywords": []
@@ -3063,7 +3254,8 @@
   "lng": 13.405,
   "coauthors": [
    "Jean-François Bonnefon",
-   "Azim Shariff"
+   "Azim Shariff",
+   "Molly J. Crockett"
   ],
   "institute": "Max Planck Institute for Human Development",
   "keywords": []
@@ -3089,7 +3281,8 @@
   "lng": -123.246,
   "coauthors": [
    "Jean-François Bonnefon",
-   "Iyad Rahwan"
+   "Iyad Rahwan",
+   "Bence Bago"
   ],
   "institute": "Columbia University",
   "keywords": []
@@ -3114,7 +3307,8 @@
   "lat": 37.427,
   "lng": -122.17,
   "coauthors": [
-   "Daniel Kahneman"
+   "Daniel Kahneman",
+   "Eric J. Johnson"
   ],
   "institute": "Stanford University",
   "keywords": []
@@ -3190,7 +3384,9 @@
   "lat": 51.454,
   "lng": -2.588,
   "coauthors": [
-   "Christopher Summerfield"
+   "Christopher Summerfield",
+   "Nick Chater",
+   "Rani Moran"
   ],
   "institute": "University of Bristol",
   "keywords": []
@@ -3244,7 +3440,9 @@
   "lat": 40.349,
   "lng": -74.659,
   "coauthors": [
-   "Amitai Shenhav"
+   "Amitai Shenhav",
+   "Yael Niv",
+   "Nathaniel Daw"
   ],
   "institute": "Princeton University",
   "keywords": []
@@ -3274,7 +3472,8 @@
    "Nathaniel Daw",
    "Peter Dayan",
    "Rani Moran",
-   "Molly J. Crockett"
+   "Molly J. Crockett",
+   "Stephen M. Fleming"
   ],
   "institute": "University College London",
   "keywords": []
@@ -3327,7 +3526,10 @@
   "lng": -122.273,
   "coauthors": [
    "Etienne Koechlin",
-   "Michael J. Frank"
+   "Michael J. Frank",
+   "Pierre-Yves Oudeyer",
+   "Mehdi Khamassi",
+   "Peter Dayan"
   ],
   "institute": "UC Berkeley",
   "keywords": []
@@ -3354,7 +3556,9 @@
   "lng": 2.352,
   "coauthors": [
    "Valentin Wyart",
-   "Anne G. E. Collins"
+   "Anne G. E. Collins",
+   "Srdjan Ostojic",
+   "Stefano Palminteri"
   ],
   "institute": "LNC2 (ENS-PSL)",
   "keywords": [
@@ -3387,7 +3591,8 @@
   "lat": 48.731,
   "lng": 2.17,
   "coauthors": [
-   "Stanislas Dehaene"
+   "Stanislas Dehaene",
+   "Ned Block"
   ],
   "institute": "NeuroSpin (CEA)",
   "keywords": [
@@ -3420,7 +3625,10 @@
   "lng": 2.352,
   "coauthors": [
    "Stanislas Dehaene",
-   "Claire Sergent"
+   "Claire Sergent",
+   "Thomas Andrillon",
+   "Paolo Bartolomeo",
+   "Lucie Berkovitch"
   ],
   "institute": "Paris Brain Institute (ICM)",
   "keywords": [
@@ -3452,7 +3660,9 @@
   "lat": 48.857,
   "lng": 2.352,
   "coauthors": [
-   "Stanislas Dehaene"
+   "Stanislas Dehaene",
+   "Lionel Naccache",
+   "Jérôme Sackur"
   ],
   "institute": "Institut Pasteur",
   "keywords": []
@@ -3511,7 +3721,9 @@
   "coauthors": [
    "Giulio Tononi",
    "Liad Mudrik",
-   "Nathan Faivre"
+   "Nathan Faivre",
+   "Lucia Melloni",
+   "Ned Block"
   ],
   "institute": "Allen Institute",
   "keywords": []
@@ -3565,7 +3777,10 @@
    "Bahador Bahrami",
    "Uta Frith",
    "Nicholas Shea",
-   "Cecilia Heyes"
+   "Cecilia Heyes",
+   "Stefano Palminteri",
+   "Karl Friston",
+   "Megan A. K. Peters"
   ],
   "institute": "University College London",
   "keywords": []
@@ -3614,7 +3829,10 @@
   "lat": 48.137,
   "lng": 11.575,
   "coauthors": [
-   "Chris D. Frith"
+   "Chris D. Frith",
+   "Stefano Palminteri",
+   "Rani Moran",
+   "Raymond J. Dolan"
   ],
   "institute": "LMU Munich",
   "keywords": []
@@ -3639,7 +3857,8 @@
   "lat": 48.857,
   "lng": 2.352,
   "coauthors": [
-   "Vincent de Gardelle"
+   "Vincent de Gardelle",
+   "Valentin Wyart"
   ],
   "institute": "LSP (ENS-PSL)",
   "keywords": [
@@ -3697,7 +3916,10 @@
   "lat": -37.798,
   "lng": 144.961,
   "coauthors": [
-   "Anil Seth"
+   "Anil Seth",
+   "Thomas Andrillon",
+   "Karl Friston",
+   "Ned Block"
   ],
   "institute": "Monash University",
   "keywords": []
@@ -3722,7 +3944,8 @@
   "lat": 41.308,
   "lng": -72.928,
   "coauthors": [
-   "Fiery Cushman"
+   "Fiery Cushman",
+   "Julian Jara-Ettinger"
   ],
   "institute": "Yale University",
   "keywords": []
@@ -3749,7 +3972,9 @@
   "lng": -122.17,
   "coauthors": [
    "Joshua B. Tenenbaum",
-   "Michael C. Frank"
+   "Michael C. Frank",
+   "Tobias Gerstenberg",
+   "Tomer D. Ullman"
   ],
   "institute": "Stanford University",
   "keywords": []
@@ -3827,7 +4052,8 @@
   "lat": 42.28,
   "lng": -83.743,
   "coauthors": [
-   "Michael Tomasello"
+   "Michael Tomasello",
+   "Henry M. Wellman"
   ],
   "institute": "University of Michigan",
   "keywords": []
@@ -3975,7 +4201,8 @@
   "lat": 48.857,
   "lng": 2.352,
   "coauthors": [
-   "Nicolas Baumard"
+   "Nicolas Baumard",
+   "Pascal Boyer"
   ],
   "institute": "Institut Jean Nicod (ENS-PSL)",
   "keywords": []
@@ -4200,7 +4427,9 @@
   "lat": 34.069,
   "lng": -118.445,
   "coauthors": [
-   "Thomas L. Griffiths"
+   "Thomas L. Griffiths",
+   "Wouter Kool",
+   "Noah D. Goodman"
   ],
   "institute": "UC Los",
   "keywords": []
@@ -4224,7 +4453,8 @@
   "lat": 48.857,
   "lng": 2.352,
   "coauthors": [
-   "Emmanuel Dupoux"
+   "Emmanuel Dupoux",
+   "Sharon Peperkamp"
   ],
   "institute": "LSCP (ENS-PSL)",
   "keywords": []
@@ -4273,7 +4503,13 @@
   "source": "verified",
   "lat": 48.857,
   "lng": 2.352,
-  "coauthors": [],
+  "coauthors": [
+   "Michael Graupner",
+   "Sophie Deneve",
+   "Stefano Palminteri",
+   "Etienne Koechlin",
+   "Philippe Faure"
+  ],
   "institute": "LNC2 (ENS-PSL)",
   "keywords": [
    "neural dynamics",
@@ -4332,7 +4568,9 @@
   "source": "verified",
   "lat": 48.857,
   "lng": 2.352,
-  "coauthors": [],
+  "coauthors": [
+   "Stefano Palminteri"
+  ],
   "institute": "LNC2 (ENS-PSL)",
   "keywords": [
    "recurrent neural networks",
@@ -4362,7 +4600,9 @@
   "source": "verified",
   "lat": 48.857,
   "lng": 2.352,
-  "coauthors": [],
+  "coauthors": [
+   "Boris Gutkin"
+  ],
   "institute": "LNC2 (ENS-PSL)",
   "keywords": [
    "cerebellum",
@@ -4392,7 +4632,10 @@
   "source": "verified",
   "lat": 48.857,
   "lng": 2.352,
-  "coauthors": [],
+  "coauthors": [
+   "Valentin Wyart",
+   "Nicolas Baumard"
+  ],
   "institute": "LNC2 (ENS-PSL)",
   "keywords": [
    "social cognition",
@@ -4454,7 +4697,8 @@
   "lat": 48.857,
   "lng": 2.352,
   "coauthors": [
-   "Emmanuel Dupoux"
+   "Emmanuel Dupoux",
+   "Uta Frith"
   ],
   "institute": "LSCP (ENS-PSL)",
   "keywords": [
@@ -4486,7 +4730,8 @@
   "lat": 48.857,
   "lng": 2.352,
   "coauthors": [
-   "Daniel Pressnitzer"
+   "Daniel Pressnitzer",
+   "Srdjan Ostojic"
   ],
   "institute": "LSP (ENS-PSL)",
   "keywords": [
@@ -4516,7 +4761,10 @@
   "source": "verified",
   "lat": 48.857,
   "lng": 2.352,
-  "coauthors": [],
+  "coauthors": [
+   "Vincent de Gardelle",
+   "Thomas Andrillon"
+  ],
   "institute": "LSP (ENS-PSL)",
   "keywords": [
    "auditory perception",
@@ -4547,7 +4795,9 @@
   "lng": 2.352,
   "coauthors": [
    "Mathias Pessiglione",
-   "Karl Friston"
+   "Karl Friston",
+   "Maël Lebreton",
+   "Lucie Berkovitch"
   ],
   "institute": "Paris Brain Institute (ICM)",
   "keywords": [
@@ -4578,7 +4828,10 @@
   "source": "verified",
   "lat": 48.857,
   "lng": 2.352,
-  "coauthors": [],
+  "coauthors": [
+   "Vincent de Gardelle",
+   "Pascal Mamassian"
+  ],
   "institute": "Paris Brain Institute (ICM)",
   "keywords": [
    "spatial cognition",
@@ -4698,7 +4951,8 @@
   "lat": 48.857,
   "lng": 2.352,
   "coauthors": [
-   "Thomas Andrillon"
+   "Thomas Andrillon",
+   "Mathias Pessiglione"
   ],
   "institute": "Paris Brain Institute (ICM)",
   "keywords": [
@@ -4729,7 +4983,9 @@
   "lat": 48.857,
   "lng": 2.352,
   "coauthors": [
-   "Mathias Pessiglione"
+   "Mathias Pessiglione",
+   "Tali Sharot",
+   "Lucie Berkovitch"
   ],
   "institute": "Paris Brain Institute (ICM)",
   "keywords": [
@@ -4761,7 +5017,10 @@
   "lng": 2.352,
   "coauthors": [
    "Lionel Naccache",
-   "Stanislas Dehaene"
+   "Stanislas Dehaene",
+   "Thomas Andrillon",
+   "Jean-Rémi King",
+   "Lucie Berkovitch"
   ],
   "institute": "Paris Brain Institute (ICM)",
   "keywords": [
@@ -4822,7 +5081,10 @@
   "source": "verified",
   "lat": 48.857,
   "lng": 2.352,
-  "coauthors": [],
+  "coauthors": [
+   "Tihana Jovanic",
+   "Pierre-Marie Lledo"
+  ],
   "institute": "Institut Pasteur",
   "keywords": [
    "Bayesian computation",
@@ -4939,7 +5201,10 @@
   "source": "verified",
   "lat": 48.857,
   "lng": 2.352,
-  "coauthors": [],
+  "coauthors": [
+   "Srdjan Ostojic",
+   "Daniel Shulz"
+  ],
   "institute": "Institut de l'Audition",
   "keywords": [
    "auditory cortex",
@@ -4969,7 +5234,9 @@
   "source": "verified",
   "lat": 48.857,
   "lng": 2.352,
-  "coauthors": [],
+  "coauthors": [
+   "Boris Gutkin"
+  ],
   "institute": "Institut de l'Audition",
   "keywords": [
    "speech processing",
@@ -4999,7 +5266,10 @@
   "source": "verified",
   "lat": 48.857,
   "lng": 2.352,
-  "coauthors": [],
+  "coauthors": [
+   "Mehdi Khamassi",
+   "Nikolas Karalis"
+  ],
   "institute": "ESPCI Paris",
   "keywords": [
    "memory",
@@ -5114,7 +5384,10 @@
   "source": "verified",
   "lat": 48.731,
   "lng": 2.17,
-  "coauthors": [],
+  "coauthors": [
+   "Stanislas Dehaene",
+   "Florent Meyniel"
+  ],
   "institute": "NeuroSpin (CEA) / Inria",
   "keywords": [
    "machine learning",
@@ -5319,7 +5592,9 @@
   "source": "verified",
   "lat": 48.857,
   "lng": 2.352,
-  "coauthors": [],
+  "coauthors": [
+   "Srdjan Ostojic"
+  ],
   "institute": "SPPIN (Université Paris Cité)",
   "keywords": [
    "synaptic plasticity",
@@ -5494,7 +5769,9 @@
   "lat": 48.857,
   "lng": 2.352,
   "coauthors": [
-   "Stanislas Dehaene"
+   "Stanislas Dehaene",
+   "Thomas Andrillon",
+   "Mathias Pessiglione"
   ],
   "institute": "ENS-PSL",
   "keywords": [
@@ -5505,5 +5782,2182 @@
    "psilocybin"
   ],
   "via": "parisneuro"
+ },
+ {
+  "name": "Dobromir Rahnev",
+  "affiliation": "Georgia Institute of Technology (School of Psychology), Atlanta",
+  "country": "United States",
+  "city": "Atlanta",
+  "topics": [
+   "metacognition",
+   "perception",
+   "decision-making",
+   "computational modeling",
+   "cognitive neuroscience"
+  ],
+  "bio": "Studies perceptual decision making and visual metacognition, in particular how confidence judgments are formed, using psychophysics, neuroimaging, brain stimulation and computational models.",
+  "known_for": "Suboptimality in perceptual decision making (2018)",
+  "website": "https://rahnevlab.gatech.edu/",
+  "scholar": "https://scholar.google.com/citations?user=tAaE5jIAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 33.776,
+  "lng": -84.398,
+  "coauthors": [
+   "Hakwan Lau",
+   "Vincent de Gardelle",
+   "Jérôme Sackur",
+   "Megan A. K. Peters",
+   "Claire Sergent",
+   "Maël Lebreton",
+   "Pascal Mamassian",
+   "Axel Cleeremans",
+   "Ned Block"
+  ],
+  "institute": "Georgia Institute of Technology",
+  "keywords": [
+   "visual metacognition",
+   "confidence",
+   "perceptual decision making",
+   "psychophysics",
+   "TMS/fMRI"
+  ],
+  "check": "Added through ResearchGate co-authorship with Hakwan Lau, Vincent de Gardelle, Jérôme Sackur. Position: Associate Professor."
+ },
+ {
+  "name": "Lucie Charles",
+  "affiliation": "Queen Mary University of London (School of Biological and Behavioural Sciences, Centre for Brain and Behaviour), London",
+  "country": "United Kingdom",
+  "city": "London",
+  "topics": [
+   "metacognition",
+   "consciousness",
+   "decision-making",
+   "cognitive neuroscience",
+   "motor control"
+  ],
+  "bio": "Studies the cognitive neuroscience of metacognition, introspection on decisions, confidence and action awareness, combining psychophysics, computational modelling and neuroimaging.",
+  "known_for": "Distinct brain mechanisms for conscious versus subliminal error detection (2013)",
+  "website": "https://sites.google.com/site/luciecharlesneuro/home",
+  "scholar": "https://scholar.google.com/citations?user=JQcH7gcAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 51.507,
+  "lng": -0.128,
+  "coauthors": [
+   "Wim De Neys",
+   "Megan A. K. Peters",
+   "Jean Daunizeau",
+   "Jérôme Sackur",
+   "Vincent de Gardelle",
+   "Claire Sergent",
+   "Pascal Mamassian",
+   "Lucie Berkovitch",
+   "Hakwan Lau"
+  ],
+  "institute": "Queen Mary University of London",
+  "keywords": [
+   "error detection",
+   "introspection",
+   "confidence",
+   "action awareness",
+   "free choice"
+  ],
+  "check": "Added through ResearchGate co-authorship with Wim De Neys, Megan A. K. Peters, Jean Daunizeau. Position: Senior Lecturer."
+ },
+ {
+  "name": "Marion Rouault",
+  "affiliation": "Paris Brain Institute (ICM), Motivation Brain and Behavior team, Paris",
+  "country": "France",
+  "city": "Paris",
+  "topics": [
+   "metacognition",
+   "learning",
+   "decision-making",
+   "cognitive neuroscience",
+   "computational modeling"
+  ],
+  "bio": "Studies the neurocognitive mechanisms of metacognition, learning and decision-making, including how confidence is formed with and without feedback and how metacognition is altered in psychiatric conditions.",
+  "known_for": "",
+  "website": "https://marionrouault.weebly.com",
+  "scholar": "https://scholar.google.com/citations?user=8IKm5IYAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 48.857,
+  "lng": 2.352,
+  "coauthors": [
+   "Valentin Wyart",
+   "Etienne Koechlin",
+   "Mehdi Khamassi",
+   "Maël Lebreton",
+   "Mathias Pessiglione",
+   "Raymond J. Dolan",
+   "Vincent de Gardelle",
+   "Pascal Mamassian",
+   "Paolo Bartolomeo"
+  ],
+  "institute": "Paris Brain Institute (ICM)",
+  "keywords": [
+   "confidence",
+   "self-evaluation",
+   "computational psychiatry",
+   "fatigue",
+   "feedback"
+  ],
+  "check": "Added through ResearchGate co-authorship with Valentin Wyart, Etienne Koechlin, Mehdi Khamassi. Position: CNRS Research Scientist (Chargée de recherche)."
+ },
+ {
+  "name": "Ariel Zylberberg",
+  "affiliation": "Columbia University (Zuckerman Mind Brain Behavior Institute, Shadlen Lab), New York",
+  "country": "United States",
+  "city": "New York",
+  "topics": [
+   "decision-making",
+   "metacognition",
+   "computational modeling",
+   "neural coding & dynamics"
+  ],
+  "bio": "Studies the neural and computational mechanisms of decision-making, especially confidence and metacognition, in the Shadlen lab.",
+  "known_for": "",
+  "website": "https://shadlenlab.zi.columbia.edu/people/ariel-zylberberg",
+  "scholar": "https://scholar.google.com/citations?user=FpC3lhAAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 40.713,
+  "lng": -74.006,
+  "coauthors": [
+   "Vincent de Gardelle",
+   "Jérôme Sackur",
+   "Megan A. K. Peters",
+   "Claire Sergent",
+   "Maël Lebreton",
+   "Pascal Mamassian",
+   "Hakwan Lau"
+  ],
+  "institute": "Columbia University",
+  "keywords": [
+   "perceptual decisions",
+   "confidence",
+   "evidence accumulation",
+   "drift-diffusion"
+  ],
+  "check": "Added through ResearchGate co-authorship with Vincent de Gardelle, Jérôme Sackur, Megan A. K. Peters. Position: Research Scientist (Adjunct Associate Research Scientist)."
+ },
+ {
+  "name": "Michał Białek",
+  "affiliation": "University of Wrocław (Institute of Psychology), Wrocław",
+  "country": "Poland",
+  "city": "Wrocław",
+  "topics": [
+   "decision-making",
+   "judgment & heuristics",
+   "moral cognition",
+   "reasoning",
+   "dual-process"
+  ],
+  "bio": "Studies judgment and decision making, especially at the intersection of economic and moral judgment, the foreign language effect, intertemporal choice and reasoning.",
+  "known_for": "",
+  "website": "https://sites.google.com/view/michalbialek",
+  "scholar": "https://scholar.google.com/citations?user=hzDTw7MAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 51.108,
+  "lng": 17.038,
+  "coauthors": [
+   "Jonathan Fugelsang",
+   "Wim De Neys",
+   "Derek J. Koehler",
+   "Bence Bago",
+   "Matthieu Raoelison",
+   "Esther Boissin"
+  ],
+  "institute": "University of Wrocław",
+  "keywords": [
+   "foreign language effect",
+   "intertemporal choice",
+   "moral judgment",
+   "economic decisions",
+   "cognitive reflection"
+  ],
+  "check": "Added through ResearchGate co-authorship with Jonathan Fugelsang, Wim De Neys, Derek J. Koehler. Position: Associate Professor."
+ },
+ {
+  "name": "Fabien Vinckier",
+  "affiliation": "Paris Brain Institute (ICM), Motivation Brain and Behavior team, Paris",
+  "country": "France",
+  "city": "Paris",
+  "topics": [
+   "decision-making",
+   "emotion",
+   "computational modeling",
+   "cognitive neuroscience",
+   "learning"
+  ],
+  "bio": "Psychiatrist and neuroscientist studying motivation, effort-based decision-making and mood fluctuations, with computational approaches to depression and schizophrenia.",
+  "known_for": "Neuro-computational account of how mood fluctuations arise and affect decision making (2018)",
+  "website": "https://parisbraininstitute.org/collaborators/vinckier-fabien",
+  "scholar": "https://scholar.google.com/citations?user=VW6Sz5wAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 48.857,
+  "lng": 2.352,
+  "coauthors": [
+   "Mathias Pessiglione",
+   "Lucie Berkovitch",
+   "Jean Daunizeau",
+   "Delphine Oudiette",
+   "Valentin Wyart"
+  ],
+  "institute": "Paris Brain Institute (ICM)",
+  "keywords": [
+   "motivation",
+   "effort",
+   "mood",
+   "computational psychiatry",
+   "depression"
+  ],
+  "check": "Added through ResearchGate co-authorship with Mathias Pessiglione, Lucie Berkovitch, Jean Daunizeau. Position: Professor of Psychiatry (PU-PH), PI."
+ },
+ {
+  "name": "Lou Safra",
+  "affiliation": "Sciences Po (CEVIPOF and LIEPP), Paris",
+  "country": "France",
+  "city": "Paris",
+  "topics": [
+   "social cognition",
+   "evolution & culture",
+   "computational modeling",
+   "decision-making"
+  ],
+  "bio": "Studies the cognitive mechanisms behind social and political behavior, such as leader choice, trust and cooperation, with ecological and evolutionary approaches using behavioral data, surveys, computational modeling and cultural artifacts.",
+  "known_for": "Tracking historical changes in trustworthiness using machine learning analyses of facial cues in paintings (2020)",
+  "website": "https://www.sciencespo.fr/cevipof/en/researcher/lou-safra.html",
+  "scholar": "https://scholar.google.com/citations?user=wuroHtUAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 48.857,
+  "lng": 2.352,
+  "coauthors": [
+   "Nicolas Baumard",
+   "Julie Grèzes",
+   "Valentin Wyart",
+   "Hugo Mercier",
+   "Pascal Boyer"
+  ],
+  "institute": "Sciences Po",
+  "keywords": [
+   "trustworthiness",
+   "political behavior",
+   "leadership",
+   "cooperation",
+   "cultural artifacts"
+  ],
+  "check": "Added through ResearchGate co-authorship with Nicolas Baumard, Julie Grèzes, Valentin Wyart. Position: Assistant Professor."
+ },
+ {
+  "name": "Alain Destexhe",
+  "affiliation": "Institut des Neurosciences Paris-Saclay (NeuroPSI), CNRS / Université Paris-Saclay, Saclay",
+  "country": "France",
+  "city": "Saclay",
+  "topics": [
+   "computational modeling",
+   "neural coding & dynamics",
+   "sleep",
+   "cognitive neuroscience"
+  ],
+  "bio": "Computational neuroscientist studying stochastic cortical activity, collective dynamics of neural networks and their consequences for neural coding, at the interface of dynamical systems and electrophysiology.",
+  "known_for": "",
+  "website": "https://neurocompute.cnrs.fr/equipe-destexhe/",
+  "scholar": "https://scholar.google.com/citations?user=x-MyT34AAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 48.731,
+  "lng": 2.17,
+  "coauthors": [
+   "Marcello Massimini",
+   "Brice Bathellier",
+   "Romain Brette",
+   "Ulisse Ferrari",
+   "Tihana Jovanic"
+  ],
+  "institute": "NeuroPSI (Paris-Saclay)",
+  "keywords": [
+   "computational neuroscience",
+   "cortical dynamics",
+   "network models",
+   "electrophysiology",
+   "conductance-based models"
+  ],
+  "check": "Added through ResearchGate co-authorship with Marcello Massimini, Brice Bathellier, Romain Brette. Position: CNRS Research Director (DRCE)."
+ },
+ {
+  "name": "Philippe Domenech",
+  "affiliation": "Université Paris Cité / Paris Brain Institute (ICM), Paris",
+  "country": "France",
+  "city": "Paris",
+  "topics": [
+   "decision-making",
+   "computational modeling",
+   "cognitive neuroscience",
+   "cognitive control"
+  ],
+  "bio": "Psychiatrist and computational neuroscientist studying how the brain supports flexible decision-making under uncertainty and the computational basis of psychiatric disorders such as OCD and depression.",
+  "known_for": "",
+  "website": "https://nerb.team/index.php/philippe-d/",
+  "scholar": "https://scholar.google.com/citations?user=_P33r9MAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 48.857,
+  "lng": 2.352,
+  "coauthors": [
+   "Etienne Koechlin",
+   "Mathias Pessiglione",
+   "Valentin Wyart",
+   "Mehdi Khamassi",
+   "Lucie Berkovitch"
+  ],
+  "institute": "Paris Brain Institute (ICM)",
+  "keywords": [
+   "flexible behavior",
+   "computational psychiatry",
+   "intracranial EEG",
+   "OCD",
+   "neuromodulation"
+  ],
+  "check": "Added through ResearchGate co-authorship with Etienne Koechlin, Mathias Pessiglione, Valentin Wyart. Position: Professor of Psychiatry (PU-PH), PI."
+ },
+ {
+  "name": "Matthias Michel",
+  "affiliation": "Massachusetts Institute of Technology (Department of Linguistics and Philosophy), Cambridge MA",
+  "country": "United States",
+  "city": "Cambridge, MA",
+  "topics": [
+   "consciousness",
+   "philosophy of mind",
+   "perception",
+   "metacognition"
+  ],
+  "bio": "Philosopher working primarily on consciousness: what it is, how to study it scientifically, what it does, and what has it.",
+  "known_for": "",
+  "website": "https://www.matthiasmichel.org/",
+  "scholar": "https://scholar.google.com/citations?user=h6bf4Z8AAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 42.373,
+  "lng": -71.11,
+  "coauthors": [
+   "Hakwan Lau",
+   "Megan A. K. Peters",
+   "Claire Sergent",
+   "Ned Block",
+   "Axel Cleeremans"
+  ],
+  "institute": "MIT",
+  "keywords": [
+   "science of consciousness",
+   "unconscious perception",
+   "philosophy of science",
+   "function of consciousness"
+  ],
+  "check": "Added through ResearchGate co-authorship with Hakwan Lau, Megan A. K. Peters, Claire Sergent. Position: Assistant Professor."
+ },
+ {
+  "name": "Naotsugu Tsuchiya",
+  "affiliation": "Monash University (Monash Neuroscience of Consciousness lab), Melbourne",
+  "country": "Australia",
+  "city": "Melbourne",
+  "topics": [
+   "consciousness",
+   "attention",
+   "metacognition",
+   "cognitive neuroscience",
+   "philosophy of mind"
+  ],
+  "bio": "Develops and empirically tests theories of consciousness, studying how consciousness relates to attention, working memory and metacognition in humans, animals and artificial systems.",
+  "known_for": "Continuous flash suppression (2005)",
+  "website": "https://www.monash.edu/researchinfrastructure/mbi/linked-labs/monash-neuroscience-of-consciousness",
+  "scholar": "https://scholar.google.com/citations?user=Or751n4AAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": -37.798,
+  "lng": 144.961,
+  "coauthors": [
+   "Jakob Hohwy",
+   "Thomas Andrillon",
+   "Ned Block",
+   "Delphine Oudiette",
+   "Giulio Tononi"
+  ],
+  "institute": "Monash University",
+  "keywords": [
+   "theories of consciousness",
+   "integrated information",
+   "qualia structure",
+   "conscious vs non-conscious processing"
+  ],
+  "check": "Added through ResearchGate co-authorship with Jakob Hohwy, Thomas Andrillon, Ned Block. Position: Professor."
+ },
+ {
+  "name": "Serge Caparos",
+  "affiliation": "Université Paris 8 (DysCo lab), Saint-Denis",
+  "country": "France",
+  "city": "Saint-Denis",
+  "topics": [
+   "perception",
+   "reasoning",
+   "attention",
+   "evolution & culture",
+   "dual-process"
+  ],
+  "bio": "Studies perception, attention and reasoning across cultures, comparing Western and African populations, and the links between trauma exposure, cognitive health and well-being.",
+  "known_for": "A 21st century cognitive portrait of the Himba (2022)",
+  "website": "https://sites.google.com/site/sergecaparos/home",
+  "scholar": "https://scholar.google.com/citations?user=sGb-jPsAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 48.936,
+  "lng": 2.357,
+  "coauthors": [
+   "Esther Boissin",
+   "Wim De Neys",
+   "Matthieu Raoelison",
+   "Mathieu Cassotti"
+  ],
+  "institute": "Université Paris 8",
+  "keywords": [
+   "cross-cultural cognition",
+   "Himba",
+   "global/local processing",
+   "trauma and cognition",
+   "Rwanda"
+  ],
+  "check": "Added through ResearchGate co-authorship with Esther Boissin, Wim De Neys, Matthieu Raoelison. Position: Professor of Cognitive Psychology."
+ },
+ {
+  "name": "Shari Liu",
+  "affiliation": "Johns Hopkins University (Department of Psychological & Brain Sciences), Baltimore",
+  "country": "United States",
+  "city": "Baltimore",
+  "topics": [
+   "cognitive development",
+   "social cognition",
+   "cognitive neuroscience"
+  ],
+  "bio": "Studies how infants and young children understand other agents' goals, costs and values and how intuitive psychology relates to intuitive physics, using behavioral and neuroimaging methods.",
+  "known_for": "Ten-month-old infants infer the value of goals from the costs of actions (2017)",
+  "website": "https://www.liulaboratory.org",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 39.329,
+  "lng": -76.62,
+  "coauthors": [
+   "Elizabeth Spelke",
+   "Rebecca Saxe",
+   "Tomer D. Ullman",
+   "Felix Warneken"
+  ],
+  "institute": "Johns Hopkins University",
+  "keywords": [
+   "infant cognition",
+   "intuitive psychology",
+   "naive physics",
+   "goal and value inference",
+   "looking time"
+  ],
+  "check": "Added through ResearchGate co-authorship with Elizabeth Spelke, Rebecca Saxe, Tomer D. Ullman. Position: Assistant Professor."
+ },
+ {
+  "name": "Rufin VanRullen",
+  "affiliation": "CerCo (Brain and Cognition Research Center), CNRS / Université de Toulouse, Toulouse",
+  "country": "France",
+  "city": "Toulouse",
+  "topics": [
+   "perception",
+   "attention",
+   "consciousness",
+   "AI & LLMs",
+   "neural coding & dynamics"
+  ],
+  "bio": "Works at the interface of AI and neuroscience, studying oscillatory and rhythmic mechanisms of perception and attention and designing brain-inspired deep learning models.",
+  "known_for": "",
+  "website": "https://rufinv.github.io/",
+  "scholar": "https://scholar.google.com/citations?user=1pwyaYgAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 43.604,
+  "lng": 1.444,
+  "coauthors": [
+   "Laura Dugué",
+   "Megan A. K. Peters",
+   "Liad Mudrik",
+   "Chris D. Frith"
+  ],
+  "institute": "CerCo (CNRS, Toulouse)",
+  "keywords": [
+   "brain oscillations",
+   "perceptual cycles",
+   "deep learning",
+   "neuro-AI",
+   "global workspace"
+  ],
+  "check": "Added through ResearchGate co-authorship with Laura Dugué, Megan A. K. Peters, Liad Mudrik. Position: CNRS Research Director."
+ },
+ {
+  "name": "Jan Engelmann",
+  "affiliation": "University of California, Berkeley (Department of Psychology, Social Origins Lab), Berkeley",
+  "country": "United States",
+  "city": "Berkeley",
+  "topics": [
+   "social cognition",
+   "cognitive development",
+   "evolution & culture",
+   "moral cognition"
+  ],
+  "bio": "Studies the evolution and development of human cooperation, comparing children across societies with chimpanzees.",
+  "known_for": "",
+  "website": "https://socialoriginslab.com/",
+  "scholar": "https://scholar.google.com/citations?user=4dR_n5IAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 37.872,
+  "lng": -122.273,
+  "coauthors": [
+   "Maël Lebreton",
+   "Josep Call",
+   "Alison Gopnik",
+   "Felix Warneken"
+  ],
+  "institute": "UC Berkeley",
+  "keywords": [
+   "cooperation",
+   "chimpanzees",
+   "comparative psychology",
+   "cross-cultural development",
+   "reputation"
+  ],
+  "check": "Added through ResearchGate co-authorship with Maël Lebreton, Josep Call, Alison Gopnik. Position: Associate Professor."
+ },
+ {
+  "name": "Valérian Chambon",
+  "affiliation": "Institut Jean Nicod, Département d'études cognitives, École normale supérieure – PSL, Paris",
+  "country": "France",
+  "city": "Paris",
+  "topics": [
+   "decision-making",
+   "cognitive control",
+   "social cognition",
+   "cognitive neuroscience",
+   "metacognition"
+  ],
+  "bio": "Studies action and decision-making, in particular the sense of agency, intention inference and the role of prior expectations, including their alterations in psychiatric conditions such as schizophrenia.",
+  "known_for": "",
+  "website": "https://cognition.ens.fr/en/member/620/valerian-chambon",
+  "scholar": "https://scholar.google.com/citations?user=1Lqwt04AAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 48.857,
+  "lng": 2.352,
+  "coauthors": [
+   "Etienne Koechlin",
+   "Valentin Wyart",
+   "Nicolas Baumard",
+   "Anne-Lise Giraud"
+  ],
+  "institute": "Institut Jean Nicod (ENS-PSL)",
+  "keywords": [
+   "sense of agency",
+   "intention inference",
+   "action selection",
+   "schizophrenia",
+   "free choice"
+  ],
+  "check": "Added through ResearchGate co-authorship with Etienne Koechlin, Valentin Wyart, Nicolas Baumard. Position: CNRS Research Director (DR2)."
+ },
+ {
+  "name": "Robb Willer",
+  "affiliation": "Stanford University (Dept. of Sociology; Politics and Social Change Lab), Stanford",
+  "country": "United States",
+  "city": "Stanford",
+  "topics": [
+   "social cognition",
+   "moral cognition",
+   "misinformation",
+   "AI & LLMs"
+  ],
+  "bio": "Sociologist and social psychologist who studies political polarization, persuasion, moral reframing and the social impacts of AI.",
+  "known_for": "",
+  "website": "https://www.robbwiller.org/",
+  "scholar": "https://scholar.google.com/citations?user=gtYrWy4AAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 37.427,
+  "lng": -122.17,
+  "coauthors": [
+   "Azim Shariff",
+   "Gordon Pennycook",
+   "Ellen Peters",
+   "Molly J. Crockett"
+  ],
+  "institute": "Stanford University",
+  "keywords": [
+   "political polarization",
+   "persuasion",
+   "moral reframing",
+   "social change",
+   "AI and democracy"
+  ],
+  "check": "Added through ResearchGate co-authorship with Azim Shariff, Gordon Pennycook, Ellen Peters. Position: Professor of Sociology (courtesy Psychology, GSB)."
+ },
+ {
+  "name": "Azzurra Ruggeri",
+  "affiliation": "Technical University of Munich (TUM School of Social Sciences and Technology, iSearch Lab), Munich",
+  "country": "Germany",
+  "city": "Munich",
+  "topics": [
+   "cognitive development",
+   "learning",
+   "decision-making",
+   "causal reasoning"
+  ],
+  "bio": "Developmental cognitive scientist who studies how children and adults actively search for information to learn, make decisions and draw causal inferences.",
+  "known_for": "",
+  "website": "https://www.edu.sot.tum.de/en/isearchlab/home/",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 48.137,
+  "lng": 11.575,
+  "coauthors": [
+   "Alison Gopnik",
+   "Thorsten Pachur",
+   "Stefano Palminteri",
+   "Maël Lebreton"
+  ],
+  "institute": "Technical University of Munich",
+  "keywords": [
+   "active learning",
+   "information search",
+   "question asking",
+   "children's inquiry",
+   "explanation"
+  ],
+  "check": "Added through ResearchGate co-authorship with Alison Gopnik, Thorsten Pachur, Stefano Palminteri. Position: Professor of Cognitive and Developmental Psychology."
+ },
+ {
+  "name": "Edmond Awad",
+  "affiliation": "University of Exeter (Dept. of Economics & Institute for Data Science and AI), Exeter",
+  "country": "United Kingdom",
+  "city": "Exeter",
+  "topics": [
+   "moral cognition",
+   "AI & LLMs",
+   "decision-making",
+   "computational modeling"
+  ],
+  "bio": "Computational social scientist who studies human moral judgments about machines and how to build ethical AI, using large-scale online experiments.",
+  "known_for": "The Moral Machine experiment (2018)",
+  "website": "http://www.media.mit.edu/~awad",
+  "scholar": "https://scholar.google.com/citations?user=OxheXtgAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 50.736,
+  "lng": -3.534,
+  "coauthors": [
+   "Iyad Rahwan",
+   "Molly J. Crockett",
+   "Azim Shariff",
+   "Bence Bago"
+  ],
+  "institute": "University of Exeter",
+  "keywords": [
+   "machine ethics",
+   "moral machine",
+   "autonomous vehicles",
+   "cross-cultural moral judgment",
+   "computational social science"
+  ],
+  "check": "Added through ResearchGate co-authorship with Iyad Rahwan, Molly J. Crockett, Azim Shariff. Position: Senior Lecturer (Assistant Professor) in Economics."
+ },
+ {
+  "name": "Riccardo Viale",
+  "affiliation": "University of Milano-Bicocca (Dept. of Economics, Quantitative Methods and Business Strategy), Milan",
+  "country": "Italy",
+  "city": "Milan",
+  "topics": [
+   "decision-making",
+   "judgment & heuristics",
+   "reasoning"
+  ],
+  "bio": "Cognitive economist and philosopher of science who studies bounded rationality, nudging and behavioral approaches to public policy.",
+  "known_for": "",
+  "website": "https://www.unimib.it/riccardo-viale",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 45.464,
+  "lng": 9.19,
+  "coauthors": [
+   "Gerd Gigerenzer",
+   "David E. Over",
+   "Valerie Thompson",
+   "Mike Oaksford"
+  ],
+  "institute": "University of Milano-Bicocca",
+  "keywords": [
+   "bounded rationality",
+   "nudging",
+   "behavioral public policy",
+   "cognitive economics",
+   "philosophy of science"
+  ],
+  "check": "Added through ResearchGate co-authorship with Gerd Gigerenzer, David E. Over, Valerie Thompson. Position: Professor of Behavioral Sciences and Cognitive Economics (senior)."
+ },
+ {
+  "name": "Henrik Singmann",
+  "affiliation": "University College London (Experimental Psychology), London",
+  "country": "United Kingdom",
+  "city": "London",
+  "topics": [
+   "computational modeling",
+   "memory",
+   "reasoning",
+   "decision-making"
+  ],
+  "bio": "Cognitive psychologist and methodologist who develops cognitive and statistical models of memory, reasoning and decision-making, along with widely used R software.",
+  "known_for": "afex and MPTinR R packages",
+  "website": "https://www.researchgate.net/profile/Henrik-Singmann",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 51.507,
+  "lng": -0.128,
+  "coauthors": [
+   "Shira Elqayam",
+   "Igor Douven",
+   "Jonathan Fugelsang",
+   "David E. Over"
+  ],
+  "institute": "University College London",
+  "keywords": [
+   "multinomial processing tree models",
+   "statistical methods",
+   "R packages (afex)",
+   "probabilistic reasoning",
+   "recognition memory"
+  ],
+  "check": "Added through ResearchGate co-authorship with Shira Elqayam, Igor Douven, Jonathan Fugelsang. Position: Associate Professor in Experimental Psychology."
+ },
+ {
+  "name": "Demian Battaglia",
+  "affiliation": "University of Strasbourg (Functional System's Dynamics team, FunSy), Strasbourg",
+  "country": "France",
+  "city": "Strasbourg",
+  "topics": [
+   "neural coding & dynamics",
+   "computational modeling",
+   "cognitive neuroscience"
+  ],
+  "bio": "Theoretical and computational neuroscientist who studies how structural connectivity and emergent dynamics shape functional interactions and information routing in the brain.",
+  "known_for": "",
+  "website": "https://funsyteam.org",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 48.573,
+  "lng": 7.752,
+  "coauthors": [
+   "David Hansel",
+   "Boris Gutkin",
+   "Ghislaine Dehaene-Lambertz"
+  ],
+  "institute": "University of Strasbourg",
+  "keywords": [
+   "brain connectivity",
+   "dynamic functional connectivity",
+   "oscillations",
+   "information routing",
+   "network science"
+  ],
+  "check": "Added through ResearchGate co-authorship with David Hansel, Boris Gutkin, Ghislaine Dehaene-Lambertz. Position: CNRS research scientist; group leader."
+ },
+ {
+  "name": "Naomi Havron",
+  "affiliation": "University of Haifa (School of Psychological Sciences), Haifa",
+  "country": "Israel",
+  "city": "Haifa",
+  "topics": [
+   "language",
+   "cognitive development",
+   "learning"
+  ],
+  "bio": "Developmental psychologist who studies how young children acquire language, including syntactic bootstrapping and early word learning.",
+  "known_for": "",
+  "website": "https://www.researchgate.net/profile/Naomi-Havron",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 32.794,
+  "lng": 34.99,
+  "coauthors": [
+   "Anne Christophe",
+   "Alejandrina Cristia",
+   "Franck Ramus"
+  ],
+  "institute": "University of Haifa",
+  "keywords": [
+   "language acquisition",
+   "syntactic bootstrapping",
+   "word learning",
+   "prediction in children",
+   "open science"
+  ],
+  "check": "Added through ResearchGate co-authorship with Anne Christophe, Alejandrina Cristia, Franck Ramus. Position: Associate Professor."
+ },
+ {
+  "name": "Matthew M. Botvinick",
+  "affiliation": "Google DeepMind, London; Gatsby Computational Neuroscience Unit, University College London",
+  "country": "United Kingdom",
+  "city": "London",
+  "topics": [
+   "cognitive control",
+   "reinforcement learning",
+   "AI & LLMs",
+   "computational modeling",
+   "cognitive neuroscience"
+  ],
+  "bio": "Cognitive neuroscientist and AI researcher who studies cognitive control, reinforcement learning and the links between neuroscience and artificial intelligence.",
+  "known_for": "Conflict monitoring and cognitive control (2001)",
+  "website": "https://www.simonsfoundation.org/people/matthew-botvinick/",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 51.507,
+  "lng": -0.128,
+  "coauthors": [
+   "Wouter Kool",
+   "Ida Momennejad",
+   "Christopher Summerfield"
+  ],
+  "institute": "Google DeepMind",
+  "keywords": [
+   "conflict monitoring",
+   "meta-reinforcement learning",
+   "prefrontal cortex",
+   "neuroscience-inspired AI",
+   "AI policy"
+  ],
+  "check": "Added through ResearchGate co-authorship with Wouter Kool, Ida Momennejad, Christopher Summerfield. Position: Senior Director of Research, Google DeepMind; Honorary Professor, UCL Gatsby Unit."
+ },
+ {
+  "name": "Dirk U. Wulff",
+  "affiliation": "Max Planck Institute for Human Development (Center for Adaptive Rationality), Berlin",
+  "country": "Germany",
+  "city": "Berlin",
+  "topics": [
+   "decision-making",
+   "risk",
+   "computational modeling",
+   "AI & LLMs"
+  ],
+  "bio": "Cognitive scientist who studies decision-making under risk and uses computational and language-model methods to analyze psychological constructs.",
+  "known_for": "",
+  "website": "https://pure.mpg.de/cone/persons/resource/persons139851?lang=en",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 52.52,
+  "lng": 13.405,
+  "coauthors": [
+   "Ralph Hertwig",
+   "Stefano Palminteri",
+   "Eric J. Johnson"
+  ],
+  "institute": "Max Planck Institute for Human Development",
+  "keywords": [
+   "decisions from experience",
+   "risk perception",
+   "language models",
+   "psychometrics",
+   "mouse tracking"
+  ],
+  "check": "Added through ResearchGate co-authorship with Ralph Hertwig, Stefano Palminteri, Eric J. Johnson. Position: Senior Research Scientist."
+ },
+ {
+  "name": "Guy Politzer",
+  "affiliation": "Institut Jean Nicod (CNRS/ENS/EHESS), Paris",
+  "country": "France",
+  "city": "Paris",
+  "topics": [
+   "reasoning",
+   "language",
+   "judgment & heuristics"
+  ],
+  "bio": "Psychologist of reasoning who studies conditional and syllogistic reasoning, pragmatics and probabilistic approaches to deduction.",
+  "known_for": "",
+  "website": "https://www.researchgate.net/profile/Guy-Politzer",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 48.857,
+  "lng": 2.352,
+  "coauthors": [
+   "David E. Over",
+   "Jean Baratgin",
+   "Mike Oaksford"
+  ],
+  "institute": "Institut Jean Nicod (ENS-PSL)",
+  "keywords": [
+   "conditional reasoning",
+   "new paradigm psychology of reasoning",
+   "syllogisms",
+   "pragmatics",
+   "probabilistic reasoning"
+  ],
+  "check": "Added through ResearchGate co-authorship with David E. Over, Jean Baratgin, Mike Oaksford. Position: Retired CNRS researcher; associate member, Institut Jean Nicod."
+ },
+ {
+  "name": "Raphaël Gaillard",
+  "affiliation": "Université Paris Cité & GHU Paris Psychiatrie et Neurosciences (Hôpital Sainte-Anne), Paris",
+  "country": "France",
+  "city": "Paris",
+  "topics": [
+   "consciousness",
+   "cognitive neuroscience"
+  ],
+  "bio": "Psychiatrist and neuroscientist who studies conscious access in psychosis and the mechanisms of rapid-acting treatments such as ketamine and psychedelics.",
+  "known_for": "",
+  "website": "https://www.researchgate.net/profile/Raphael-Gaillard",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 48.857,
+  "lng": 2.352,
+  "coauthors": [
+   "Lucie Berkovitch",
+   "Mathias Pessiglione",
+   "Thomas Andrillon"
+  ],
+  "institute": "Université Paris Cité",
+  "keywords": [
+   "psychiatry",
+   "ketamine and esketamine",
+   "psychosis",
+   "psychedelics",
+   "conscious access"
+  ],
+  "check": "Added through ResearchGate co-authorship with Lucie Berkovitch, Mathias Pessiglione, Thomas Andrillon. Position: Professor of Psychiatry; head of department."
+ },
+ {
+  "name": "Nicolas Brunel",
+  "affiliation": "Bocconi University (Department of Computing Sciences), Milan",
+  "country": "Italy",
+  "city": "Milan",
+  "topics": [
+   "neural coding & dynamics",
+   "computational modeling",
+   "memory",
+   "learning"
+  ],
+  "bio": "Theoretical neuroscientist who builds models of how neural networks and synapses process and store information, with a focus on learning and memory.",
+  "known_for": "Dynamics of sparsely connected networks of excitatory and inhibitory spiking neurons (2000)",
+  "website": "https://www.unibocconi.it/en/faculty/nicolas-brunel",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 45.464,
+  "lng": 9.19,
+  "coauthors": [
+   "Michael Graupner",
+   "Srdjan Ostojic",
+   "David Hansel"
+  ],
+  "institute": "Bocconi University",
+  "keywords": [
+   "theoretical neuroscience",
+   "attractor networks",
+   "synaptic plasticity",
+   "balanced networks",
+   "working memory"
+  ],
+  "check": "Added through ResearchGate co-authorship with Michael Graupner, Srdjan Ostojic, David Hansel. Position: Full Professor."
+ },
+ {
+  "name": "Elisabeth Pacherie",
+  "affiliation": "Institut Jean Nicod (CNRS/ENS-PSL/EHESS), Paris",
+  "country": "France",
+  "city": "Paris",
+  "topics": [
+   "philosophy of mind",
+   "social cognition",
+   "metacognition"
+  ],
+  "bio": "Philosopher of mind who studies agency, intentions, joint action and commitment, and delusions.",
+  "known_for": "The phenomenology of action: a conceptual framework (2008)",
+  "website": "https://www.researchgate.net/profile/Elisabeth-Pacherie",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 48.857,
+  "lng": 2.352,
+  "coauthors": [
+   "Julie Grèzes",
+   "Axel Cleeremans",
+   "Etienne Koechlin"
+  ],
+  "institute": "Institut Jean Nicod (ENS-PSL)",
+  "keywords": [
+   "sense of agency",
+   "intentions",
+   "joint action",
+   "delusions",
+   "motor representation"
+  ],
+  "check": "Added through ResearchGate co-authorship with Julie Grèzes, Axel Cleeremans, Etienne Koechlin. Position: CNRS Research Director."
+ },
+ {
+  "name": "Marius Usher",
+  "affiliation": "Tel Aviv University (School of Psychological Sciences), Tel Aviv",
+  "country": "Israel",
+  "city": "Tel Aviv",
+  "topics": [
+   "decision-making",
+   "consciousness",
+   "attention",
+   "computational modeling",
+   "philosophy of mind"
+  ],
+  "bio": "Cognitive scientist who studies the mechanisms of choice and decision-making, attention and consciousness with computational models, and also writes on philosophy of mind.",
+  "known_for": "Leaky competing accumulator model (2001, with McClelland)",
+  "website": "http://people.socsci.tau.ac.il/mu/usherlab/",
+  "scholar": "https://scholar.google.com/citations?user=oUqbSNsAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 32.085,
+  "lng": 34.782,
+  "coauthors": [
+   "Konstantinos Tsetsos",
+   "Vincent de Gardelle",
+   "Rani Moran"
+  ],
+  "institute": "Tel Aviv University",
+  "keywords": [
+   "leaky competing accumulator",
+   "preference formation",
+   "numerical cognition",
+   "value integration",
+   "rationality"
+  ],
+  "check": "Added through ResearchGate co-authorship with Konstantinos Tsetsos, Vincent de Gardelle, Rani Moran. Position: Professor."
+ },
+ {
+  "name": "Beate Sodian",
+  "affiliation": "LMU Munich (Department of Psychology), Munich",
+  "country": "Germany",
+  "city": "Munich",
+  "topics": [
+   "cognitive development",
+   "social cognition",
+   "reasoning",
+   "metacognition"
+  ],
+  "bio": "Developmental psychologist who studies the development of theory of mind, metacognition and scientific reasoning in children.",
+  "known_for": "",
+  "website": "https://www.lmu.de/psy/en/persons/contact-page/beate-sodian-df4f802a.html",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 48.137,
+  "lng": 11.575,
+  "coauthors": [
+   "Joëlle Proust",
+   "Cristine Legare",
+   "Uta Frith"
+  ],
+  "institute": "LMU Munich",
+  "keywords": [
+   "theory of mind",
+   "false belief",
+   "scientific reasoning in children",
+   "executive function",
+   "autism"
+  ],
+  "check": "Added through ResearchGate co-authorship with Joëlle Proust, Cristine Legare, Uta Frith. Position: Professor of Developmental Psychology."
+ },
+ {
+  "name": "Stephan Lewandowsky",
+  "affiliation": "University of Bristol (School of Psychological Science), Bristol",
+  "country": "United Kingdom",
+  "city": "Bristol",
+  "topics": [
+   "misinformation",
+   "memory",
+   "computational modeling",
+   "judgment & heuristics",
+   "risk"
+  ],
+  "bio": "Cognitive scientist studying memory and decision-making and how people process misinformation, science denial and conspiracy theories, including in climate and online-democracy contexts.",
+  "known_for": "Misinformation and Its Correction (2012)",
+  "website": "http://www.cogsciwa.com/",
+  "scholar": "https://scholar.google.com/citations?user=_A7rrswAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 51.454,
+  "lng": -2.588,
+  "coauthors": [
+   "Ulrike Hahn",
+   "Ralph Hertwig",
+   "Thorsten Pachur"
+  ],
+  "institute": "University of Bristol",
+  "keywords": [
+   "misinformation",
+   "conspiracy theories",
+   "climate change communication",
+   "science denial",
+   "democracy and online information"
+  ],
+  "check": "Added through ResearchGate co-authorship with Ulrike Hahn, Ralph Hertwig, Thorsten Pachur. Position: Professor (Chair in Cognitive Psychology)."
+ },
+ {
+  "name": "Elizabeth Bonawitz",
+  "affiliation": "Harvard Graduate School of Education, Cambridge MA",
+  "country": "United States",
+  "city": "Cambridge, MA",
+  "topics": [
+   "cognitive development",
+   "causal reasoning",
+   "bayesian cognition",
+   "learning",
+   "computational modeling"
+  ],
+  "bio": "Developmental cognitive scientist studying how children learn causal beliefs through exploration, play and teaching, using Bayesian computational models.",
+  "known_for": "The double-edged sword of pedagogy (2011)",
+  "website": null,
+  "scholar": "https://scholar.google.com/citations?user=MA7j1gkAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 42.373,
+  "lng": -71.11,
+  "coauthors": [
+   "Tomer D. Ullman",
+   "Alison Gopnik",
+   "Joshua Knobe"
+  ],
+  "institute": "Harvard University",
+  "keywords": [
+   "children's causal learning",
+   "curiosity and exploration",
+   "pedagogy",
+   "play",
+   "Bayesian models of development"
+  ],
+  "check": "Added through ResearchGate co-authorship with Tomer D. Ullman, Alison Gopnik, Joshua Knobe. Position: Professor of Education."
+ },
+ {
+  "name": "Melanie Boly",
+  "affiliation": "University of Wisconsin-Madison (Depts of Neurology and Psychiatry), Madison WI",
+  "country": "United States",
+  "city": "Madison",
+  "topics": [
+   "consciousness",
+   "cognitive neuroscience",
+   "sleep",
+   "neuroimaging methods"
+  ],
+  "bio": "Neurologist and neuroscientist studying the neural correlates of consciousness in sleep, anesthesia and brain-injured patients, in connection with integrated information theory.",
+  "known_for": "",
+  "website": null,
+  "scholar": "https://scholar.google.com/citations?user=ZHeBtagAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 43.073,
+  "lng": -89.401,
+  "coauthors": [
+   "Giulio Tononi",
+   "Liad Mudrik",
+   "Marcello Massimini"
+  ],
+  "institute": "University of Wisconsin–Madison",
+  "keywords": [
+   "neural correlates of consciousness",
+   "integrated information theory",
+   "disorders of consciousness",
+   "sleep and dreaming",
+   "epilepsy"
+  ],
+  "check": "Added through ResearchGate co-authorship with Giulio Tononi, Liad Mudrik, Marcello Massimini. Position: Assistant Professor (Neurology & Psychiatry)."
+ },
+ {
+  "name": "Uri Maoz",
+  "affiliation": "Chapman University (Brain Institute; Schmid College / Crean College), Orange CA",
+  "country": "United States",
+  "city": "Orange",
+  "topics": [
+   "decision-making",
+   "cognitive neuroscience",
+   "motor control",
+   "philosophy of mind",
+   "computational modeling"
+  ],
+  "bio": "Computational neuroscientist studying the neural basis of voluntary action and decisions and its implications for free will and moral responsibility.",
+  "known_for": "",
+  "website": null,
+  "scholar": "https://scholar.google.com/citations?user=l3xbpnkAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 33.793,
+  "lng": -117.851,
+  "coauthors": [
+   "Liad Mudrik",
+   "Axel Cleeremans",
+   "Ned Block"
+  ],
+  "institute": "Chapman University",
+  "keywords": [
+   "volition",
+   "free will",
+   "readiness potential",
+   "neuroethics",
+   "moral responsibility"
+  ],
+  "check": "Added through ResearchGate co-authorship with Liad Mudrik, Axel Cleeremans, Ned Block. Position: Faculty, Computational Neuroscience & Psychology."
+ },
+ {
+  "name": "Charley M. Wu",
+  "affiliation": "TU Darmstadt (Dept of Human Sciences, Centre for Cognitive Science; hessian.AI), Darmstadt",
+  "country": "Germany",
+  "city": "Darmstadt",
+  "topics": [
+   "learning",
+   "decision-making",
+   "social cognition",
+   "computational modeling",
+   "AI & LLMs"
+  ],
+  "bio": "Cognitive scientist using computational models and machine learning to study how humans explore, generalize and learn from others, and to build more adaptive, social AI.",
+  "known_for": "Generalization guides human exploration in vast decision spaces (2018)",
+  "website": null,
+  "scholar": "https://scholar.google.com/citations?user=1O2hcVgAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 49.878,
+  "lng": 8.651,
+  "coauthors": [
+   "Stefano Palminteri",
+   "Alison Gopnik",
+   "Tobias Gerstenberg"
+  ],
+  "institute": "TU Darmstadt",
+  "keywords": [
+   "exploration-exploitation",
+   "social learning",
+   "generalization",
+   "human and machine cognition",
+   "Gaussian process models"
+  ],
+  "check": "Added through ResearchGate co-authorship with Stefano Palminteri, Alison Gopnik, Tobias Gerstenberg. Position: Professor of Computational Cognitive Science (LOEWE start professorship)."
+ },
+ {
+  "name": "Marco Ragni",
+  "affiliation": "Chemnitz University of Technology (Professorship of Predictive Analytics), Chemnitz",
+  "country": "Germany",
+  "city": "Chemnitz",
+  "topics": [
+   "reasoning",
+   "computational modeling",
+   "decision-making",
+   "cognitive neuroscience",
+   "AI & LLMs"
+  ],
+  "bio": "Cognitive scientist developing computational models that predict individual human reasoning and decision-making, linking cognitive modeling with AI and cognitive systems.",
+  "known_for": "",
+  "website": "https://www.tu-chemnitz.de/hsw/pva/professur/ragnimarco.html.en",
+  "scholar": "https://scholar.google.com/citations?user=rqne2VMAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 50.833,
+  "lng": 12.925,
+  "coauthors": [
+   "Philip Johnson-Laird",
+   "Sangeet Khemlani",
+   "Ruth M. J. Byrne"
+  ],
+  "institute": "TU Chemnitz",
+  "keywords": [
+   "predictive models of human reasoning",
+   "mental models",
+   "syllogistic reasoning",
+   "knowledge representation",
+   "cognitive systems"
+  ],
+  "check": "Added through ResearchGate co-authorship with Philip Johnson-Laird, Sangeet Khemlani, Ruth M. J. Byrne. Position: Professor (Predictive Analytics / Predictive Behavior Analysis)."
+ },
+ {
+  "name": "Orlando Espino",
+  "affiliation": "Universidad de La Laguna (Dept of Cognitive, Social and Organisational Psychology), La Laguna, Tenerife",
+  "country": "Spain",
+  "city": "La Laguna",
+  "topics": [
+   "reasoning",
+   "language"
+  ],
+  "bio": "Cognitive psychologist studying deductive and conditional reasoning, including counterfactual conditionals, within the mental model framework.",
+  "known_for": "",
+  "website": null,
+  "scholar": "https://scholar.google.com/citations?user=M-gSmnUAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 28.482,
+  "lng": -16.316,
+  "coauthors": [
+   "Ruth M. J. Byrne",
+   "Philip Johnson-Laird",
+   "Sangeet Khemlani"
+  ],
+  "institute": "Universidad de La Laguna",
+  "keywords": [
+   "conditional reasoning",
+   "mental models",
+   "counterfactuals",
+   "deductive reasoning"
+  ],
+  "check": "Added through ResearchGate co-authorship with Ruth M. J. Byrne, Philip Johnson-Laird, Sangeet Khemlani. Position: Faculty (Profesor), Cognitive Psychology."
+ },
+ {
+  "name": "Nicolas Poirel",
+  "affiliation": "Université Paris Cité (Institut de Psychologie, LaPsyDÉ, CNRS), Paris",
+  "country": "France",
+  "city": "Paris",
+  "topics": [
+   "cognitive development",
+   "perception",
+   "attention",
+   "cognitive control",
+   "neuroimaging methods"
+  ],
+  "bio": "Developmental cognitive neuroscientist studying global/local visual processing and inhibitory control across development.",
+  "known_for": "",
+  "website": null,
+  "scholar": "https://scholar.google.com/citations?user=ngTpiwQAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 48.857,
+  "lng": 2.352,
+  "coauthors": [
+   "Mathieu Cassotti",
+   "Grégoire Borst",
+   "Wim De Neys"
+  ],
+  "institute": "LaPsyDÉ (Université Paris Cité)",
+  "keywords": [
+   "global/local visual processing",
+   "inhibitory control",
+   "development of visual perception",
+   "neurocognitive development"
+  ],
+  "check": "Added through ResearchGate co-authorship with Mathieu Cassotti, Grégoire Borst, Wim De Neys. Position: Full Professor."
+ },
+ {
+  "name": "Tim Bayne",
+  "affiliation": "Monash University (School of Philosophical, Historical and International Studies), Melbourne",
+  "country": "Australia",
+  "city": "Melbourne",
+  "topics": [
+   "consciousness",
+   "philosophy of mind",
+   "metacognition"
+  ],
+  "bio": "Philosopher of mind working on the nature, unity and measurement of consciousness and its relation to cognitive science.",
+  "known_for": "The Unity of Consciousness (2010)",
+  "website": null,
+  "scholar": "https://scholar.google.com/citations?user=NGPcTrUAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": -37.798,
+  "lng": 144.961,
+  "coauthors": [
+   "Liad Mudrik",
+   "Megan A. K. Peters",
+   "Axel Cleeremans"
+  ],
+  "institute": "Monash University",
+  "keywords": [
+   "unity of consciousness",
+   "global states of consciousness",
+   "tests for consciousness",
+   "agency"
+  ],
+  "check": "Added through ResearchGate co-authorship with Liad Mudrik, Megan A. K. Peters, Axel Cleeremans. Position: Professor of Philosophy."
+ },
+ {
+  "name": "Uri Hertz",
+  "affiliation": "University of Haifa (Dept of Cognitive Sciences), Haifa",
+  "country": "Israel",
+  "city": "Haifa",
+  "topics": [
+   "social cognition",
+   "learning",
+   "decision-making",
+   "computational modeling"
+  ],
+  "bio": "Cognitive neuroscientist studying social learning and influence -- how people learn from and about others' advice -- with computational models.",
+  "known_for": "",
+  "website": null,
+  "scholar": "https://scholar.google.com/citations?user=2tv_clUAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 32.794,
+  "lng": 34.99,
+  "coauthors": [
+   "Chris D. Frith",
+   "Stefano Palminteri",
+   "Bahador Bahrami"
+  ],
+  "institute": "University of Haifa",
+  "keywords": [
+   "social learning",
+   "advice taking",
+   "influence",
+   "reinforcement learning models"
+  ],
+  "check": "Added through ResearchGate co-authorship with Chris D. Frith, Stefano Palminteri, Bahador Bahrami. Position: Senior Lecturer / Head of Department, Cognitive Sciences."
+ },
+ {
+  "name": "Jay J. Van Bavel",
+  "affiliation": "New York University (Dept of Psychology), New York",
+  "country": "United States",
+  "city": "New York",
+  "topics": [
+   "social cognition",
+   "moral cognition",
+   "misinformation",
+   "cognitive neuroscience"
+  ],
+  "bio": "Social psychologist and neuroscientist studying how group identities shape perception, evaluation, belief and political polarization.",
+  "known_for": "The Power of Us (2021)",
+  "website": null,
+  "scholar": "https://scholar.google.com/citations?user=lyOMg94AAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 40.713,
+  "lng": -74.006,
+  "coauthors": [
+   "Azim Shariff",
+   "Hugo Mercier",
+   "Molly J. Crockett"
+  ],
+  "institute": "New York University",
+  "keywords": [
+   "social identity",
+   "political polarization",
+   "group cognition",
+   "social media and moral emotion"
+  ],
+  "check": "Added through ResearchGate co-authorship with Azim Shariff, Hugo Mercier, Molly J. Crockett. Position: Professor of Psychology and Neural Science."
+ },
+ {
+  "name": "Adam J. Berinsky",
+  "affiliation": "Massachusetts Institute of Technology (Dept of Political Science), Cambridge MA",
+  "country": "United States",
+  "city": "Cambridge, MA",
+  "topics": [
+   "misinformation",
+   "social cognition"
+  ],
+  "bio": "Political scientist studying public opinion, political misinformation and rumors, and survey methodology.",
+  "known_for": "Silent Voices (2004)",
+  "website": null,
+  "scholar": "https://scholar.google.com/citations?user=fk_tmi4AAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 42.373,
+  "lng": -71.11,
+  "coauthors": [
+   "Gordon Pennycook",
+   "Bence Bago",
+   "Antonio A. Arechar"
+  ],
+  "institute": "MIT",
+  "keywords": [
+   "political rumors",
+   "public opinion",
+   "survey methodology",
+   "political behavior"
+  ],
+  "check": "Added through ResearchGate co-authorship with Gordon Pennycook, Bence Bago, Antonio A. Arechar. Position: Professor of Political Science (Mitsui Professor)."
+ },
+ {
+  "name": "Geoffrey Bird",
+  "affiliation": "University of Oxford (Dept of Experimental Psychology), Oxford",
+  "country": "United Kingdom",
+  "city": "Oxford",
+  "topics": [
+   "social cognition",
+   "emotion",
+   "cognitive neuroscience"
+  ],
+  "bio": "Cognitive neuroscientist studying social and emotional cognition, including empathy, alexithymia and autism.",
+  "known_for": "",
+  "website": null,
+  "scholar": "https://scholar.google.com/citations?user=A8iq1jsAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 51.752,
+  "lng": -1.258,
+  "coauthors": [
+   "Uta Frith",
+   "Molly J. Crockett",
+   "Ulrike Hahn"
+  ],
+  "institute": "University of Oxford",
+  "keywords": [
+   "alexithymia",
+   "empathy",
+   "autism",
+   "interoception",
+   "imitation"
+  ],
+  "check": "Added through ResearchGate co-authorship with Uta Frith, Molly J. Crockett, Ulrike Hahn. Position: Professor of Cognitive Neuroscience."
+ },
+ {
+  "name": "Daniel Nettle",
+  "affiliation": "Institut Jean Nicod (ENS-PSL, CNRS), Paris",
+  "country": "France",
+  "city": "Paris",
+  "topics": [
+   "evolution & culture",
+   "social cognition",
+   "decision-making"
+  ],
+  "bio": "Behavioural scientist applying evolutionary and ecological approaches to human behaviour, including how deprivation shapes decisions and social behaviour.",
+  "known_for": "Personality: What makes you the way you are (2007)",
+  "website": null,
+  "scholar": "https://scholar.google.com/citations?user=rl3kkv4AAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 48.857,
+  "lng": 2.352,
+  "coauthors": [
+   "Elizabeth Spelke",
+   "Nicolas Baumard",
+   "Jean-Baptiste André"
+  ],
+  "institute": "Institut Jean Nicod (ENS-PSL)",
+  "keywords": [
+   "behavioural ecology",
+   "deprivation and behaviour",
+   "personality",
+   "human life history"
+  ],
+  "check": "Added through ResearchGate co-authorship with Elizabeth Spelke, Nicolas Baumard, Jean-Baptiste André. Position: CNRS Directeur de recherche."
+ },
+ {
+  "name": "Quentin J. M. Huys",
+  "affiliation": "University College London (Division of Psychiatry; Max Planck UCL Centre for Computational Psychiatry and Ageing Research), London",
+  "country": "United Kingdom",
+  "city": "London",
+  "topics": [
+   "reinforcement learning",
+   "decision-making",
+   "computational modeling",
+   "emotion"
+  ],
+  "bio": "Psychiatrist and computational neuroscientist using reinforcement-learning and decision models to understand mental illness, especially depression and its treatment.",
+  "known_for": "Computational psychiatry as a bridge from neuroscience to clinical applications (2016)",
+  "website": null,
+  "scholar": "https://scholar.google.com/citations?user=KjYNz88AAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 51.507,
+  "lng": -0.128,
+  "coauthors": [
+   "Raymond J. Dolan",
+   "Rani Moran",
+   "Peter Dayan"
+  ],
+  "institute": "University College London",
+  "keywords": [
+   "computational psychiatry",
+   "depression",
+   "planning",
+   "Pavlovian-instrumental interactions"
+  ],
+  "check": "Added through ResearchGate co-authorship with Raymond J. Dolan, Rani Moran, Peter Dayan. Position: Professor of Computational Psychiatry."
+ },
+ {
+  "name": "Anne E. Urai",
+  "affiliation": "Leiden University (Cognitive Psychology Unit; Leiden Institute for Brain and Cognition), Leiden",
+  "country": "Netherlands",
+  "city": "Leiden",
+  "topics": [
+   "decision-making",
+   "metacognition",
+   "cognitive neuroscience",
+   "computational modeling"
+  ],
+  "bio": "Cognitive neuroscientist studying perceptual decision-making, choice history biases and confidence in humans and mice using computational modeling.",
+  "known_for": "Pupil-linked arousal is driven by decision uncertainty and alters serial choice bias (2017)",
+  "website": null,
+  "scholar": "https://scholar.google.com/citations?user=T7koCEMAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 52.16,
+  "lng": 4.497,
+  "coauthors": [
+   "Konstantinos Tsetsos",
+   "Peter Dayan",
+   "Valentin Wyart"
+  ],
+  "institute": "Leiden University",
+  "keywords": [
+   "perceptual decision-making",
+   "choice history bias",
+   "pupil-linked arousal",
+   "confidence",
+   "open science"
+  ],
+  "check": "Added through ResearchGate co-authorship with Konstantinos Tsetsos, Peter Dayan, Valentin Wyart. Position: Assistant Professor."
+ },
+ {
+  "name": "Sydney Levine",
+  "affiliation": "New York University (Department of Psychology), New York",
+  "country": "United States",
+  "city": "New York",
+  "topics": [
+   "moral cognition",
+   "AI & LLMs",
+   "computational modeling",
+   "social cognition"
+  ],
+  "bio": "Studies the cognitive science of human moral judgment and applies it to building AI systems aligned with human moral values.",
+  "known_for": "",
+  "website": "https://sites.google.com/site/sydneymlevine/",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 40.713,
+  "lng": -74.006,
+  "coauthors": [
+   "Nick Chater",
+   "Iyad Rahwan",
+   "Molly J. Crockett"
+  ],
+  "institute": "New York University",
+  "keywords": [
+   "moral judgment",
+   "AI safety",
+   "AI alignment",
+   "moral rules",
+   "computational ethics"
+  ],
+  "check": "Added through ResearchGate co-authorship with Nick Chater, Iyad Rahwan, Molly J. Crockett. Position: Assistant Professor."
+ },
+ {
+  "name": "Adrien Peyrache",
+  "affiliation": "Montreal Neurological Institute, McGill University, Montreal",
+  "country": "Canada",
+  "city": "Montreal",
+  "topics": [
+   "neural coding & dynamics",
+   "sleep",
+   "cognitive neuroscience",
+   "memory"
+  ],
+  "bio": "Studies the neural circuits of the brain's navigation system in rodents and their links to conditions such as epilepsy and depression.",
+  "known_for": "",
+  "website": "http://www.peyrachelab.com/",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 45.504,
+  "lng": -73.577,
+  "coauthors": [
+   "Karim Benchenane",
+   "Mehdi Khamassi",
+   "Desdemona Fricker"
+  ],
+  "institute": "McGill University",
+  "keywords": [
+   "head-direction system",
+   "spatial navigation",
+   "neural circuits",
+   "rodent electrophysiology",
+   "epilepsy"
+  ],
+  "check": "Added through ResearchGate co-authorship with Karim Benchenane, Mehdi Khamassi, Desdemona Fricker. Position: Principal investigator / faculty (rank not confirmed)."
+ },
+ {
+  "name": "Emmanuel Chemla",
+  "affiliation": "Laboratoire de Sciences Cognitives et Psycholinguistique (LSCP), ENS-PSL, Paris",
+  "country": "France",
+  "city": "Paris",
+  "topics": [
+   "language",
+   "reasoning",
+   "evolution & culture"
+  ],
+  "bio": "Studies the semantics and pragmatics of natural language using experimental and formal methods, including comparisons with animal communication.",
+  "known_for": "",
+  "website": "http://www.emmanuel.chemla.free.fr",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 48.857,
+  "lng": 2.352,
+  "coauthors": [
+   "Emmanuel Dupoux",
+   "Jean-Rémi King",
+   "Anne Christophe"
+  ],
+  "institute": "LSCP (ENS-PSL)",
+  "keywords": [
+   "semantics",
+   "pragmatics",
+   "scalar implicatures",
+   "experimental linguistics",
+   "animal communication"
+  ],
+  "check": "Added through ResearchGate co-authorship with Emmanuel Dupoux, Jean-Rémi King, Anne Christophe. Position: Senior research scientist (Directeur de recherche, CNRS)."
+ },
+ {
+  "name": "Geraint Rees",
+  "affiliation": "University College London, London",
+  "country": "United Kingdom",
+  "city": "London",
+  "topics": [
+   "consciousness",
+   "perception",
+   "attention",
+   "cognitive neuroscience",
+   "neuroimaging methods"
+  ],
+  "bio": "Studies the neural mechanisms of human consciousness and visual awareness using functional neuroimaging, TMS and EEG/MEG.",
+  "known_for": "Decoding mental states from brain activity in humans (Haynes & Rees, 2006)",
+  "website": null,
+  "scholar": "https://scholar.google.com/citations?user=IlCBJF4AAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 51.507,
+  "lng": -0.128,
+  "coauthors": [
+   "Claire Sergent",
+   "Chris D. Frith",
+   "Raymond J. Dolan"
+  ],
+  "institute": "University College London",
+  "keywords": [
+   "visual awareness",
+   "binocular rivalry",
+   "fMRI decoding",
+   "neural correlates of consciousness"
+  ],
+  "check": "Added through ResearchGate co-authorship with Claire Sergent, Chris D. Frith, Raymond J. Dolan. Position: Professor of Cognitive Neurology; Vice-Provost (Research, Innovation & Global Engagement)."
+ },
+ {
+  "name": "Kobe Desender",
+  "affiliation": "KU Leuven (Brain & Cognition), Leuven",
+  "country": "Belgium",
+  "city": "Leuven",
+  "topics": [
+   "metacognition",
+   "decision-making",
+   "cognitive control",
+   "computational modeling",
+   "cognitive neuroscience"
+  ],
+  "bio": "Studies how people evaluate their own decisions and how decision confidence guides information seeking and control, using computational modelling and EEG.",
+  "known_for": "Confidence predicts speed-accuracy tradeoff for subsequent decisions (eLife, 2019)",
+  "website": null,
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 50.878,
+  "lng": 4.7,
+  "coauthors": [
+   "Wim De Neys",
+   "Vincent de Gardelle",
+   "Maël Lebreton"
+  ],
+  "institute": "KU Leuven",
+  "keywords": [
+   "decision confidence",
+   "information seeking",
+   "evidence accumulation models",
+   "EEG",
+   "error monitoring"
+  ],
+  "check": "Added through ResearchGate co-authorship with Wim De Neys, Vincent de Gardelle, Maël Lebreton. Position: Principal investigator / faculty (rank not confirmed)."
+ },
+ {
+  "name": "Giovanni Pezzulo",
+  "affiliation": "Institute of Cognitive Sciences and Technologies, National Research Council (ISTC-CNR), Rome",
+  "country": "Italy",
+  "city": "Rome",
+  "topics": [
+   "computational modeling",
+   "decision-making",
+   "cognitive neuroscience",
+   "philosophy of mind",
+   "motor control"
+  ],
+  "bio": "Studies embodied cognition and goal-directed behavior, including planning, spatial navigation and action, using active inference and computational models.",
+  "known_for": "Active Inference: The Free Energy Principle in Mind, Brain, and Behavior (2022, with Parr & Friston)",
+  "website": "https://sites.google.com/site/giovannipezzulo/",
+  "scholar": "https://scholar.google.com/citations?user=kkVbtzAAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 41.903,
+  "lng": 12.496,
+  "coauthors": [
+   "Konstantinos Tsetsos",
+   "Jean Daunizeau",
+   "Anil Seth"
+  ],
+  "institute": "ISTC-CNR (Rome)",
+  "keywords": [
+   "active inference",
+   "embodied cognition",
+   "goal-directed behavior",
+   "planning",
+   "hippocampus"
+  ],
+  "check": "Added through ResearchGate co-authorship with Konstantinos Tsetsos, Jean Daunizeau, Anil Seth. Position: Research Director (senior researcher)."
+ },
+ {
+  "name": "Luc H. Arnal",
+  "affiliation": "Institut de l'Audition, Institut Pasteur (Auditory Cognition and Communication Lab), Paris",
+  "country": "France",
+  "city": "Paris",
+  "topics": [
+   "perception",
+   "emotion",
+   "cognitive neuroscience",
+   "neural coding & dynamics"
+  ],
+  "bio": "Studies how the brain processes sounds, including the non-classical auditory pathways that route aversive sounds such as screams and alarms to emotion and danger circuits.",
+  "known_for": "",
+  "website": "https://www.fondationpourlaudition.org/arnal-luc-898-en",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 48.857,
+  "lng": 2.352,
+  "coauthors": [
+   "Valentin Wyart",
+   "Virginie van Wassenhove",
+   "Sophie Herbst"
+  ],
+  "institute": "Institut de l'Audition",
+  "keywords": [
+   "auditory perception",
+   "auditory salience",
+   "screams and alarm sounds",
+   "predictive coding",
+   "neural oscillations"
+  ],
+  "check": "Added through ResearchGate co-authorship with Valentin Wyart, Virginie van Wassenhove, Sophie Herbst. Position: Investigator, team leader."
+ },
+ {
+  "name": "Emmanuelle Volle",
+  "affiliation": "Paris Brain Institute (ICM), FrontLab team, Pitié-Salpêtrière Hospital, Paris",
+  "country": "France",
+  "city": "Paris",
+  "topics": [
+   "reasoning",
+   "cognitive neuroscience",
+   "cognitive control",
+   "neuroimaging methods"
+  ],
+  "bio": "Neurologist who studies the neurocognitive mechanisms of creativity, problem-solving and reasoning, and the frontal brain systems that support them.",
+  "known_for": "",
+  "website": "https://sites.google.com/site/emmavolle/",
+  "scholar": "https://scholar.google.com/citations?user=NF6i92YAAAAJ",
+  "deceased": false,
+  "source": "verified",
+  "lat": 48.857,
+  "lng": 2.352,
+  "coauthors": [
+   "Delphine Oudiette",
+   "Mathias Pessiglione",
+   "Mathieu Cassotti"
+  ],
+  "institute": "Paris Brain Institute (ICM)",
+  "keywords": [
+   "creativity",
+   "problem solving",
+   "frontal lobes",
+   "neuropsychology",
+   "brain connectivity"
+  ],
+  "check": "Added through ResearchGate co-authorship with Delphine Oudiette, Mathias Pessiglione, Mathieu Cassotti. Position: INSERM Research Director (Directrice de recherche); co-head of FrontLab."
+ },
+ {
+  "name": "Kinga Morsanyi",
+  "affiliation": "Loughborough University (Mathematics Education Centre), Loughborough",
+  "country": "United Kingdom",
+  "city": "Loughborough",
+  "topics": [
+   "reasoning",
+   "judgment & heuristics",
+   "cognitive development",
+   "learning"
+  ],
+  "bio": "Studies mathematical cognition and individual differences in reasoning, including dyscalculia, math anxiety and heuristics and biases.",
+  "known_for": "",
+  "website": "https://lboro.ac.uk/departments/maths-education/staff/kinga-morsanyi/",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 52.765,
+  "lng": -1.229,
+  "coauthors": [
+   "Rakefet Ackerman",
+   "Valerie Thompson",
+   "Ruth M. J. Byrne"
+  ],
+  "institute": "Loughborough University",
+  "keywords": [
+   "mathematical cognition",
+   "dyscalculia",
+   "math anxiety",
+   "heuristics and biases",
+   "autism"
+  ],
+  "check": "Added through ResearchGate co-authorship with Rakefet Ackerman, Valerie Thompson, Ruth M. J. Byrne. Position: Reader in Mathematical Cognition."
+ },
+ {
+  "name": "Tania Lombrozo",
+  "affiliation": "Princeton University (Department of Psychology; Concepts & Cognition Lab), Princeton",
+  "country": "United States",
+  "city": "Princeton",
+  "topics": [
+   "causal reasoning",
+   "reasoning",
+   "learning",
+   "philosophy of mind",
+   "moral cognition"
+  ],
+  "bio": "Studies explanation, causal reasoning and conceptual representation, bridging cognitive psychology and philosophy.",
+  "known_for": "The structure and function of explanations (2006)",
+  "website": "https://cognition.princeton.edu/",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 40.349,
+  "lng": -74.659,
+  "coauthors": [
+   "Alison Gopnik",
+   "Cristine Legare",
+   "Joshua Knobe"
+  ],
+  "institute": "Princeton University",
+  "keywords": [
+   "explanation",
+   "concepts",
+   "experimental philosophy",
+   "inference",
+   "understanding"
+  ],
+  "check": "Added through ResearchGate co-authorship with Alison Gopnik, Cristine Legare, Joshua Knobe. Position: Arthur W. Marks '19 Professor of Psychology."
+ },
+ {
+  "name": "Yarrow Dunham",
+  "affiliation": "Yale University (Department of Psychology; Social Cognitive Development Lab), New Haven",
+  "country": "United States",
+  "city": "New Haven",
+  "topics": [
+   "social cognition",
+   "cognitive development",
+   "moral cognition"
+  ],
+  "bio": "Studies intergroup social cognition, including how people form group affiliations and how children develop intergroup attitudes and stereotypes.",
+  "known_for": "",
+  "website": "https://psychology.yale.edu/people/yarrow-dunham",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 41.308,
+  "lng": -72.928,
+  "coauthors": [
+   "Susan Carey",
+   "Antonio A. Arechar",
+   "Joshua Knobe"
+  ],
+  "institute": "Yale University",
+  "keywords": [
+   "intergroup cognition",
+   "group affiliation",
+   "implicit attitudes",
+   "stereotypes",
+   "children"
+  ],
+  "check": "Added through ResearchGate co-authorship with Susan Carey, Antonio A. Arechar, Joshua Knobe. Position: Professor of Psychology."
+ },
+ {
+  "name": "Ophelia Deroy",
+  "affiliation": "Ludwig-Maximilians-Universität München (Faculty of Philosophy), Munich",
+  "country": "Germany",
+  "city": "Munich",
+  "topics": [
+   "philosophy of mind",
+   "perception",
+   "metacognition",
+   "social cognition"
+  ],
+  "bio": "Philosopher who studies perception, metacognition, social cognition and social epistemology, working closely with cognitive neuroscience.",
+  "known_for": "",
+  "website": "https://www.opheliaderoy.info",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 48.137,
+  "lng": 11.575,
+  "coauthors": [
+   "Bahador Bahrami",
+   "Rani Moran"
+  ],
+  "institute": "LMU Munich",
+  "keywords": [
+   "multisensory perception",
+   "social epistemology",
+   "philosophy of perception",
+   "collective decision-making"
+  ],
+  "check": "Added through ResearchGate co-authorship with Bahador Bahrami, Rani Moran. Position: Professor, Chair of Philosophy of Mind."
+ },
+ {
+  "name": "Brian Odegaard",
+  "affiliation": "University of Florida (Department of Psychology; Perception, Attention, and Consciousness Lab), Gainesville",
+  "country": "United States",
+  "city": "Gainesville",
+  "topics": [
+   "perception",
+   "metacognition",
+   "consciousness",
+   "attention",
+   "computational modeling"
+  ],
+  "bio": "Studies the neural and computational bases of perceptual metacognition, attention and multisensory integration and what they reveal about visual awareness.",
+  "known_for": "",
+  "website": "https://people.clas.ufl.edu/bodegaard/",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 29.644,
+  "lng": -82.355,
+  "coauthors": [
+   "Hakwan Lau",
+   "Megan A. K. Peters"
+  ],
+  "institute": "University of Florida",
+  "keywords": [
+   "perceptual metacognition",
+   "visual awareness",
+   "change blindness",
+   "multisensory integration",
+   "peripheral vision"
+  ],
+  "check": "Added through ResearchGate co-authorship with Hakwan Lau, Megan A. K. Peters. Position: Associate Professor (likely; see notes)."
+ },
+ {
+  "name": "Jonathan Baron",
+  "affiliation": "University of Pennsylvania (Department of Psychology), Philadelphia",
+  "country": "United States",
+  "city": "Philadelphia",
+  "topics": [
+   "decision-making",
+   "judgment & heuristics",
+   "moral cognition",
+   "reasoning"
+  ],
+  "bio": "Studies judgment and decision making, including moral judgment, omission bias and actively open-minded thinking, and their implications for public policy.",
+  "known_for": "Thinking and Deciding (book, 1st ed. 1988)",
+  "website": "https://www.sas.upenn.edu/~baron/",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 39.952,
+  "lng": -75.193,
+  "coauthors": [
+   "Mike Oaksford",
+   "David E. Over",
+   "Shira Elqayam"
+  ],
+  "institute": "University of Pennsylvania",
+  "keywords": [
+   "actively open-minded thinking",
+   "omission bias",
+   "protected values",
+   "public policy",
+   "rationality"
+  ],
+  "check": "Added through ResearchGate co-authorship with Mike Oaksford, David E. Over, Shira Elqayam. Position: Professor Emeritus of Psychology."
+ },
+ {
+  "name": "Kurt Gray",
+  "affiliation": "The Ohio State University (Department of Psychology; C-SPAM), Columbus",
+  "country": "United States",
+  "city": "Columbus",
+  "topics": [
+   "moral cognition",
+   "social cognition",
+   "misinformation",
+   "decision-making"
+  ],
+  "bio": "Studies the psychology of morality, religion and politics, including how moral beliefs drive polarization and how division can be reduced.",
+  "known_for": "Dimensions of mind perception (Science, 2007)",
+  "website": "https://psychology.osu.edu/people/gray.1750",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 40.007,
+  "lng": -83.03,
+  "coauthors": [
+   "Molly J. Crockett",
+   "Nicolas Baumard",
+   "Azim Shariff"
+  ],
+  "institute": "Ohio State University",
+  "keywords": [
+   "theory of dyadic morality",
+   "harm",
+   "mind perception",
+   "polarization",
+   "religion"
+  ],
+  "check": "Added through ResearchGate co-authorship with Molly J. Crockett, Nicolas Baumard, Azim Shariff. Position: Professor of Psychology."
+ },
+ {
+  "name": "Adam N. Sanborn",
+  "affiliation": "University of Warwick (Department of Psychology), Coventry",
+  "country": "United Kingdom",
+  "city": "Coventry",
+  "topics": [
+   "bayesian cognition",
+   "computational modeling",
+   "judgment & heuristics",
+   "decision-making"
+  ],
+  "bio": "Builds computational models of cognition based on sampling algorithms to explain human biases in judgment and decision-making.",
+  "known_for": "Bayesian brains without probabilities (2016, with Chater)",
+  "website": "https://profiles.warwick.ac.uk/pssjak-adam-sanborn",
+  "scholar": null,
+  "deceased": false,
+  "source": "coauthor",
+  "lat": 52.408,
+  "lng": -1.561,
+  "coauthors": [
+   "Nick Chater"
+  ],
+  "institute": "University of Warwick",
+  "keywords": [
+   "sampling algorithms",
+   "Markov chain Monte Carlo",
+   "probability judgment",
+   "Bayesian brain",
+   "cognitive biases"
+  ],
+  "check": "Added through ResearchGate co-authorship with Nick Chater. Position: Professor of Psychology."
  }
 ]
