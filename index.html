@@ -441,7 +441,7 @@ function start(DATA, GEO){
 { const byName = {}; DATA.forEach((r,i)=>byName[r.name]=i);
   const sets = DATA.map(()=>new Set());
   DATA.forEach((r,i)=>(r.coauthors||[]).forEach(n=>{ const j = typeof n==='number' ? n : byName[n]; if(j!==undefined && j!==i){ sets[i].add(j); sets[j].add(i); } }));
-  DATA.forEach((r,i)=>{ r.coauthors=[...sets[i]]; r.source=r.source||'verified'; r.city=r.city||''; r.institute=r.institute||''; r.keywords=r.keywords||[]; }); }
+  DATA.forEach((r,i)=>{ r.coauthors=[...sets[i]]; r.source=(r.source||'verified')==='verified'?'verified':'coauthor'; r.city=r.city||''; r.institute=r.institute||''; r.keywords=r.keywords||[]; }); }
 const UPDATED = "October 2026";
 
 const FAMILIES = [
@@ -511,7 +511,7 @@ function renderFacets(){
   const nV = DATA.filter(r=>r.source==='verified').length, nC = DATA.length-nV;
   const srcFacet = `<div class="facet"><h3>Entry</h3><ul>
     <li><button data-src="verified" aria-pressed="${state.source==='verified'}"><span>Links verified</span><span class="n">${nV}</span></button></li>
-    <li><button data-src="coauthor" aria-pressed="${state.source==='coauthor'}"><span>Added via co-authors</span><span class="n">${nC}</span></button></li></ul></div>`;
+    <li><button data-src="coauthor" aria-pressed="${state.source==='coauthor'}"><span>Links pending</span><span class="n">${nC}</span></button></li></ul></div>`;
   $('#facets').innerHTML = FAMILIES.map(f=>`
     <div class="facet"><h3><span class="swatch" style="background:var(--${f.key})"></span>${f.name}</h3><ul>
     ${f.topics.slice().sort((a,b)=>(topicCount[b]||0)-(topicCount[a]||0)).map(t=>{
@@ -523,7 +523,7 @@ function renderActive(){
   const chips = [...state.topics].map(t=>`<button class="af" data-topic="${esc(t)}">${esc(t)} <span>×</span></button>`);
   if(state.country) chips.push(`<button class="af" data-country="1">${esc(state.country)} <span>×</span></button>`);
   if(state.institute) chips.push(`<button class="af" data-inst="${esc(state.institute)}">${esc(state.institute)} <span>×</span></button>`);
-  if(state.source) chips.push(`<button class="af" data-src="${state.source}">${state.source==='verified'?'Links verified':'Added via co-authors'} <span>×</span></button>`);
+  if(state.source) chips.push(`<button class="af" data-src="${state.source}">${state.source==='verified'?'Links verified':'Links pending'} <span>×</span></button>`);
   if(state.q) chips.push(`<button class="af" data-q="1">“${esc(state.q)}” <span>×</span></button>`);
   $('#active').innerHTML = chips.length ? chips.join('') + `<button class="clear" id="clearall">Clear all</button>` : '';
 }
@@ -532,7 +532,7 @@ function renderStats(){
   const sch = DATA.filter(r=>r.scholar).length;
   const links = DATA.reduce((s,r)=>s+r.coauthors.length,0)/2;
   $('#stats').innerHTML = `<div><b>${DATA.length}</b>researchers</div><div><b>${Object.keys(topicCount).length}</b>topics</div><div><b>${new Set(DATA.map(r=>r.institute).filter(Boolean)).size}</b>institutes</div><div><b>${countries.size}</b>countries</div><div><b>${links}</b>co-author links</div>`;
-  $('#foot').innerHTML = `Links checked ${UPDATED}. Paris neuroscience entries partly drawn from <a href="https://parisneuro.fr/" target="_blank" rel="noopener">ParisNeuro</a>. Affiliations change; open a profile to see where each link points.`;
+  $('#foot').innerHTML = `Links checked ${UPDATED}. Entries partly drawn from <a href="https://parisneuro.fr/" target="_blank" rel="noopener">ParisNeuro</a>, ResearchGate co-author lists and Wikipedia's <a href="https://en.wikipedia.org/wiki/List_of_cognitive_scientists" target="_blank" rel="noopener">list of cognitive scientists</a>. Affiliations change; open a profile to see where each link points.`;
 }
 
 /* ---------- people view ---------- */
@@ -765,7 +765,7 @@ function openProfile(id){
     ${r.known_for?`<div class="sec"><h4>Known for</h4><p>${esc(r.known_for)}</p></div>`:''}
     ${cos.length?`<div class="sec"><h4>Co-authors in the atlas</h4><ul class="near">${cos.map(o=>`<li><button data-open="${o.id}">${esc(o.name)}</button><small>${esc(o.city)}</small></li>`).join('')}</ul></div>`:''}
     ${near.length?`<div class="sec"><h4>Closest by shared topics</h4><ul class="near">${near.map(x=>`<li><button data-open="${x.o.id}">${esc(x.o.name)}</button><small>${x.shared.map(esc).join(', ')}</small></li>`).join('')}</ul></div>`:''}`;
-  $('#sheet').insertAdjacentHTML('beforeend', `<div class="sec">${r.via?`<p class="src">Listed in the <a href="https://parisneuro.fr/" target="_blank" rel="noopener">ParisNeuro</a> directory; keywords and lab link from there.</p>`:''}<button class="ghost" data-suggest="${r.id}">Suggest a correction</button></div>`);
+  $('#sheet').insertAdjacentHTML('beforeend', `<div class="sec">${r.via==='parisneuro'?`<p class="src">Listed in the <a href="https://parisneuro.fr/" target="_blank" rel="noopener">ParisNeuro</a> directory; keywords and lab link from there.</p>`:''}${r.via==='wikipedia'&&r.wikipedia?`<p class="src">From Wikipedia's <a href="https://en.wikipedia.org/wiki/List_of_cognitive_scientists" target="_blank" rel="noopener">list of cognitive scientists</a>. <a href="${esc(r.wikipedia)}" target="_blank" rel="noopener">Read the Wikipedia article</a>.</p>`:''}<button class="ghost" data-suggest="${r.id}">Suggest a correction</button></div>`);
   $('#sheet').hidden=false; $('#scrim').hidden=false; $('#sheet').scrollTop=0;
   $('#closeSheet').focus({preventScroll:true});
   styleMap();
@@ -886,7 +886,7 @@ function homeSearch(){
   const hits = DATA.filter(r=>{ const hay=norm([r.name,r.affiliation,r.institute,r.country,r.city,r.topics.join(' '),r.keywords.join(' ')].join(' ')); return w.every(x=>hay.includes(x)); });
   hits.sort((a,b)=>(norm(b.name).includes(w[0])?1:0)-(norm(a.name).includes(w[0])?1:0));
   box.innerHTML = hits.slice(0,5).map(r=>`<button data-open="${r.id}"><span>${esc(r.name)}</span><small>${esc(r.institute||r.city)}</small></button>`).join('')
-    + `<button class="all" data-homeall>${hits.length?`See all ${hits.length} results`:'No match. Search the full list'}</button>`;
+    + `<button class="all" data-homeall>${hits.length?`See all ${hits.length} result${hits.length===1?'':'s'}`:'No match. Search the full list'}</button>`;
   box.hidden=false;
 }
 function goPeopleWithQuery(v){ state.q=v; $('#q').value=v; $('#hresults').hidden=true; setView('people'); render(); window.scrollTo({top:0}); }
