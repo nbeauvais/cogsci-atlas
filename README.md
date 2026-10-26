@@ -2,33 +2,7 @@
 
 A searchable directory of cognitive science researchers, filterable by topic, institute and country. It has four views: a list of researchers, a topic index, a network (researchers ↔ topics, or co-authorship) and a world map.
 
-The site is static: one `index.html` plus two data files. It needs no build step.
 
-```
-index.html                  the page (HTML, CSS and JavaScript)
-data/researchers.json       the researchers, the only file you normally edit
-data/countries-110m.json    world geography for the map (Natural Earth, via world-atlas)
-.nojekyll                   tells GitHub Pages to serve the files as they are
-```
-
-## Publish on GitHub Pages
-
-1. On GitHub, create a new public repository, for example `cogsci-atlas`.
-2. Upload the contents of this folder to the root of the repository: `index.html`, `README.md`, `.nojekyll` and the `data` folder. Choose **Add file → Upload files** and drag them in, then commit.
-3. Go to **Settings → Pages**. Under **Build and deployment**, set Source to **Deploy from a branch**, Branch to `main` and folder to `/ (root)`. Save.
-4. After a minute or two the site is live at `https://<your-username>.github.io/cogsci-atlas/`.
-
-Or from a terminal:
-
-```bash
-cd cogsci-atlas            # this folder
-git init && git add . && git commit -m "CogSci Researcher Atlas"
-git branch -M main
-git remote add origin https://github.com/<your-username>/cogsci-atlas.git
-git push -u origin main
-```
-
-Then enable Pages as in step 3.
 
 ## Edit the data
 
@@ -66,24 +40,6 @@ Every researcher is one object in `data/researchers.json`:
 
 Commit the edited file and GitHub Pages republishes within a minute or two.
 
-## Let visitors suggest entries
-
-Every profile has a "Suggest a correction" button, and the footer has "Suggest a researcher". Both open a form that builds the entry as JSON. Visitors can copy it. To let them open it as a pre-filled GitHub issue instead, set your repository near the top of the script in `index.html`:
-
-```js
-const REPO = "your-username/cogsci-atlas";
-```
-
-Suggestions then arrive in the repository's Issues tab, labelled `suggestion` (create that label once under Issues → Labels).
-
-## Preview locally
-
-The page loads its data with `fetch`, so opening `index.html` by double-clicking won't work. Serve the folder instead:
-
-```bash
-python3 -m http.server 8000
-# then open http://localhost:8000
-```
 
 ## License and credits
 
